@@ -1,0 +1,54 @@
+<link rel="import" href="requirement-card-header.component.html">
+<link rel="import" href="requirement-card-footer.component.html">
+<link rel="import" href="requirement-card-text.component.html">
+<!--Style CSS -->
+<style>
+    requirement-card {
+        width: 280px;
+        border: 1px solid #E8E8E8;
+        display: inline-block;
+        border-left: 2px solid #FF2D55;
+        margin-top: 25px;
+    }
+</style>
+
+
+<!--Template-->
+<template id="requirement-card__tmpl">
+    <requirement-card-header title="R1.1"></requirement-card-header>
+    <requirement-card-text  title="Система управления сайтом">
+        <div class="requirement-card-description">При помощи системы управления сайтом (ITCMS) структура и состав разделов сайта в дальнейшем могут быть изменены и дополнены.</div>
+    </requirement-card-text>
+    <requirement-card-footer></requirement-card-footer>
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var RequirementCardTemplate = thisDoc.querySelector('#requirement-card__tmpl');
+    var RequirementCardTemplateClone = RequirementCardTemplate.content;
+
+    class RequirementCard extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(RequirementCardTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('requirement-card', RequirementCard);
+
+</script>

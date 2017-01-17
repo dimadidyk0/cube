@@ -1,0 +1,68 @@
+<!--Style CSS -->
+<style>
+    requirement-card-header {
+        height: 25px;
+        border-bottom: 1px solid #F4F4F4;
+        width: 100%; 
+        display: inline-block;
+    }
+    .requirement-card--header__name {
+        display: inline-block;
+        color: #808080;
+        text-transform: uppercase;
+        font: 13px 'globersemibold';
+        line-height: 25px;
+        padding-left: 10px;
+    }
+    .requirement-card--header__star {
+        float: right;
+        margin-right: 7px;
+        margin-top: 7px;
+        height: 10.8px;
+        width: 11.36px;
+        background-image: url(requirement-img/Star.png);
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+        display: inline-block;
+    }
+</style>
+
+
+<!--Template-->
+<template id="requirement-card--header__tmpl">
+    <span class="requirement-card--header__name"></span>
+    <span class="requirement-card--header__star"></span>
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var RequirementCardHeaderTemplate = thisDoc.querySelector('#requirement-card--header__tmpl');
+    var RequirementCardHeaderTemplateClone = RequirementCardHeaderTemplate.content;
+
+    class RequirementCardHeader extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(RequirementCardHeaderTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.requirement-card--header__name').innerHTML = this.getAttribute('title');
+            var innerInputText = this.querySelector('.requirement-card-description');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('requirement-card-header', RequirementCardHeader);
+
+</script>

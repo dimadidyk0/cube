@@ -1,0 +1,70 @@
+
+<link rel="import" href="requirement-card-header.component.html">
+<link rel="import" href="requirement-card-footer.component.html">
+<!--Style CSS -->
+<style>
+    requirement-card {
+        width: 280px;
+        border: 1px solid #E8E8E8;
+        display: inline-block;
+        border-left: 2px solid #FF2D55;
+    }
+    .requirement-card-text__header {
+        font: 12px 'globersemibold';
+        line-height: 13px;
+        margin-top: 3px;
+        color: #000;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .requirement-card-text__description {
+        margin-top: 3px;
+        line-height: 16px;
+        font: 12px 'globerregular';
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+</style>
+
+
+<!--Template-->
+<template id="requirement-card-text__tmpl">
+    <h3 class="requirement-card-text__header"></h3>
+    <p class="requirement-card-text__description"></p>
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var RequirementCardTextTemplate = thisDoc.querySelector('#requirement-card-text__tmpl');
+    var RequirementCardTextTemplateClone = RequirementCardTextTemplate.content;
+
+    class RequirementCardText extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(RequirementCardTextTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.requirement-card-text__header').innerHTML = this.getAttribute('title');
+            var innerInputText = this.querySelector('.requirement-card-description');
+            this.cardContent = this.querySelector('.requirement-card-text__description');
+            this.cardContent.innerHTML = innerInputText.innerHTML;
+            innerInputText.innerHTML = '';
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('requirement-card-text', RequirementCardText);
+
+</script>

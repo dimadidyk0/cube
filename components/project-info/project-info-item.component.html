@@ -1,0 +1,80 @@
+<style>
+    project-info-item {
+        position: relative;
+        width: 280px;
+        display: block;
+        border-bottom: 1px dotted #D6D6D6;
+        padding: 6px 0 1px 0;
+    }
+    project-info-item img {
+        display: inline-block;
+        position: relative;
+        right: 0;
+        height: 16px;
+        width: 16px;
+    }
+</style>
+
+<template id="project-info-item__tmpl">
+
+    <style>
+        .project-info-item__value, .project-info-item__variable {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font: 13px/18px globerregular;
+            vertical-align: top;
+        } 
+        
+        .project-info-item__variable {
+            width: 127px;
+        }
+        .project-info-item__value{
+            width: 149px;
+            color: #00418A;
+        }
+        .project-info-item__value--img {
+            width: 120px;
+        }
+    </style>  
+
+    <div class="project-info-item__variable"></div>
+    <div class="project-info-item__value">  <slot></slot>   </div>
+    <slot name="image"></slot>
+
+</template>
+
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+    var ProjectInfoItemTemplate = thisDoc.querySelector('#project-info-item__tmpl');
+
+    class ProjectInfoItem extends HTMLElement {
+
+        constructor() {
+            super()
+            var root = this.attachShadow({mode: 'open'});
+            root.appendChild(ProjectInfoItemTemplate.content.cloneNode(true));
+            root.querySelector('.project-info-item__variable').innerHTML = this.getAttribute('title');
+            var str = this.innerHTML;
+            var itemValue = root.querySelector('.project-info-item__value');
+            if (str.search( /<img/ ) >= 0) {
+                itemValue.classList.add("project-info-item__value--img");
+            }   
+        }
+
+        connectedCallback() {
+        }
+        
+        adoptedCallback() {
+        }
+    }
+
+    customElements.define('project-info-item', ProjectInfoItem);
+
+
+
+
+</script>

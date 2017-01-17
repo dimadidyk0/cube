@@ -1,0 +1,51 @@
+<link rel="import" href="sidebar-textinput.component.html">
+<link rel="import" href="sidebar-textarea.component.html">
+<link rel="import" href="sidebar-header.component.html">
+<link rel="import" href="sidebar-info-select.component.html">
+
+
+<!--Style CSS-->
+<style>
+    sidebar-wrapp {
+        width: 320px;
+        display: inline-block;
+        padding: 20px;
+        border: 1px solid #eee;
+        position: relative;
+    }
+</style>
+
+
+<!--Template-->
+<template id="sidebar-wrapp__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var SidebarWrappTemplate = thisDoc.querySelector('#sidebar-wrapp__tmpl');
+
+    class SidebarWrapp extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(SidebarWrappTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('sidebar-wrapp', SidebarWrapp);
+
+</script>

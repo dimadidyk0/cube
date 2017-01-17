@@ -1,0 +1,77 @@
+<link rel="import" href="">
+<!--Style CSS -->
+<style>
+    navbar-horizontal-project {
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        justify-content: center;
+        float: right;
+        width: 115px;
+        height: 64px;
+        margin-left: 20px;
+        border-left: 1px solid rgba(186, 186, 186, 0.25);
+        position: relative;
+    }
+    .navbar-project__name {
+        text-align: center;
+        line-height: 23px;
+        font: 16px 'globerbold';
+        align-self: center;
+    }
+    .navbar-project__select {
+        position: absolute;
+        display: inline-block;
+        top: 50%;
+        margin-top: -3px;
+        right: 0;
+        width: 10px;
+        height: 6.15px;
+        background-image: url(navbar-img/navbar-select.png);
+        background-position: center center;
+        -webkit-background-size: cover;
+        background-size: cover;
+
+    }
+</style>
+
+
+<!--Template-->
+<template id="navbar-horizontal-project__tmpl">
+    <h2 class="navbar-project__name"></h2>
+    <span class="navbar-project__select"></span>
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var NavbarHorizontalProjectTemplate = thisDoc.querySelector('#navbar-horizontal-project__tmpl');
+    var NavbarHorizontalProjectTemplateClone = NavbarHorizontalProjectTemplate.content;
+
+    class NavbarHorizontalProject extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(NavbarHorizontalProjectTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.navbar-project__name').innerHTML = this.getAttribute('title');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('navbar-horizontal-project', NavbarHorizontalProject);
+
+
+</script>

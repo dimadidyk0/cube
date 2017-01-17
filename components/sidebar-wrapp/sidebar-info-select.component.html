@@ -1,0 +1,86 @@
+
+<style>
+    .select-component__header {
+        font: 13px 'globerbold';
+        line-height: 24px;
+        margin-top: 16px;
+    }
+    .select-component {
+        font: 13px 'globerregular';
+        width: 300px;
+        border: none;
+        height: 25px;
+        line-height: 25px;
+        position: relative;
+        background: none;
+        z-index: 100;
+
+    }
+    .select-component-outer {
+        border: #ccc 1px solid;
+        width: 280px;
+        overflow: hidden;
+        display: inline-block;
+        position: relative;
+        line-height: 25px;
+        height: 25px;
+    }
+    .select-component__button {
+        background: url('sidebar-info.img/Triangle%201%20Copy.png') center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        height: 4px;
+        width: 5px;
+        position: absolute;
+        right: 13px;
+        top: 12px;
+        z-index: 50;
+    }
+</style>
+
+<template id="sidebar-select__tmpl">
+    <h3 class="select-component__header"></h3>
+    <div class="select-component-outer">
+        <select class="select-component" name="select" size="1"></select>
+        <a class="select-component__button"></a>
+    </div>
+</template>
+
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var SidebarSelectTemplate = thisDoc.querySelector('#sidebar-select__tmpl');
+    var SidebarSelectTemplateClone = SidebarSelectTemplate.content;
+
+    class SidebarSelect extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(SidebarSelectTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('h3').innerHTML = this.getAttribute('title');
+
+            var innerSelectCollection = this.querySelectorAll('.select-item');
+            for (var i = 0; i < innerSelectCollection.length; i++) {
+
+                var option = thatDoc.createElement('option');
+                option.setAttribute('value', innerSelectCollection[i].textContent);
+                option.className = 'select';
+
+                this.querySelector('select').appendChild(option);
+                option.innerHTML = innerSelectCollection[i].textContent;
+                innerSelectCollection[i].innerHTML = '';
+
+            }
+        }
+
+        adoptedCallback() {}
+    }
+
+    customElements.define('sidebar-select', SidebarSelect);
+
+</script>

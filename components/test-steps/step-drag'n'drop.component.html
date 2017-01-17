@@ -1,0 +1,72 @@
+<!--Style CSS -->
+<style>
+    step-dragndrop {
+        height: 30px;
+        width: 100%;
+        display: inline-block;
+/*        background-color: rgba(0, 133, 190, 0.1);*/
+    }
+    step-dragndrop:hover {
+        background-color: rgba(0, 133, 190, 0.1);
+        cursor: pointer;
+    }
+    .step-dragndrop__drag {
+        display: inline-block;
+        margin-top: 10px;
+        float: left;
+    }
+    .step-dragndrop__drag--square {
+        width: 3px;
+        height: 2px;
+        background-color: #C4C4C4;
+        margin-bottom: 2px;
+    }
+    .step-dragndrop__text {
+        display: inline-block;
+        font: 13px 'globerregular';
+        margin-left: 7px;
+        line-height: 36px;
+    }
+</style>
+
+
+<!--Template-->
+<template id="step-dragndrop__tmpl">
+    <div class="step-dragndrop__drag">
+        <div class="step-dragndrop__drag--square"></div>
+        <div class="step-dragndrop__drag--square"></div>
+        <div class="step-dragndrop__drag--square"></div>
+    </div>
+    <div class="step-dragndrop__text"></div>
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var StepDragNDropTemplate = thisDoc.querySelector('#step-dragndrop__tmpl');
+    var StepDragNDropTemplateClone = StepDragNDropTemplate.content;
+
+    class StepDragNDrop extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(StepDragNDropTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.step-dragndrop__text').innerHTML = this.getAttribute('title');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('step-dragndrop', StepDragNDrop);
+
+</script>

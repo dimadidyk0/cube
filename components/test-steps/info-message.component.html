@@ -1,0 +1,56 @@
+<!--Style CSS -->
+<style>
+    info-message {
+        display: block;
+        width: 255px;
+        margin: 130px auto 50px auto;
+        text-align: center;
+    }
+    .info-message {
+        font: 11px 'globerregular';
+        color: #676767;
+        line-height: 16px;
+    }
+</style>
+
+
+<!--Template-->
+<template id="info-message__tmpl">
+    <div class="info-message"></div>
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var InfoMessageTemplate = thisDoc.querySelector('#info-message__tmpl');
+    var InfoMessageTemplateClone = InfoMessageTemplate.content;
+
+    class InfoMessage extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(InfoMessageTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            var innerInputText = this.querySelector('.info-message__text');
+            this.messageContent = this.querySelector('.info-message');
+            this.messageContent.innerHTML = innerInputText.innerHTML;
+            innerInputText.innerHTML = '';
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('info-message', InfoMessage);
+
+
+</script>

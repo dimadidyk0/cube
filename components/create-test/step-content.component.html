@@ -1,0 +1,46 @@
+
+<!--Style CSS-->
+<style>
+    step-content {
+        width: 562px;
+        display: inline-block;
+        padding: 0 20px;
+        height: auto;
+    }
+</style>
+
+
+<!--Template-->
+<template id="step-content__tmpl">
+
+</template>
+
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var StepContentTemplate = thisDoc.querySelector('#step-content__tmpl');
+
+    class StepContent extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(StepContentTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('step-content', StepContent);
+
+</script>

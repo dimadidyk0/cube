@@ -1,0 +1,58 @@
+<style>
+    step-save-btn {
+        height: 30px;
+        background-color: #0085BF;
+        display: inline-block;
+        width: 89px;
+        height: 24px;
+        border-radius: 3px;
+        text-align: center;
+        font: 12px 'globerxbold';
+        color: #fff;
+        line-height: 27px;
+        cursor: pointer;
+        float: right;
+        margin-top: 14px;
+    }
+</style>
+
+
+<template id="step-save-btn__tmpl">
+    <div class="step-save-btn">Сохранить</div>
+</template>
+
+
+<script>
+
+    "use script";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+    
+    var StepSaveButtonTemplate = thisDoc.querySelector('#step-save-btn__tmpl');
+    
+    class StepSaveButton extends HTMLElement {
+        
+        constructor() {
+            super();
+            this.appendChild(StepSaveButtonTemplate.content.cloneNode(true));
+        }
+        
+        connectedCallback() {
+            this.addEventListener("click", () => {
+                alert('Button');
+            });
+//            if (isNaN(this.getAttribute('width')) == false) {
+//                this.querySelector('.step-save-btn').style.width = this.getAttribute('width') + 'px';
+//            } else {
+//                this.querySelector('.step-save-btn').style.width = this.getAttribute('width');
+//            }
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+    
+    customElements.define('step-save-btn', StepSaveButton);
+
+</script>

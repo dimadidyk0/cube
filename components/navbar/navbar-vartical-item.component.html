@@ -1,0 +1,70 @@
+<!--Style CSS -->
+<style>
+    .navbar-vertical__item {
+        font: 12px 'globerbold';
+        color: #fff;
+        transform: rotate(-180deg);
+        width: 40px;
+        display: inline-block;
+        line-height: 43px;
+        text-transform: uppercase;
+        -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        margin-top: 20px;
+    }
+    .navbar-vertical__item:hover {
+        color: #68C0FF;
+        cursor: pointer;
+    }
+/*
+    .navbar-vertical__item[enable] {
+        color: #68C0FF;
+        cursor: pointer;
+    }
+*/
+/*
+    .disable.navbar-vertical__item {
+        color: #fff;
+    }
+*/
+</style>
+
+
+<!--Template-->
+<template id="navbar-vertical-item__tmpl">
+    <li class="navbar-vertical__item"></li>
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var NavbarVerticalItemTemplate = thisDoc.querySelector('#navbar-vertical-item__tmpl');
+    var NavbarVerticalItemTemplateClone = NavbarVerticalItemTemplate.content;
+
+    class NavbarVerticalItem extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(NavbarVerticalItemTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.navbar-vertical__item').innerHTML = this.getAttribute('title');
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('navbar-vertical-item', NavbarVerticalItem);
+
+
+</script>

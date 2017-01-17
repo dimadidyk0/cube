@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CUBE</title>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="components/sidebar-wrapp/sidebar-wrapp.component.html">
+    <link rel="import" href="components/create-test/create-test.component.html">
+    <link rel="import" href="components/requirement/requirement-card.component.html">
+    <link rel="import" href="components/requirement/choose-btn.component.html">
+    <link rel="import" href="components/test-steps/info-message.component.html">
+    <link rel="import" href="components/test-steps/step-drag'n'drop.component.html">
+    <link rel="import" href="components/navbar/navbar-vertical.component.html">
+    <link rel="import" href="components/navbar/navbar-horizontal.component.html">
+    <link rel="import" href="components/blocker/search-and-add.component.html">
+    <link rel="import" href="components/blocker/blocker-wrapp.component.html">
+    <link rel="import" href="components/project-info/project-info.component.html">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <navbar-horizontal>
+        <navbar-breadcrumbs title="TEST CYCLES"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="ДИАГРАММА ГАНТА"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="ТАБЛИЦА ТРЕБОВАНИЙ"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="КАНБАН ДОСКА"></navbar-breadcrumbs>
+        <navbar-horizontal-project title="VVR"></navbar-horizontal-project>
+        <navbar-search-input>
+            <navbar-search-btn></navbar-search-btn>
+        </navbar-search-input>
+    </navbar-horizontal>
+    <div class="container">
+        <navbar-vertical>
+            <navbar-vertical-item title="меню"></navbar-vertical-item>
+            <navbar-vertical-item title="ИНФОРМАЦИЯ"></navbar-vertical-item>
+            <navbar-vertical-item title="ПОХОЖИЕ ТЕСТЫ"></navbar-vertical-item>
+            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
+            <navbar-vertical-item title="назначения"></navbar-vertical-item>
+        </navbar-vertical>
+        <sidebar-wrapp>
+            <sidebar-header title="Информация">
+                <div class="sidebar-subheader">Заполните поля и укажите информацию </div>
+                <choose-btn title="Сохранить"></choose-btn>
+            </sidebar-header>
+            <sidebar-textinput title="Summary*" placeholder="Запись проекта через камеру "></sidebar-textinput>
+            <sidebar-select title="Тип тест кейса">
+                <p class="select-item">Ручной</p>
+                <p class="select-item">Автоматический</p>
+            </sidebar-select>
+            <sidebar-select title="Версия">
+                <div class="select-item">Iteration1</div>
+                <div class="select-item">Iteration2</div>
+                <div class="select-item">Iteration3</div>
+                <div class="select-item">Iteration4</div>
+            </sidebar-select>
+            <sidebar-select title="Folder">
+                <div class="select-item">Создание нового проекта</div>
+                <div class="select-item">Создание нового проекта2</div>
+                <div class="select-item">Создание нового проекта3</div>
+            </sidebar-select>
+            <sidebar-select title="Приоритет">
+                <div class="select-item">Средний</div>
+                <div class="select-item">Низкий</div>
+                <div class="select-item">Высокий</div>
+            </sidebar-select>
+            <sidebar-select title="Фиксированная версия*">
+                <div class="select-item">0.4</div>
+                <div class="select-item">0.3</div>
+                <div class="select-item">0.2</div>
+            </sidebar-select>
+            <sidebar-textarea title="Описание" height="82"></sidebar-textarea>
+            <sidebar-select title="Компонент">
+                <div class="select-item">camera screen</div>
+                <div class="select-item">camera screen</div>
+                <div class="select-item">camera screen</div>
+            </sidebar-select>
+            <sidebar-select title="Label">
+                <div class="select-item">Mobile, Camera</div>
+                <div class="select-item">Mobile</div>
+            </sidebar-select>
+            <sidebar-select title="Browser">
+                <div class="select-item">Any browser</div>
+                <div class="select-item">Chrome</div>
+                <div class="select-item">Mozila Firefox</div>
+                <div class="select-item">Safari</div>
+            </sidebar-select>
+        </sidebar-wrapp>
+        <sidebar-wrapp>
+            <sidebar-header title="Шаги теста">
+                <div class="sidebar-subheader">Добавьте шаги и заполните поля</div>
+                <choose-btn title="Добавить"></choose-btn>
+            </sidebar-header>
+            <step-dragndrop draggable="true" title="Старт работы с приложением"></step-dragndrop>
+            <step-dragndrop draggable="true" title="Нажатие на кнопку"></step-dragndrop>
+            <step-dragndrop draggable="true" title="Добавление меток"></step-dragndrop>
+            <step-dragndrop draggable="true" title="Результат"></step-dragndrop>
+            <info-message>
+                <div class="info-message__text">Вы можете установить последовательность перетакскивая шаги</div>
+            </info-message>
+        </sidebar-wrapp>
+        <create-test>
+            <step-header title="Шаг 1">
+                <div class="step-header-subheader">Создание тест кейса</div> 
+                <step-save-btn></step-save-btn>
+            </step-header>
+            <step-content>
+                <sidebar-textinput title="Название шага" placeholder="Старт работы с приложением"></sidebar-textinput>
+                <sidebar-textarea title="Действие" height="102"></sidebar-textarea>
+                <sidebar-textarea title="Данные теста" height="102"></sidebar-textarea>
+                <sidebar-textarea title="Ожидаемый результат" height="102"></sidebar-textarea>
+            </step-content>
+        </create-test>
+<!--
+            <sidebar-wrapp>
+                <sidebar-header title="Блокеры">
+                    <div class="sidebar-subheader">Укажите зависимость</div>
+                </sidebar-header>
+                <search-and-add title="Найти и добавить"></search-and-add>
+                <choose-btn title="Добавить"></choose-btn>
+            </sidebar-wrapp>
+        -->
+        <blocker-wrapp>
+            <blocker-choosen number="5">
+                <choose-btn title="Добавить"></choose-btn>
+            </blocker-choosen>
+            <project-info-block title="Основаня информация">
+                <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+            </project-info-block>
+            <project-info-block title="Основаня информация">
+                <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+            </project-info-block>
+            <sidebar-select title="Команда">
+                <div class="select-item">Все</div>
+                <div class="select-item">Все2</div>
+            </sidebar-select>
+        </blocker-wrapp>
+
+        <sidebar-wrapp>
+            <sidebar-header title="Связанные требования">
+                <div class="sidebar-subheader">Выберите требования из таблицы</div>
+                <choose-btn title="Выбрать"></choose-btn>
+            </sidebar-header>
+            <requirement-card></requirement-card>
+            <requirement-card></requirement-card>
+            <requirement-card></requirement-card>
+        </sidebar-wrapp>
+
+        <sidebar-wrapp>
+            <sidebar-header title="VVR-2">
+                <div class="sidebar-subheader">Сохранение созданного проекта через камеру</div>
+            </sidebar-header>
+            <project-info-block title="Основаня информация">
+                <project-info-item title="Тип">
+                    Ручной
+                </project-info-item>
+                <project-info-item title="Версия">
+                    Итерация 1     
+                </project-info-item>
+                <project-info-item title="Folder">
+                    Создание одного проек..
+                </project-info-item>
+                <project-info-item title="Приоритет">
+                    Средний
+                    <img slot="image" src="img/test.png" alt="">
+                </project-info-item>
+                <project-info-item title="Фиксированная величина">
+                    0.4
+                </project-info-item>
+                <project-info-item title="Компонент">
+                    camera sreen
+                </project-info-item>
+                <project-info-item title="Label">
+                    Mobile, Camera
+                </project-info-item>
+                <project-info-item title="Browser">
+                    Any browser
+                </project-info-item>
+                <project-info-item title="OS">
+                    Any OS
+                </project-info-item>
+                <project-info-item title="Дата завершения">
+                    2015-05-10 
+                </project-info-item>
+                <project-info-item title="Запланированное время">
+                    00:10:00   
+                </project-info-item>
+            </project-info-block>
+            <project-info-block title="Руководящий персонал">
+                <project-info-item title="Subsystem">
+                    Frontend: Admin
+                    <img slot="image" src="img/test.png" alt="">
+                </project-info-item>
+                <project-info-item title="Ответственнй">
+                    Валентин Никитин
+                    <img slot="image" src="img/test.png" alt="">
+                </project-info-item>
+                <project-info-item title="Проверяющий">
+                    Alexey Volkov 
+                </project-info-item>
+                <project-info-item title="Утверждающий">
+                    Алексей Рижков
+                </project-info-item>
+            </project-info-block>
+            <project-info-block title="Описание">
+                Сохранение проекта созданного через камеру
+            </project-info-block>
+        </sidebar-wrapp>
+        <sidebar-wrapp>
+            <sidebar-header title="Данные теста">
+                <div class="sidebar-subheader">Сохранение созданного проекта через камеру</div>
+            </sidebar-header>
+            <project-info-block>
+                Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML, как правило, предлагают схожие подходы к работе с требованиями.
+            </project-info-block>
+        </sidebar-wrapp>
+
+        <navbar-vertical>
+            <navbar-vertical-item title="проект"></navbar-vertical-item>
+            <navbar-vertical-item title="доступно"></navbar-vertical-item>
+            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
+            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
+            <navbar-vertical-item title="зрители"></navbar-vertical-item>
+            <navbar-vertical-item title="файлы "></navbar-vertical-item>
+        </navbar-vertical>
+
+    </div>
+</body>
+</html>

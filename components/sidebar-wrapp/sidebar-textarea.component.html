@@ -1,0 +1,63 @@
+<!--Style CSS-->
+<style>
+
+    .textarea__header {
+        font: 13px 'globerbold';
+        line-height: 24px;
+        margin-top: 16px;
+    }
+    create-test .textarea__header {
+        margin-top: 25px;
+    }
+    .info-textarea {
+        resize: none;
+        width: 100%;
+        height: 82px;
+        border: 1px solid #ccc;
+        padding: 9px;
+        font: 13px 'globerregular';
+    }
+    .info-textarea::-webkit-input-placeholder {color:#B8B8B8;}
+    .info-textarea::-moz-placeholder          {color:#B8B8B8;}/* Firefox 19+ */
+    .info-textarea:-moz-placeholder           {color:#B8B8B8;}/* Firefox 18- */
+    .info-textarea:-ms-input-placeholder      {color:#B8B8B8;}
+
+
+</style>
+
+
+<!--Template-->
+<template id="sidebar-textarea__tmpl">
+    <h3 class="textarea__header"></h3>
+    <textarea class="info-textarea" placeholder="Введите"></textarea>
+</template>
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+    var SidebarTextAreaTemplate = thisDoc.querySelector('#sidebar-textarea__tmpl')
+
+    class SidebarTextArea extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(SidebarTextAreaTemplate.content.cloneNode(true))
+        }
+
+        connectedCallback() {
+            this.querySelector('.textarea__header').innerHTML = this.getAttribute('title');
+            if (isNaN(this.getAttribute('height')) == false) {
+                this.querySelector('.info-textarea').style.height = this.getAttribute('height') + 'px';
+            } else {
+                this.querySelector('.info-textarea').style.height = this.getAttribute('height');
+            }
+
+        }
+
+        adoptedCallback() {}
+    };
+    customElements.define('sidebar-textarea', SidebarTextArea); // v1
+
+</script>

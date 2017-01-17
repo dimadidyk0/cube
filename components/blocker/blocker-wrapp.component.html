@@ -1,0 +1,52 @@
+<link rel="import" href="blocker-choosen.component.html">
+<link rel="import" href="blocker-person.component.html">
+
+<!--Style CSS-->
+<style>
+    blocker-wrapp {
+        width: 320px;
+        display: inline-block;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 1px solid #eee;
+/*        position: absolute;*/
+/*        bottom: 0;*/
+        height: 300px;
+
+    }
+</style>
+
+
+<!--Template-->
+<template id="blocker-wrapp__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var BlockerWrappTemplate = thisDoc.querySelector('#blocker-wrapp__tmpl');
+
+    class BlockerWrapp extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(BlockerWrappTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('blocker-wrapp', BlockerWrapp);
+
+</script>

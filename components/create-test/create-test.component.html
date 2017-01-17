@@ -1,0 +1,48 @@
+<link rel="import" href="step-header.component.html">
+<link rel="import" href="step-content.component.html">
+<link rel="import" href="step-save-btn.component.html">
+
+<!--Style CSS-->
+<style>
+    create-test {
+        width: 560px;
+        display: inline-block;
+        height: auto;
+    }
+</style>
+
+
+<!--Template-->
+<template id="create-test__tmpl">
+
+</template>
+
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var CreateTestTemplate = thisDoc.querySelector('#create-test__tmpl');
+
+    class CreateTest extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(CreateTestTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('create-test', CreateTest);
+
+</script>

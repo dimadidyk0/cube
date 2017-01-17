@@ -1,0 +1,54 @@
+<!--Style CSS-->
+<style>
+    blocker-choosen {
+        display: inline-block;
+        height: 46px;
+        width: 100%;
+        padding-top: 11px;
+    }
+    .blocker-choosen__text,
+    .blocker-choosen__number {
+        font: 11px 'globerregular';
+        color: #676767;
+        line-height: 26px;
+    }
+    .blocker-choosen__number {
+        margin-left: 1px;
+    }
+</style>
+
+
+<!--Template-->
+<template id="blocker-choosen__tmpl">
+    <span class="blocker-choosen__text">Выбрано:</span>
+    <span class="blocker-choosen__number"></span>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var BlockerChoosenTemplate = thisDoc.querySelector('#blocker-choosen__tmpl');
+
+    class BlockerChoosen extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(BlockerChoosenTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.blocker-choosen__number').innerHTML = this.getAttribute('number');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('blocker-choosen', BlockerChoosen);
+
+</script>

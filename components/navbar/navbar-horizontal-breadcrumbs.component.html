@@ -1,0 +1,64 @@
+<link rel="import" href="navbar-horizontal-project.component.html">
+<link rel="import" href="navbar-horizontal-search-input.component.html">
+<!--Style CSS -->
+<style>
+
+    navbar-breadcrumbs {
+        display: inline-block;
+/*        float: left;*/
+        height: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 1px solid #E1E7FF;
+        margin-top: 17px;
+        margin-right: 17px;
+    }
+    .navbar-breadcrumbs__link {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        line-height: 30px;
+        font: 12px 'globerbold';
+        text-align: center;
+        text-transform: uppercase;
+        padding-top: 9px;
+    }
+</style>
+
+
+<!--Template-->
+<template id="navbar-horizontal-breadcrumbs__tmpl">
+        <a href="#" class="navbar-breadcrumbs__link"></a>
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var NavbarBreadcrumbsTemplate = thisDoc.querySelector('#navbar-horizontal-breadcrumbs__tmpl');
+    var NavbarBreadcrumbsTemplateClone = NavbarBreadcrumbsTemplate.content;
+
+    class NavbarBreadcrumbs extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(NavbarBreadcrumbsTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.navbar-breadcrumbs__link').innerHTML = this.getAttribute('title');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('navbar-breadcrumbs', NavbarBreadcrumbs);
+
+
+</script>

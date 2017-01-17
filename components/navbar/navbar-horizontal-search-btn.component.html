@@ -1,0 +1,59 @@
+<!--Style CSS-->
+<style>
+    navbar-search-btn {
+        display: inline-block;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        background-image: url(navbar-img/navbar-search.png);
+        background-position: right;
+        -webkit-background-size: contain;
+        background-size: contain;
+        background-repeat: no-repeat;
+        top: 50%;
+        margin-top: -9px;
+        right: 7px;
+        cursor: pointer;
+    }
+
+</style>
+
+
+<!--Template-->
+<template id="navbar-horizontal-search-btn__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var NavbarSearchBtnTemplate = thisDoc.querySelector('#navbar-horizontal-search-btn__tmpl');
+
+    class NavbarSearchBtn extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(NavbarSearchBtnTemplate.content.cloneNode(true));
+
+        }
+
+        connectedCallback() {
+            this.addEventListener("click", () => {
+                var valueSearchInput = this.parentNode.querySelector('.navbar-search').value;
+
+                alert('Search ' + valueSearchInput);
+            });
+
+        }
+
+        adoptedCallback() {}
+
+    }
+
+    customElements.define('navbar-search-btn', NavbarSearchBtn);
+
+</script>

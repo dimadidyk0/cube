@@ -1,0 +1,74 @@
+<!--Style CSS-->
+<style>
+    blocker-person {
+        display: inline-block;
+        width: 100%;
+        height: 26px;
+        line-height: 26px;
+    }
+    .blocker-person__name {
+        display: inline-block;
+        font: 13px 'globerregular';
+    }
+    .blocker-person__avatar {
+        float: right;
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        background-color: green;
+        margin-left: 11px;
+        margin-top: 5px;
+    }
+    .blocker-person__specialization {
+        float: right;
+        display: inline-block;
+        max-width: 50px;
+        font: 11px 'globerregular';
+        text-transform: uppercase;
+        color: #585858;
+        line-height: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+    }
+</style>
+
+
+<!--Template-->
+<template id="blocker-person__tmpl">
+    <div class="blocker-person__name"></div>
+    <div class="blocker-person__avatar"></div>
+    <div class="blocker-person__specialization"></div>
+<!--    <img src="" alt="avatar" class="blocker-person__specialization">-->
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var BlockerPersonTemplate = thisDoc.querySelector('#blocker-person__tmpl');
+
+    class BlockerPerson extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(BlockerPersonTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.blocker-person__name').innerHTML = this.getAttribute('name');
+            this.querySelector('.blocker-person__specialization').innerHTML = this.getAttribute('specialization');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('blocker-person', BlockerPerson);
+
+</script>

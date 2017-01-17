@@ -1,0 +1,50 @@
+<link rel="import" href="navbar-vartical-item.component.html">
+<!--Style CSS -->
+<style>
+
+    navbar-vertical {
+        display: inline-block;
+        height: 854px;
+        width: 40px;
+        background-color: #0C003B;
+    }
+
+</style>
+
+
+<!--Template-->
+<template id="navbar-vertical__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var NavbarVerticalTemplate = thisDoc.querySelector('#navbar-vertical__tmpl');
+    var NavbarVerticalTemplateClone = NavbarVerticalTemplate.content;
+
+    class NavbarVertical extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(NavbarVerticalTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('navbar-vertical', NavbarVertical);
+
+
+</script>

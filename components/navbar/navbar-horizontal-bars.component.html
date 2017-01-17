@@ -1,0 +1,56 @@
+<!--Style CSS -->
+<style>
+
+    navbar-bars {
+        width: 18px;
+        height: 16px;
+        float: left;
+        display: inline-block;
+        margin-top: 25px;
+        background-image: url(navbar-img/navbar-bars.png);
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+        cursor: pointer;
+    }
+</style>
+
+
+<!--Template-->
+<template id="navbar-horizontal-bars__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var NavbarBarsTemplate = thisDoc.querySelector('#navbar-horizontal-bars__tmpl');
+    var NavbarBarsTemplateClone = NavbarBarsTemplate.content;
+
+    class NavbarBars extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(NavbarBarsTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.addEventListener("click", () => {
+                alert('More Menu-item');
+            });
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('navbar-bars', NavbarBars);
+
+
+</script>

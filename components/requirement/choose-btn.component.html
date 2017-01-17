@@ -1,0 +1,53 @@
+<style>
+    choose-btn {
+        height: 24px;
+        width: 78px;
+        border-radius: 3px;
+        display: inline-block;
+        border: 1px solid #0083C7;
+        float: right;
+        color: #0083C7;
+        text-align: center;
+        font: 12px 'globersemibold';
+        cursor: pointer;
+        line-height: 22px;
+        padding-top: 2px;
+    }
+</style>
+
+
+<template id="choose-btn__tmpl">
+    <div class="choose-btn"></div>
+</template>
+
+
+<script>
+
+    "use script";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var ChooseButtonTemplate = thisDoc.querySelector('#choose-btn__tmpl');
+
+    class ChooseButton extends HTMLElement {
+
+        constructor() {
+            super();
+            this.appendChild(ChooseButtonTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.addEventListener("click", () => {
+                alert('ChooseButton');
+            });
+            this.querySelector('.choose-btn').innerHTML = this.getAttribute('title');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('choose-btn', ChooseButton);
+
+</script>

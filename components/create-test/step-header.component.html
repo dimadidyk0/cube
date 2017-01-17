@@ -1,0 +1,66 @@
+
+<!-- Style CSS-->
+<style>
+    
+    step-header {
+        padding: 12px 20px;
+        display: inline-block;
+        width: 562px;
+        height: 80px;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        float: left;
+    }
+    .step-header__header {
+        font: 30.97px 'globerregular';
+        line-height: 24px;
+        margin-top: 9px;
+    }
+    .step-header__subheader {
+        font: 13px 'globerregular';
+        line-height: 24px;
+    }
+</style>
+
+
+
+<!--Template-->
+<template id="step-header__tmpl">
+    <p class="step-header__subheader"></p>
+    <h3 class="step-header__header"></h3>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var StepHeaderTemplate = thisDoc.querySelector('#step-header__tmpl');
+    var StepHeaderTemplateClone = StepHeaderTemplate.content;
+
+    class StepHeader extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(StepHeaderTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.step-header__header').innerHTML = this.getAttribute('title');
+            var innerInputText = this.querySelector('.step-header-subheader');
+            this.sidebarContent = this.querySelector('.step-header__subheader');
+            this.sidebarContent.innerHTML = innerInputText.innerHTML;
+            innerInputText.innerHTML = '';
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('step-header', StepHeader);
+
+</script>
