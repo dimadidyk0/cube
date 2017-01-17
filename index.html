@@ -102,6 +102,20 @@
             </info-message>
         </sidebar-wrapp>
 
+        <sidebar-wrapp>
+            <sidebar-header title="Шаги теста">
+                <div class="sidebar-subheader">Добавьте шаги и заполните поля</div>
+                <choose-btn title="Добавить"></choose-btn>
+            </sidebar-header>
+            <step-dragndrop draggable="true" title="Старт работы с приложением"></step-dragndrop>
+            <step-dragndrop draggable="true" title="Нажатие на кнопку"></step-dragndrop>
+            <step-dragndrop draggable="true" title="Добавление меток"></step-dragndrop>
+            <step-dragndrop draggable="true" title="Результат"></step-dragndrop>
+            <info-message>
+                <div class="info-message__text">Вы можете установить последовательность перетакскивая шаги</div>
+            </info-message>
+        </sidebar-wrapp>
+
         <create-test>
             <step-header title="Шаг 1">
                 <div class="step-header-subheader">Создание тест кейса</div> 
@@ -157,7 +171,12 @@
         </navbar-vertical>
     </div>
     <div class="container">
-        <navbar-vertical></navbar-vertical>
+        <navbar-vertical><navbar-vertical-item title="проект"></navbar-vertical-item>
+            <navbar-vertical-item title="доступно"></navbar-vertical-item>
+            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
+            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
+            <navbar-vertical-item title="зрители"></navbar-vertical-item>
+            <navbar-vertical-item title="файлы "></navbar-vertical-item></navbar-vertical>
     <sidebar-wrapp>
         <sidebar-header title="Связанные требования">
             <div class="sidebar-subheader">Выберите требования из таблицы</div>
@@ -228,6 +247,18 @@
             Сохранение проекта созданного через камеру
         </project-info-block>
     </sidebar-wrapp>
+        <create-test>
+            <step-header title="Шаг 1">
+                <div class="step-header-subheader">Создание тест кейса</div>
+                <step-save-btn></step-save-btn>
+            </step-header>
+            <step-content>
+                <sidebar-textinput title="Название шага" placeholder="Старт работы с приложением"></sidebar-textinput>
+                <sidebar-textarea title="Действие" height="102"></sidebar-textarea>
+                <sidebar-textarea title="Данные теста" height="102"></sidebar-textarea>
+                <sidebar-textarea title="Ожидаемый результат" height="102"></sidebar-textarea>
+            </step-content>
+        </create-test>
     <sidebar-wrapp>
         <sidebar-header title="Данные теста">
             <div class="sidebar-subheader">Сохранение созданного проекта через камеру</div>
@@ -236,7 +267,12 @@
             Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML, как правило, предлагают схожие подходы к работе с требованиями.
         </project-info-block>
     </sidebar-wrapp>
-        <navbar-vertical></navbar-vertical>
+        <navbar-vertical><navbar-vertical-item title="проект"></navbar-vertical-item>
+            <navbar-vertical-item title="доступно"></navbar-vertical-item>
+            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
+            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
+            <navbar-vertical-item title="зрители"></navbar-vertical-item>
+            <navbar-vertical-item title="файлы "></navbar-vertical-item></navbar-vertical>
     </div>
 </body>
 </html>
