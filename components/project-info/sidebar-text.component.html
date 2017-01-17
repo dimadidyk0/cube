@@ -1,0 +1,39 @@
+<style>
+    sidebar-text {
+        font: 13px/18px globerregular;
+        vertical-align: top;
+        padding-top: 18px;
+        display: block;
+    }
+</style>
+
+<template id="sidebar-text__tmpl">
+    
+</template>
+
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+    var SidebarTextTemplate = thisDoc.querySelector('#sidebar-text__tmpl');
+
+    class SidebarText extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(SidebarTextTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+        }
+        
+        adoptedCallback() {
+        }
+    }
+
+    customElements.define('sidebar-text', SidebarText);
+
+
+
+
+</script>

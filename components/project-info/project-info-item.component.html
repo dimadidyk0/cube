@@ -14,10 +14,7 @@
         width: 16px;
     }
 </style>
-
-<template id="project-info-item__tmpl">
-
-    <style>
+<style>
         .project-info-item__value, .project-info-item__variable {
             display: inline-block;
             overflow: hidden;
@@ -35,14 +32,13 @@
             color: #00418A;
         }
         .project-info-item__value--img {
-            width: 120px;
+            width: 130px;
         }
     </style>  
-
+<template id="project-info-item__tmpl">
     <div class="project-info-item__variable"></div>
-    <div class="project-info-item__value">  <slot></slot>   </div>
-    <slot name="image"></slot>
-
+    <div class="project-info-item__value"></div>
+    
 </template>
 
 <script>
@@ -55,14 +51,18 @@
 
         constructor() {
             super()
-            var root = this.attachShadow({mode: 'open'});
-            root.appendChild(ProjectInfoItemTemplate.content.cloneNode(true));
-            root.querySelector('.project-info-item__variable').innerHTML = this.getAttribute('title');
-            var str = this.innerHTML;
-            var itemValue = root.querySelector('.project-info-item__value');
-            if (str.search( /<img/ ) >= 0) {
+            this.appendChild(ProjectInfoItemTemplate.content.cloneNode(true));
+            this.querySelector('.project-info-item__variable').innerHTML = this.getAttribute('title');
+            this.querySelector('.project-info-item__value').innerHTML = this.getAttribute('value');
+            var itemValue = this.querySelector('.project-info-item__value');
+            var itemImgLink = this.getAttribute('img');
+            if (itemImgLink) {
+                var a = document.createElement('img');
+                a.setAttribute('src', itemImgLink);
+                a.setAttribute('alt', "");
+                this.appendChild(a);
                 itemValue.classList.add("project-info-item__value--img");
-            }   
+            }
         }
 
         connectedCallback() {
