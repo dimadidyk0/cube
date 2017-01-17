@@ -13,28 +13,44 @@
         height: 16px;
         width: 16px;
     }
-</style>
-<style>
-        .project-info-item__value, .project-info-item__variable {
-            display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            font: 13px/18px globerregular;
-            vertical-align: top;
-        } 
-        
-        .project-info-item__variable {
-            width: 127px;
-        }
-        .project-info-item__value{
-            width: 149px;
-            color: #00418A;
-        }
-        .project-info-item__value--img {
-            width: 130px;
-        }
-    </style>  
+    .project-info-item__value, .project-info-item__variable {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font: 13px/18px globerregular;
+        vertical-align: top;
+    } 
+
+    .project-info-item__variable {
+        width: 127px;
+    }
+    .project-info-item__value{
+        width: 149px;
+        color: #00418A;
+    }
+    .project-info-item__value--img {
+        width: 130px;
+    }
+    .project-info-item__before-disc:before {
+        content: "";
+        border: 3px solid black;
+        border-radius: 20px;
+        position: absolute;
+        left: -13px;
+        top: 10px;
+    }
+    .project-info-item__before-round:before {
+        content: "";
+        border: 1px solid #D5D5D5;
+        height: 6px;
+        width: 6px;
+        border-radius: 20px;
+        position: absolute;
+        left: -13px;
+        top: 10px;
+    }
+</style>  
 <template id="project-info-item__tmpl">
     <div class="project-info-item__variable"></div>
     <div class="project-info-item__value"></div>
@@ -52,6 +68,11 @@
         constructor() {
             super()
             this.appendChild(ProjectInfoItemTemplate.content.cloneNode(true));
+            
+
+        }
+
+        connectedCallback() {
             this.querySelector('.project-info-item__variable').innerHTML = this.getAttribute('title');
             this.querySelector('.project-info-item__value').innerHTML = this.getAttribute('value');
             var itemValue = this.querySelector('.project-info-item__value');
@@ -62,17 +83,27 @@
                 a.setAttribute('alt', "");
                 this.appendChild(a);
                 itemValue.classList.add("project-info-item__value--img");
+            };
+            var beforeItem = this.getAttribute('round');
+
+            if (beforeItem) {
+                if (beforeItem == "round") {
+                    this.classList.add('project-info-item__before-round');
+                } else if (beforeItem == "round") {
+                // statement
+            }{
+                this.classList.add('project-info-item__before-disc');
             }
         }
-
-        connectedCallback() {
-        }
         
-        adoptedCallback() {
-        }
-    }
 
-    customElements.define('project-info-item', ProjectInfoItem);
+    };
+    
+    adoptedCallback() {
+    }
+}
+
+customElements.define('project-info-item', ProjectInfoItem);
 
 
 
