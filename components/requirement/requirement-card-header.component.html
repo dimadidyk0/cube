@@ -4,20 +4,26 @@
         height: 25px;
         border-bottom: 1px solid #F4F4F4;
         width: 100%; 
-        display: inline-block;
+/*        display: inline-block;*/
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -ms-align-items: center;
+        align-items: center;
+        justify-content: space-between ;
     }
     .requirement-card--header__name {
-        display: inline-block;
         color: #808080;
         text-transform: uppercase;
         font: 13px 'globersemibold';
-        line-height: 25px;
         padding-left: 10px;
     }
     .requirement-card--header__star {
-        float: right;
+/*        float: right;*/
         margin-right: 7px;
-        margin-top: 7px;
+/*        margin-top: 7px;*/
         height: 10.8px;
         width: 11.36px;
         background-image: url(requirement-img/Star.png);
