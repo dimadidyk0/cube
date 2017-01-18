@@ -1,0 +1,45 @@
+<style>
+    
+</style>  
+<template id="project-case-table__tmpl">
+    <table>
+        <tr class="project-case-table__caption"></tr>
+    </table>
+</template>
+
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var ProjectCaseTableTemplate = thisDoc.querySelector('#project-case-table__tmpl');
+
+    class ProjectCaseTable extends HTMLElement {
+
+        constructor() {
+            super()
+            this.insertBefore(ProjectCaseTableTemplate.content.cloneNode(true), this.firstChild);
+            var tableAttr = this.attributes;
+            console.log(tableAttr);
+            for (var i = 0; i < tableAttr.length;  i++) {
+                // var arr = tableAttr[i].split(': ');
+                var element = thatDoc.createElement("td");
+                element.innerHTML = tableAttr[i].nodeValue;
+                this.querySelector('.project-case-table__caption').appendChild(element);
+
+            }
+        }
+
+        connectedCallback() {
+
+        }
+
+        
+
+        adoptedCallback() {
+        }
+    }
+
+    customElements.define('project-case-table', ProjectCaseTable);
+
+</script>

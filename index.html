@@ -16,6 +16,7 @@
     <link rel="import" href="components/blocker/search-and-add.component.html">
     <link rel="import" href="components/blocker/blocker-wrapp.component.html">
     <link rel="import" href="components/project-info/project-info.component.html">
+    <link rel="import" href="components/test-cases/test-cases.component.html">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -204,40 +205,40 @@
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
 
-    <sidebar-wrapp>
-        <sidebar-header title="VVR-2">
-            <div class="sidebar-subheader">Сохранение созданного проекта через камеру</div>
-        </sidebar-header>
-        <project-info-block title="Основаня информация">
-            <project-info-item title="Тип" value="Ручной" img="components/project-info/img/test.png"></project-info-item>
-            <project-info-item title="Версия" value="Итерация 1"></project-info-item>
-            <project-info-item title="Folder" value="Создание одного проекта"></project-info-item>
-            <project-info-item title="Приоритет" value="Средний"></project-info-item>
-            <project-info-item title="Фиксированная величина" value="0.4"></project-info-item>
-            <project-info-item title="Компонент" value="camera sreen"></project-info-item>
-            <project-info-item title="Label" value="Mobile, Camera"></project-info-item>
-            <project-info-item title="Browser" value="Any browser"></project-info-item>
-            <project-info-item title="OS" value="Any OS"></project-info-item>
-            <project-info-item title="Дата завершения" value="2015-05-10"></project-info-item>
-            <project-info-item title="Запланированное время" value="00:10:00"></project-info-item>
-        </project-info-block>
-        <project-info-block title="Руководящий персонал">
-            <project-info-item title="Subsystem" value="Frontend: Admin" img="components/project-info/img/test.png"></project-info-item>
-            <project-info-item title="Ответственнй" value="Валентин Никитин" img="components/project-info/img/test.png"></project-info-item>
-            <project-info-item title="Проверяющий" value="Alexey Volkov"></project-info-item>
-            <project-info-item title="Утверждающий" value="Алексей Рижков"></project-info-item>
-        </project-info-block>
-        <project-info-block title="Описание">
-            Сохранение проекта созданного через камеру
-        </project-info-block>
-    </sidebar-wrapp>
-    <sidebar-wrapp>
-        <sidebar-header title="Шаги теста">
-            <div class="sidebar-subheader">Добавьте шаги и заполните поля</div>
-        </sidebar-header>
+        <sidebar-wrapp>
+            <sidebar-header title="VVR-2">
+                <div class="sidebar-subheader">Сохранение созданного проекта через камеру</div>
+            </sidebar-header>
+            <project-info-block title="Основаня информация">
+                <project-info-item title="Тип" value="Ручной" img="components/project-info/img/test.png"></project-info-item>
+                <project-info-item title="Версия" value="Итерация 1"></project-info-item>
+                <project-info-item title="Folder" value="Создание одного проекта"></project-info-item>
+                <project-info-item title="Приоритет" value="Средний"></project-info-item>
+                <project-info-item title="Фиксированная величина" value="0.4"></project-info-item>
+                <project-info-item title="Компонент" value="camera sreen"></project-info-item>
+                <project-info-item title="Label" value="Mobile, Camera"></project-info-item>
+                <project-info-item title="Browser" value="Any browser"></project-info-item>
+                <project-info-item title="OS" value="Any OS"></project-info-item>
+                <project-info-item title="Дата завершения" value="2015-05-10"></project-info-item>
+                <project-info-item title="Запланированное время" value="00:10:00"></project-info-item>
+            </project-info-block>
+            <project-info-block title="Руководящий персонал">
+                <project-info-item title="Subsystem" value="Frontend: Admin" img="components/project-info/img/test.png"></project-info-item>
+                <project-info-item title="Ответственнй" value="Валентин Никитин" img="components/project-info/img/test.png"></project-info-item>
+                <project-info-item title="Проверяющий" value="Alexey Volkov"></project-info-item>
+                <project-info-item title="Утверждающий" value="Алексей Рижков"></project-info-item>
+            </project-info-block>
+            <project-info-block title="Описание">
+                Сохранение проекта созданного через камеру
+            </project-info-block>
+        </sidebar-wrapp>
+        <sidebar-wrapp>
+            <sidebar-header title="Шаги теста">
+                <div class="sidebar-subheader">Добавьте шаги и заполните поля</div>
+            </sidebar-header>
 
 
-    </sidebar-wrapp>
+        </sidebar-wrapp>
 
         <create-test>
             <step-header title="Шаг 2">
@@ -290,9 +291,11 @@
                 <choose-btn title="Создать тест кейс"></choose-btn>
                 <choose-btn title="Создать новую группу"></choose-btn>
             </step-header>
-            <step-content>
-
-            </step-content>
+            <project-case name="Создание одного проэкта" properties="Дата начала: 18/март/17, Build: 2, Enviroment: QA1" done="20%" to-do="80%">
+                <project-case-table img="" col-1-1="ID" col-3-1="Имя" col-1-2="Статус" col-1-3="Блокер" col-1-4="Дефект" col-1-5="Компонент" col-1-6="Label">
+                
+                </project-case-table>
+            </project-case>
         </create-test>
     </div>
 </body>
