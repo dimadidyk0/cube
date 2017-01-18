@@ -1,0 +1,50 @@
+<style>
+
+    .project-case-row__item {
+        height: 30px;
+        font-family: globerregular;
+        border-bottom: 1px solid #E4E4E4;
+    display: table-row;
+    }
+</style>  
+<template id="project-case-row__tmpl"> 
+    <tr class="project-case-row__item">
+    </tr>
+</template>
+
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var ProjectCaseRowTemplate = thisDoc.querySelector('#project-case-row__tmpl');
+
+    class ProjectCaseRow extends HTMLElement {
+
+        constructor() {
+            super()
+            thatDoc.querySelector('project-case-table table').appendChild(ProjectCaseRowTemplate.content.cloneNode(true));
+            var tableAttr = this.attributes;
+            console.log(tableAttr);
+            for (var i = 0; i < tableAttr.length;  i++) {
+                var element = thisDoc.createElement("td");
+                element.innerHTML = tableAttr[i].nodeValue;
+                console.log(tableAttr[i].nodeValue)
+                // thisDoc.querySelector('.project-case-row__item').appendChild(element);
+
+            }
+        }
+
+    connectedCallback() {
+
+    }
+
+
+
+    adoptedCallback() {
+    }
+}
+
+customElements.define('project-case-row', ProjectCaseRow);
+
+</script>
