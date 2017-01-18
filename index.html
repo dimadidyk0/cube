@@ -90,6 +90,7 @@
             </sidebar-select>
         </sidebar-wrapp>
 
+<!--
         <sidebar-wrapp>
             <sidebar-header title="Шаги теста">
                 <div class="sidebar-subheader">Добавьте шаги и заполните поля</div>
@@ -103,6 +104,7 @@
                 <div class="info-message__text">Вы можете установить последовательность перетакскивая шаги</div>
             </info-message>
         </sidebar-wrapp>
+-->
 
         <create-test>
             <step-header title="Шаг 1">
@@ -127,7 +129,12 @@
             </sidebar-wrapp>
         -->
         <div class="cont">
-            <sidebar-wrapp></sidebar-wrapp>
+            <sidebar-wrapp>
+                <sidebar-header title="Блокеры">
+                    <div class="sidebar-subheader">Укажите зависимость</div>
+                    <choose-btn title="Выбрать"></choose-btn>
+                </sidebar-header>
+            </sidebar-wrapp>
             <blocker-wrapp>
                 <search-and-add title="Найти и добавить"></search-and-add>
                 <blocker-choosen number="5">
@@ -150,6 +157,15 @@
             </blocker-wrapp>
         </div>
 
+        <sidebar-wrapp>
+            <sidebar-header title="Связанные требования">
+                <div class="sidebar-subheader">Выберите требования из таблицы</div>
+                <choose-btn title="Выбрать"></choose-btn>
+            </sidebar-header>
+            <requirement-card></requirement-card>
+            <requirement-card></requirement-card>
+            <requirement-card></requirement-card>
+        </sidebar-wrapp>
 
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
@@ -160,6 +176,8 @@
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
     </div>
+
+
     <div class="container">
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
@@ -169,15 +187,6 @@
             <navbar-vertical-item title="зрители"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
-        <sidebar-wrapp>
-            <sidebar-header title="Связанные требования">
-                <div class="sidebar-subheader">Выберите требования из таблицы</div>
-                <choose-btn title="Выбрать"></choose-btn>
-            </sidebar-header>
-            <requirement-card></requirement-card>
-            <requirement-card></requirement-card>
-            <requirement-card></requirement-card>
-        </sidebar-wrapp>
 
     <sidebar-wrapp>
         <sidebar-header title="VVR-2">
@@ -207,52 +216,48 @@
         </project-info-block>
     </sidebar-wrapp>
     <sidebar-wrapp>
-        <sidebar-header title="VVR-2">
-            <div class="sidebar-subheader">Сохранение созданного проекта через камеру</div>
+        <sidebar-header title="Шаги теста">
+            <div class="sidebar-subheader">Добавьте шаги и заполните поля</div>
         </sidebar-header>
-        <project-info-block title="Основаня информация">
-            <project-info-item round="round"    title="Тип"                      value="Ручной" img="components/project-info/img/test.png"></project-info-item>
-            <project-info-item round="disc"     title="Версия"                   value="Итерация 1"></project-info-item>
-            <project-info-item                  title="Folder"                   value="Создание одного проекта"></project-info-item>
-            <project-info-item round="round"    title="Приоритет"                value="Средний"></project-info-item>
-            <project-info-item round="disc"     title="Фиксированная величина"   value="0.4"></project-info-item>
-            <project-info-item round="disc"     title="Компонент"                value="camera sreen"></project-info-item>
-            <project-info-item round="round"    title="Label"                    value="Mobile, Camera"></project-info-item>
-            <project-info-item round="round"    title="Browser"                  value="Any browser"></project-info-item>
-            <project-info-item round="round"    title="OS"                       value="Any OS"></project-info-item>
-            <project-info-item round="round"    title="Дата завершения"          value="2015-05-10"></project-info-item>
-            <project-info-item                  title="Запланированное время"    value="00:10:00"></project-info-item>
-        </project-info-block>
-        <project-info-block title="Руководящий персонал">
-            <project-info-item round="round"    title="Subsystem"       value="Frontend: Admin" img="components/project-info/img/test.png"></project-info-item>
-            <project-info-item round="disc"     title="Ответственнй"    value="Валентин Никитин" img="components/project-info/img/test.png"></project-info-item>
-            <project-info-item                  title="Проверяющий"     value="Alexey Volkov"></project-info-item>
-            <project-info-item round="round"    title="Утверждающий"    value="Алексей Рижков"></project-info-item>
-        </project-info-block>
-        <project-info-block title="Описание">
-            Сохранение проекта созданного через камеру
-        </project-info-block>
+
+
     </sidebar-wrapp>
-    <sidebar-wrapp>
-        <sidebar-header title="Данные теста">
-            <div class="sidebar-subheader">Сохранение созданного проекта через камеру</div>
-        </sidebar-header>
-        <sidebar-text>
-            Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML, как правило, предлагают схожие подходы к работе с требованиями.
-        </sidebar-text>
-    </sidebar-wrapp>
+
         <create-test>
-            <step-header title="Шаг 1">
+            <step-header title="Шаг 2">
                 <div class="step-header-subheader">Создание тест кейса</div>
                 <step-save-btn></step-save-btn>
             </step-header>
             <step-content>
-                <sidebar-textinput title="Название шага" placeholder="Старт работы с приложением"></sidebar-textinput>
-                <sidebar-textarea title="Действие" height="102"></sidebar-textarea>
-                <sidebar-textarea title="Данные теста" height="102"></sidebar-textarea>
-                <sidebar-textarea title="Ожидаемый результат" height="102"></sidebar-textarea>
+
             </step-content>
         </create-test>
+        <sidebar-wrapp>
+            <sidebar-header title="Report bug">
+                <div class="sidebar-subheader">Укажите зависимость</div>
+            </sidebar-header>
+            <sidebar-textinput title="Summary*" placeholder="Исправить"></sidebar-textinput>
+            <sidebar-select title="Приоритет">
+                <p class="select-item">Средний</p>
+                <p class="select-item">Высокий</p>
+                <p class="select-item">Низкий</p>
+            </sidebar-select>
+            <sidebar-select title="Важность">
+                <p class="select-item">Средний</p>
+                <p class="select-item">Высокий</p>
+                <p class="select-item">Низкий</p>
+            </sidebar-select>
+            <sidebar-textarea title="Описание*" height="82"></sidebar-textarea>
+            <sidebar-textarea title="Дефект*" height="82"></sidebar-textarea>
+        </sidebar-wrapp>
+        <sidebar-wrapp>
+            <sidebar-header title="Данные теста">
+                <div class="sidebar-subheader">Сохранение созданного проекта через камеру</div>
+            </sidebar-header>
+            <sidebar-text>
+                Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML, как правило, предлагают схожие подходы к работе с требованиями.
+            </sidebar-text>
+        </sidebar-wrapp>
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
             <navbar-vertical-item title="доступно"></navbar-vertical-item>

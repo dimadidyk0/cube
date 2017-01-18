@@ -102,6 +102,7 @@ label {
     display: -ms-flex;
     display: -o-flex;
     display: flex;
+    margin-bottom: 50px;
     
 }
 .container-blocker {
@@ -113,5 +114,9 @@ label {
     height: 64px;
 }
 
-
+.cont {
+    height: 100%;
+    /*        border-left: 1px solid #eee;*/
+    /*        border-right: 1px solid #eee;*/
+}
 
