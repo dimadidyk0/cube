@@ -25,25 +25,26 @@
         <navbar-breadcrumbs title="ДИАГРАММА ГАНТА"></navbar-breadcrumbs>
         <navbar-breadcrumbs title="ТАБЛИЦА ТРЕБОВАНИЙ"></navbar-breadcrumbs>
         <navbar-breadcrumbs title="КАНБАН ДОСКА"></navbar-breadcrumbs>
-        <navbar-horizontal-project title="VVR"></navbar-horizontal-project>
         <navbar-search-input>
             <navbar-search-btn></navbar-search-btn>
         </navbar-search-input>
+        <navbar-horizontal-project title="VVR"></navbar-horizontal-project>
     </navbar-horizontal>
 
     <div class="container">
 
         <navbar-vertical>
             <navbar-vertical-item title="меню"></navbar-vertical-item>
-            <navbar-vertical-item title="ИНФОРМАЦИЯ"></navbar-vertical-item>
+            <navbar-vertical-item enable title="Информация"></navbar-vertical-item>
             <navbar-vertical-item title="ПОХОЖИЕ ТЕСТЫ"></navbar-vertical-item>
             <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
             <navbar-vertical-item title="назначения"></navbar-vertical-item>
+            <navbar-vertical-item enable title="шаги теста"></navbar-vertical-item>
         </navbar-vertical>
 
         <sidebar-wrapp>
             <sidebar-header title="Информация">
-                <div class="sidebar-subheader">Заполните поля и укажите информацию </div>
+                <div class="sidebar-subheader">Заполните поля </div>
                 <choose-btn title="Сохранить"></choose-btn>
             </sidebar-header>
             <sidebar-textinput title="Summary*" placeholder="Запись проекта через камеру "></sidebar-textinput>
@@ -127,10 +128,16 @@
                 <step-save-btn></step-save-btn>
             </step-header>
             <step-content>
-                <sidebar-textinput title="Название шага" placeholder="Старт работы с приложением"></sidebar-textinput>
+                <sidebar-textinput title="Название шага"  placeholder="Старт работы с приложением"></sidebar-textinput>
                 <sidebar-textarea title="Действие" height="102"></sidebar-textarea>
                 <sidebar-textarea title="Данные теста" height="102"></sidebar-textarea>
                 <sidebar-textarea title="Ожидаемый результат" height="102"></sidebar-textarea>
+                <sidebar-select title="Укажите зависимость между шагами">
+                    <div class="select-item">Старт работы с приложением</div>
+                    <div class="select-item">Старт работы с приложением</div>
+                    <div class="select-item">Старт работы с приложением</div>
+                    <div class="select-item">Старт работы с приложением</div>
+                </sidebar-select>
             </step-content>
         </create-test>
 
@@ -266,8 +273,8 @@
             <sidebar-textarea title="Описание*" height="82"></sidebar-textarea>
             <sidebar-textarea title="Дефект*" height="82"></sidebar-textarea>
         </sidebar-wrapp>
-        <sidebar-wrapp>
-            <sidebar-header title="Данные теста">
+        <sidebar-wrapp header="TEST">
+            <sidebar-header>
                 <div class="sidebar-subheader">Сохранение созданного проекта через камеру</div>
             </sidebar-header>
             <sidebar-text>

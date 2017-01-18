@@ -129,5 +129,6 @@ label {
     border-right: 1px solid #eee;
     border-top: 1px solid #eee;
 /*    align-content: space-between;*/
+    max-width: 320px;
 }
 

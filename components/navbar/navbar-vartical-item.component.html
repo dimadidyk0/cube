@@ -1,33 +1,38 @@
 <!--Style CSS -->
 <style>
+    navbar-vertical-item {
+        display: inline-block;
+        width: 100%;
+        margin-top: 20px;
+    }
     .navbar-vertical__item {
         font: 12px 'globerbold';
         color: #fff;
         transform: rotate(-180deg);
         width: 40px;
-        display: inline-block;
-        line-height: 43px;
+/*        display: inline-block;*/
+/*        line-height: 40px;*/
         text-transform: uppercase;
         -webkit-writing-mode: vertical-rl;
         -ms-writing-mode: tb-rl;
         writing-mode: vertical-rl;
-        margin-top: 20px;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        align-items: center;
     }
     .navbar-vertical__item:hover {
         color: #68C0FF;
         cursor: pointer;
     }
-/*
-    .navbar-vertical__item[enable] {
+
+    [enable] {
         color: #68C0FF;
         cursor: pointer;
     }
-*/
-/*
-    .disable.navbar-vertical__item {
-        color: #fff;
-    }
-*/
+
 </style>
 
 
@@ -49,6 +54,19 @@
 
     class NavbarVerticalItem extends HTMLElement {
 
+        static get observedAttributes() {
+            return ['enable'];
+        }
+        get enable() {
+            return this.hasAttribute('enable');
+        }
+        set enable(val) {
+            if(val) {
+                this.setAttribute('enable', '')
+            } else {
+                this.removeAttribute('enable')
+            }
+        }
         constructor() {
             super()
             this.appendChild(NavbarVerticalItemTemplate.content.cloneNode(true));
@@ -56,12 +74,41 @@
 
         connectedCallback() {
             this.querySelector('.navbar-vertical__item').innerHTML = this.getAttribute('title');
+            var SidebarHeaderCollect = thatDoc.querySelectorAll('sidebar-header');
+
+
+            this.addEventListener("click", () => {
+
+                if (this.enable) {
+                    this.removeAttribute('enable');
+                } else {
+                    this.setAttribute('enable', '');
+                }
+
+                for (var i = 0; i < SidebarHeaderCollect.length; i++) {
+
+                    if (this.textContent.toLowerCase().trim() == SidebarHeaderCollect[i].querySelector('h3').textContent.toLowerCase().trim()) {
+                        if (SidebarHeaderCollect[i].parentElement.style.display == 'none') {
+                            SidebarHeaderCollect[i].parentElement.style.display = 'block';
+                        } else {
+                            SidebarHeaderCollect[i].parentElement.style.display = 'none';
+                        }
+                    }
+                }
+            });
 
         }
 
-        adoptedCallback() {
+        attributeChangedCallback(name, oldVal, newVal) {
+            if (this.enable) {
+                console.log('enable');
 
+            } else {
+                console.log('disable');
+            }
         }
+
+        adoptedCallback() {}
     }
 
     customElements.define('navbar-vertical-item', NavbarVerticalItem);
