@@ -1,15 +1,64 @@
 <style>
+    project-case-row {
+        display: table-row;
+        height: 29px;
+        border-bottom: 1px solid #E4E4E4;
+    }
 
-    .project-case-row__item {
+    .project-case-row {
         height: 30px;
         font-family: globerregular;
         border-bottom: 1px solid #E4E4E4;
-    display: table-row;
+        display: table-row;
     }
-</style>  
-<template id="project-case-row__tmpl"> 
-    <tr class="project-case-row__item">
-    </tr>
+
+    .project-case-row__cell {
+        display: table-cell;
+        min-width: 30px;
+        padding: 5px 0 0 0;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .project-case-row__img {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        margin: 2px 0px 0 3px;
+        right: 10px;
+    }
+
+    .project-case-row__status-blocked,
+    .project-case-row__status-failed,
+    .project-case-row__status-pass {
+        text-transform: uppercase;
+        color: white;
+        font: 10px globerbold;
+        display: block;
+        text-align: center;
+        width: 75px;
+        position: relative;
+        height: 18px;
+        padding: 5px 0 0 0;
+        margin: 0px 0 0 0;
+    }
+
+    .project-case-row__status-blocked {
+        background-color: #6A93A7;
+    }
+
+    .project-case-row__status-pass {
+        background-color: #12C31A;
+    }
+
+    .project-case-row__status-failed {
+        background-color: #D0021B;
+    }
+</style>
+<template id="project-case-row__tmpl">
 </template>
 
 <script>
@@ -23,28 +72,34 @@
 
         constructor() {
             super()
-            thatDoc.querySelector('project-case-table table').appendChild(ProjectCaseRowTemplate.content.cloneNode(true));
+            this.appendChild(ProjectCaseRowTemplate.content.cloneNode(true));
             var tableAttr = this.attributes;
-            console.log(tableAttr);
-            for (var i = 0; i < tableAttr.length;  i++) {
-                var element = thisDoc.createElement("td");
+            for (var i = 0; i < tableAttr.length; i++) {
+                var element = thisDoc.createElement("div");
+                element.setAttribute('class', 'project-case-row__cell');
                 element.innerHTML = tableAttr[i].nodeValue;
-                console.log(tableAttr[i].nodeValue)
-                // thisDoc.querySelector('.project-case-row__item').appendChild(element);
-
+                this.appendChild(element);
+                if (tableAttr[i].nodeName == "img" && tableAttr[i].nodeValue !== "") {
+                    var imgSource = tableAttr[i].nodeValue;
+                    element.innerHTML = '<img class="project-case-row__img" src="' + imgSource + '">';
+                }
+                if (tableAttr[i].nodeName == "status" && tableAttr[i].nodeValue !== "") {
+                    var statusValue = tableAttr[i].nodeValue;
+                    element.innerHTML = '<span class="project-case-row__status-' + statusValue + '">' + statusValue + '</span>';
+                }
             }
+
+
         }
 
-    connectedCallback() {
+        connectedCallback() {
 
+        }
+
+
+
+        adoptedCallback() {}
     }
 
-
-
-    adoptedCallback() {
-    }
-}
-
-customElements.define('project-case-row', ProjectCaseRow);
-
+    customElements.define('project-case-row', ProjectCaseRow);
 </script>
