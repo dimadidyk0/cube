@@ -1,0 +1,60 @@
+<!--Style CSS-->
+<style>
+    sidebar-nav-link {
+        display: inline-block;
+        height: 23px;
+        margin-top: 13px;
+        width: 100%;
+        border-bottom: 1px dashed #D7D7D7;
+    }
+    sidebar-nav-link:first-child {
+        margin-top: 43px !important;
+    }
+    .sidebar-nav-link {
+        font: 12px 'globersemibold';
+        text-decoration: none;
+        color: #0C003B;
+        text-transform: uppercase;
+        line-height: 24px;
+    }
+    .sidebar-nav-link:hover {
+        color: #68C0FF;
+        cursor: pointer;
+    }
+</style>
+
+
+<!--Template-->
+<template id="sidebar-nav-link__tmpl">
+    <a href="" class="sidebar-nav-link"></a>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var SidebarNavLinkTemplate = thisDoc.querySelector('#sidebar-nav-link__tmpl');
+
+    class SidebarNavLink extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(SidebarNavLinkTemplate.content.cloneNode(true));
+
+        }
+
+        connectedCallback() {
+            this.querySelector('.sidebar-nav-link').innerHTML = this.getAttribute('title');
+
+        }
+
+        adoptedCallback() {}
+
+    }
+
+    customElements.define('sidebar-nav-link', SidebarNavLink);
+
+</script>

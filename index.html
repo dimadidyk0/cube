@@ -37,12 +37,62 @@
         <navbar-vertical>
             <navbar-vertical-item title="меню"></navbar-vertical-item>
             <navbar-vertical-item enable title="Информация"></navbar-vertical-item>
-            <navbar-vertical-item title="ПОХОЖИЕ ТЕСТЫ"></navbar-vertical-item>
+            <navbar-vertical-item title="фильтры"></navbar-vertical-item>
             <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
-            <navbar-vertical-item title="назначения"></navbar-vertical-item>
+            <navbar-vertical-item title="участники"></navbar-vertical-item>
             <navbar-vertical-item enable title="шаги теста"></navbar-vertical-item>
         </navbar-vertical>
 
+        <sidebar-wrapp>
+            <sidebar-header title="Меню">
+                <div class="sidebar-subheader"></div>
+            </sidebar-header>
+
+            <sidebar-nav-link title="перейти к UX"></sidebar-nav-link>
+            <sidebar-nav-link title="перейти к UI"></sidebar-nav-link>
+            <sidebar-nav-link title="показать user story"></sidebar-nav-link>
+            <sidebar-nav-link title="применить мастер страницы"></sidebar-nav-link>
+        </sidebar-wrapp>
+        <sidebar-wrapp>
+            <sidebar-header title="Участники">
+                <div class="sidebar-subheader">Участники спринта</div>
+            </sidebar-header>
+            <project-info-block title="FRONTEND">
+                <blocker-person name="Александр Анисимов" specialization="CSS"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="java"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="java"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="CSS"></blocker-person>
+            </project-info-block>
+            <project-info-block title="DESIGNER">
+                <blocker-person name="Александр Анисимов" specialization="artdirector"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="junior designer"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="3d"></blocker-person>
+                <blocker-person name="Александр Анисимов" specialization="ui"></blocker-person>
+            </project-info-block>
+        </sidebar-wrapp>
+        <sidebar-wrapp>
+            <sidebar-header title="Фильтры">
+                <div class="sidebar-subheader"></div>
+            </sidebar-header>
+            <project-info-block title="FRONTEND"></project-info-block>
+            <project-info-block title="LABEL"></project-info-block>
+            <project-info-block title="исполнитель">
+                <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
+                <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
+                <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
+                <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
+                <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
+                <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
+                <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
+                <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
+                <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
+                <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
+                <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
+                <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
+            </project-info-block>
+            <project-info-block title="спринт"></project-info-block>
+            <project-info-block title="автор"></project-info-block>
+        </sidebar-wrapp>
         <sidebar-wrapp>
             <sidebar-header title="Информация">
                 <div class="sidebar-subheader">Заполните поля </div>
@@ -142,15 +192,7 @@
             </step-content>
         </create-test>
 
-        <!--
-            <sidebar-wrapp>
-                <sidebar-header title="Блокеры">
-                    <div class="sidebar-subheader">Укажите зависимость</div>
-                </sidebar-header>
-                <search-and-add title="Найти и добавить"></search-and-add>
-                <choose-btn title="Добавить"></choose-btn>
-            </sidebar-wrapp>
-        -->
+
         <div class="cont">
             <sidebar-wrapp>
                 <sidebar-header title="Блокеры">
@@ -201,7 +243,16 @@
         </navbar-vertical>
     </div>
 
-
+    <navbar-horizontal>
+        <navbar-breadcrumbs title="TEST CYCLES"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="ДИАГРАММА ГАНТА"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="ТАБЛИЦА ТРЕБОВАНИЙ"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="КАНБАН ДОСКА"></navbar-breadcrumbs>
+        <navbar-search-input>
+            <navbar-search-btn></navbar-search-btn>
+        </navbar-search-input>
+        <navbar-horizontal-project title="VVR"></navbar-horizontal-project>
+    </navbar-horizontal>
     <div class="container">
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
@@ -291,7 +342,38 @@
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
     </div>
+    <navbar-horizontal>
+        <navbar-breadcrumbs title="TEST CYCLES"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="ДИАГРАММА ГАНТА"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="ТАБЛИЦА ТРЕБОВАНИЙ"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="КАНБАН ДОСКА"></navbar-breadcrumbs>
+        <navbar-search-input>
+            <navbar-search-btn></navbar-search-btn>
+        </navbar-search-input>
+        <navbar-horizontal-project title="VVR"></navbar-horizontal-project>
+    </navbar-horizontal>
     <div class="container">
+        <navbar-vertical>
+            <navbar-vertical-item title="проект"></navbar-vertical-item>
+            <navbar-vertical-item title="доступно"></navbar-vertical-item>
+            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
+            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
+            <navbar-vertical-item title="зрители"></navbar-vertical-item>
+            <navbar-vertical-item title="файлы "></navbar-vertical-item>
+        </navbar-vertical>
+        <sidebar-wrapp>
+            <sidebar-header title="Шаги теста">
+                <div class="sidebar-subheader">Добавьте шаги и заполните поля</div>
+                <choose-btn title="Добавить"></choose-btn>
+            </sidebar-header>
+            <step-dragndrop draggable="true" title="Старт работы с приложением"></step-dragndrop>
+            <step-dragndrop draggable="true" title="Нажатие на кнопку"></step-dragndrop>
+            <step-dragndrop draggable="true" title="Добавление меток"></step-dragndrop>
+            <step-dragndrop draggable="true" title="Результат"></step-dragndrop>
+            <info-message>
+                <div class="info-message__text">Вы можете установить последовательность перетакскивая шаги</div>
+            </info-message>
+        </sidebar-wrapp>
         <create-test>
             <step-header title="Тест кейсы">
                 <div class="step-header-subheader">Группы</div>
@@ -305,6 +387,23 @@
                 </project-case-table>
             </project-case>
         </create-test>
+        <sidebar-wrapp>
+            <sidebar-header title="Связанные требования">
+                <div class="sidebar-subheader">Выберите требования из таблицы</div>
+                <choose-btn title="Выбрать"></choose-btn>
+            </sidebar-header>
+            <requirement-card></requirement-card>
+            <requirement-card></requirement-card>
+            <requirement-card></requirement-card>
+        </sidebar-wrapp>
+        <navbar-vertical>
+            <navbar-vertical-item title="проект"></navbar-vertical-item>
+            <navbar-vertical-item title="доступно"></navbar-vertical-item>
+            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
+            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
+            <navbar-vertical-item title="зрители"></navbar-vertical-item>
+            <navbar-vertical-item title="файлы "></navbar-vertical-item>
+        </navbar-vertical>
     </div>
 </body>
 
