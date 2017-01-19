@@ -44,6 +44,20 @@
 
     class DropdownBlock extends HTMLElement {
 
+        static get observedAttributes() {
+            return ['dropped'];
+        }
+        get dropped() {
+            return this.hasAttribute('dropped');
+        }
+        set dropped(val) {
+            if(val) {
+                this.setAttribute('dropped', '')
+            } else {
+                this.removeAttribute('dropped')
+            }
+        }
+
         constructor() {
             super()
             this.appendChild(DropdownBlockTemplate.content.cloneNode(true));
@@ -55,12 +69,23 @@
             var innerDropdownCollection = this.querySelectorAll('blocker-person');
             var innerDropdownTestsCollection = this.querySelectorAll('test-cases-project-item');
 
+
+            if (this.dropped) {
+
+            } else {
+                this.querySelector('.inner-dropdown').style.height = '0px';
+                dropdownArrow.style.transform = 'rotate(-90deg)';
+                dropdownArrow.style.left = '-10px';
+                dropdownArrow.style.top = '-19px';
+            }
+
             for (var i = 0; i < innerDropdownTestsCollection.length; i++) {
                 this.querySelector('.inner-dropdown').appendChild(innerDropdownTestsCollection[i])
             }
             for (var i = 0; i < innerDropdownCollection.length; i++) {
                 this.querySelector('.inner-dropdown').appendChild(innerDropdownCollection[i])
             }
+
             this.querySelector('.dropdown-block__arrow').addEventListener("click", () => {
                 if (this.querySelector('.inner-dropdown').style.height == '0px') {
                     dropdownArrow.style.transform = 'rotate(0)';
@@ -72,12 +97,9 @@
                     dropdownArrow.style.left = '-10px';
                     dropdownArrow.style.top = '-19px';
                     this.querySelector('.inner-dropdown').style.height = '0px';
-
                 }
-
-
             });
-//
+
             if(this.querySelector('.inner-dropdown').children.length == 0) {
                 dropdownArrow.style.transform = 'rotate(-90deg)';
                 dropdownArrow.style.left = '-10px';

@@ -40,9 +40,9 @@
         <navbar-vertical>
             <navbar-vertical-item title="меню"></navbar-vertical-item>
             <navbar-vertical-item enable title="Информация"></navbar-vertical-item>
-            <navbar-vertical-item title="фильтры"></navbar-vertical-item>
+            <navbar-vertical-item enable title="фильтры"></navbar-vertical-item>
             <navbar-vertical-item title="участники"></navbar-vertical-item>
-            <navbar-vertical-item enable title="шаги теста"></navbar-vertical-item>
+            <navbar-vertical-item title="шаги теста"></navbar-vertical-item>
         </navbar-vertical>
 
         <sidebar-wrapp>
@@ -60,7 +60,7 @@
                 <div class="sidebar-subheader">Участники спринта</div>
             </sidebar-header>
             <project-info-block title="FRONTEND">
-                <dropdown-block>
+                <dropdown-block dropped>
                     <blocker-person name="Александр Анисимов" specialization="CSS"></blocker-person>
                     <blocker-person name="Александр Анисимов" specialization="java"></blocker-person>
                     <blocker-person name="Александр Анисимов" specialization="java"></blocker-person>
@@ -87,7 +87,7 @@
                 <dropdown-block></dropdown-block>
             </project-info-block>
             <project-info-block title="исполнитель">
-                <dropdown-block>
+                <dropdown-block dropped>
                     <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
                     <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
                     <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
@@ -187,6 +187,15 @@
             <info-message>
                 <div class="info-message__text">Вы можете установить последовательность перетакскивая шаги</div>
             </info-message>
+        </sidebar-wrapp>
+        <sidebar-wrapp>
+            <sidebar-header title="Шаги теста">
+                <div class="sidebar-subheader">Сохранение проекта созданного через камеру</div>
+            </sidebar-header>
+            <step-status title="Шаг 1" description="Старт работы с приложением" status="pass"></step-status>
+            <step-status title="Шаг 2" description="Нажатие на кнопку" status="failed"></step-status>
+            <step-status title="Шаг 3" description="Добавление меток" status="blocked"></step-status>
+            <step-status title="Шаг 4" description="Результат" status="blocked"></step-status>
         </sidebar-wrapp>
 
         <create-test>
@@ -464,33 +473,7 @@
         </navbar-vertical>
 
     </div>
-    <div class="container">
-        <navbar-vertical>
-            <navbar-vertical-item title="проект"></navbar-vertical-item>
-            <navbar-vertical-item title="доступно"></navbar-vertical-item>
-            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
-            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
-            <navbar-vertical-item title="зрители"></navbar-vertical-item>
-            <navbar-vertical-item title="файлы "></navbar-vertical-item>
-        </navbar-vertical>
-        <sidebar-wrapp>
-            <sidebar-header title="Шаги теста">
-                <div class="sidebar-subheader">Сохранение проекта созданного через камеру</div>
-            </sidebar-header>
-            <step-status title="Шаг 1" description="Старт работы с приложением" status="pass"></step-status>
-            <step-status title="Шаг 2" description="Нажатие на кнопку" status="failed"></step-status>
-            <step-status title="Шаг 3" description="Добавление меток" status="blocked"></step-status>
-            <step-status title="Шаг 4" description="Результат" status="blocked"></step-status>
-        </sidebar-wrapp>
-        <navbar-vertical>
-            <navbar-vertical-item title="проект"></navbar-vertical-item>
-            <navbar-vertical-item title="доступно"></navbar-vertical-item>
-            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
-            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
-            <navbar-vertical-item title="зрители"></navbar-vertical-item>
-            <navbar-vertical-item title="файлы "></navbar-vertical-item>
-        </navbar-vertical>
-    </div>
+
 </body>
 
 </html>
