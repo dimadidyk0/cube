@@ -1,0 +1,40 @@
+
+<style>
+
+</style>
+
+
+<!--Template-->
+<template id="sidebar-header__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var DropdownBlockTemplate = thisDoc.querySelector('#sidebar-header__tmpl');
+    var DropdownBlockTemplateClone = DropdownBlockTemplate.content;
+
+    class DropdownBlock extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(DropdownBlockTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('dropdown-block', DropdownBlock);
+
+</script>
