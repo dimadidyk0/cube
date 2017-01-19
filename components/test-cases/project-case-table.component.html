@@ -1,9 +1,11 @@
 <style>
     project-case-table {
         width: 100%;
-        display: flex;
+        display: table;
         align-items: center;
         font: 13px/23px globerbold;
+        width: 100%;
+        border-collapse: collapse;
     }
     
     .project-case-table__caption {
@@ -12,21 +14,14 @@
         display: table-row;
     }
     
-    project-case-table table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    
-    .project-case-table__caption td {
+    .project-case-table__td {
+        display: table-cell;
         min-width: 20px;
+        padding: 8px 0 0;
     }
 </style>
 <template id="project-case-table__tmpl">
-    <table>
-        <tbody>
-            <tr class="project-case-table__caption"></tr>
-        </tbody>
-    </table>
+            
 </template>
 
 <script>
@@ -42,8 +37,12 @@
             super()
             this.insertBefore(ProjectCaseTableTemplate.content.cloneNode(true), this.firstChild);
             var tableAttr = this.attributes;
+            var row = thisDoc.createElement("div");
+            row.setAttribute('class', 'project-case-table__caption');
+            thatDoc.querySelector('project-case-table').insertBefore(row, this.firstChild);
             for (var i = 0; i < tableAttr.length; i++) {
-                var element = thatDoc.createElement("td");
+                var element = thatDoc.createElement("div");
+                element.setAttribute("class", "project-case-table__td");
                 element.innerHTML = tableAttr[i].nodeValue;
                 this.querySelector('.project-case-table__caption').appendChild(element);
 
