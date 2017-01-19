@@ -4,14 +4,14 @@
         height: 29px;
         border-bottom: 1px solid #E4E4E4;
     }
-
+    
     .project-case-row {
         height: 30px;
         font-family: globerregular;
         border-bottom: 1px solid #E4E4E4;
         display: table-row;
     }
-
+    
     .project-case-row__cell {
         display: table-cell;
         min-width: 30px;
@@ -21,7 +21,7 @@
         white-space: nowrap;
         text-overflow: ellipsis;
     }
-
+    
     .project-case-row__img {
         display: inline-block;
         width: 16px;
@@ -30,10 +30,11 @@
         margin: 2px 0px 0 3px;
         right: 10px;
     }
-
+    
     .project-case-row__status-blocked,
     .project-case-row__status-failed,
-    .project-case-row__status-pass {
+    .project-case-row__status-pass,
+    .project-case-row__status-todo {
         text-transform: uppercase;
         color: white;
         font: 10px globerbold;
@@ -45,17 +46,21 @@
         padding: 5px 0 0 0;
         margin: 0px 0 0 0;
     }
-
+    
     .project-case-row__status-blocked {
         background-color: #6A93A7;
     }
-
+    
     .project-case-row__status-pass {
         background-color: #12C31A;
     }
-
+    
     .project-case-row__status-failed {
         background-color: #D0021B;
+    }
+    
+    .project-case-row__status-todo {
+        background-color: #DCCC00;
     }
 </style>
 <template id="project-case-row__tmpl">
@@ -65,6 +70,11 @@
     "use strict";
     var thatDoc = document;
     var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    String.prototype.trimAll = function() {
+        var r = /\s+/g;
+        return this.replace(r, '');
+    }
 
     var ProjectCaseRowTemplate = thisDoc.querySelector('#project-case-row__tmpl');
 
@@ -85,7 +95,7 @@
                 }
                 if (tableAttr[i].nodeName == "status" && tableAttr[i].nodeValue !== "") {
                     var statusValue = tableAttr[i].nodeValue;
-                    element.innerHTML = '<span class="project-case-row__status-' + statusValue + '">' + statusValue + '</span>';
+                    element.innerHTML = '<span class="project-case-row__status-' + statusValue.trimAll() + '">' + statusValue + '</span>';
                 }
             }
 

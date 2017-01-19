@@ -47,6 +47,10 @@
     .step-status__status-failed {
         background-color: #D0021B;
     }
+    
+    .step-status__status-todo {
+        background-color: #DCCC00;
+    }
 </style>
 
 
@@ -72,6 +76,11 @@
     var thatDoc = document;
     var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
 
+    String.prototype.trimAll = function() {
+        var r = /\s+/g;
+        return this.replace(r, '');
+    }
+
     var StepStatusTemplate = thisDoc.querySelector('#step-status__tmpl');
 
     class StepStatus extends HTMLElement {
@@ -84,7 +93,7 @@
             this.querySelector('.step-status__status').innerHTML = this.getAttribute('status');
             var status = this.getAttribute("status");
             if (status) {
-                this.querySelector('.step-status__status').classList.add("step-status__status-" + status)
+                this.querySelector('.step-status__status').classList.add("step-status__status-" + status.trimAll())
             }
         }
 

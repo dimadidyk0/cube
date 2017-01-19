@@ -7,35 +7,37 @@
         line-height: 26px;
         border-bottom: 1px dashed #D7D7D7;
     }
+    
     blocker-person:hover {
         cursor: pointer;
         background-color: #E0F0F8;
     }
+    
     .blocker-person__name {
         display: inline-block;
         font: 13px 'globerregular';
     }
+    
     .blocker-person__avatar {
         float: right;
         display: inline-block;
         height: 16px;
         width: 16px;
-        background-color: green;
         margin-left: 11px;
         margin-top: 5px;
     }
+    
     .blocker-person__specialization {
         float: right;
         display: inline-block;
         max-width: 75 px;
         font: 11px 'globerregular';
-/*        text-transform: uppercase;*/
+        /*        text-transform: uppercase;*/
         color: #585858;
         line-height: 30px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-
     }
 </style>
 
@@ -43,9 +45,10 @@
 <!--Template-->
 <template id="blocker-person__tmpl">
     <div class="blocker-person__name"></div>
-    <div class="blocker-person__avatar"></div>
+    <!--<div class="blocker-person__avatar"></div>-->
+     <img src="" alt="avatar" class="blocker-person__avatar">
     <div class="blocker-person__specialization"></div>
-<!--    <img src="" alt="avatar" class="blocker-person__specialization">-->
+   
 </template>
 
 
@@ -67,6 +70,8 @@
         connectedCallback() {
             this.querySelector('.blocker-person__name').innerHTML = this.getAttribute('name');
             this.querySelector('.blocker-person__specialization').innerHTML = this.getAttribute('specialization');
+            var imgSource = this.getAttribute("img");
+            this.querySelector('.blocker-person__avatar').setAttribute("src", imgSource);
         }
 
         adoptedCallback() {
@@ -75,5 +80,4 @@
     }
 
     customElements.define('blocker-person', BlockerPerson);
-
 </script>

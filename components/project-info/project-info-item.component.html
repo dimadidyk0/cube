@@ -6,6 +6,7 @@
         border-bottom: 1px dotted #D6D6D6;
         padding: 6px 0 1px 0;
     }
+    
     project-info-item img {
         display: inline-block;
         position: relative;
@@ -13,25 +14,30 @@
         height: 16px;
         width: 16px;
     }
-    .project-info-item__value, .project-info-item__variable {
+    
+    .project-info-item__value,
+    .project-info-item__variable {
         display: inline-block;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         font: 13px/18px globerregular;
         vertical-align: top;
-    } 
-
+    }
+    
     .project-info-item__variable {
         width: 127px;
     }
-    .project-info-item__value{
+    
+    .project-info-item__value {
         width: 149px;
         color: #00418A;
     }
+    
     .project-info-item__value--img {
         width: 130px;
     }
+    
     .project-info-item__before-disc:before {
         content: "";
         border: 3px solid black;
@@ -40,6 +46,7 @@
         left: -13px;
         top: 10px;
     }
+    
     .project-info-item__before-round:before {
         content: "";
         border: 1px solid #D5D5D5;
@@ -50,7 +57,37 @@
         left: -13px;
         top: 10px;
     }
-</style>  
+    
+    .project-info-item__status {
+        text-transform: uppercase;
+        color: white;
+        font: 10px globerbold;
+        display: inline-block;
+        text-align: center;
+        width: 75px;
+        position: absolute;
+        height: 18px;
+        padding: 5px 0 0 0;
+        margin: 0px 0 0 0;
+        top: 4px;
+    }
+    
+    .project-info-item__status-blocked {
+        background-color: #6A93A7;
+    }
+    
+    .project-info-item__status-pass {
+        background-color: #12C31A;
+    }
+    
+    .project-info-item__status-failed {
+        background-color: #D0021B;
+    }
+    
+    .project-info-item__status-todo {
+        background-color: #DCCC00;
+    }
+</style>
 <template id="project-info-item__tmpl">
     <div class="project-info-item__variable"></div>
     <div class="project-info-item__value"></div>
@@ -63,17 +100,29 @@
     var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
     var ProjectInfoItemTemplate = thisDoc.querySelector('#project-info-item__tmpl');
 
+    String.prototype.trimAll = function() {
+        var r = /\s+/g;
+        return this.replace(r, '');
+    }
+
     class ProjectInfoItem extends HTMLElement {
 
         constructor() {
             super()
             this.appendChild(ProjectInfoItemTemplate.content.cloneNode(true));
-            
+
 
         }
 
         connectedCallback() {
             this.querySelector('.project-info-item__variable').innerHTML = this.getAttribute('title');
+            var isStatus = this.getAttribute('title');
+            if (isStatus == 'Статус' || isStatus == 'статус' || isStatus == 'Status' || isStatus == 'status') {
+
+                this.querySelector('.project-info-item__value').classList.add('project-info-item__status');
+                this.querySelector('.project-info-item__value').classList.add('project-info-item__status-' + this.getAttribute('value').trimAll());
+
+            }
             this.querySelector('.project-info-item__value').innerHTML = this.getAttribute('value');
             var itemValue = this.querySelector('.project-info-item__value');
             var itemImgLink = this.getAttribute('img');
@@ -90,22 +139,17 @@
                 if (beforeItem == "round") {
                     this.classList.add('project-info-item__before-round');
                 } else if (beforeItem == "round") {
-                // statement
-            }{
-                this.classList.add('project-info-item__before-disc');
+                    // statement
+                } {
+                    this.classList.add('project-info-item__before-disc');
+                }
             }
-        }
-        
 
-    };
-    
-    adoptedCallback() {
+
+        };
+
+        adoptedCallback() {}
     }
-}
 
-customElements.define('project-info-item', ProjectInfoItem);
-
-
-
-
+    customElements.define('project-info-item', ProjectInfoItem);
 </script>
