@@ -40,7 +40,6 @@
             <navbar-vertical-item title="меню"></navbar-vertical-item>
             <navbar-vertical-item enable title="Информация"></navbar-vertical-item>
             <navbar-vertical-item title="фильтры"></navbar-vertical-item>
-            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
             <navbar-vertical-item title="участники"></navbar-vertical-item>
             <navbar-vertical-item enable title="шаги теста"></navbar-vertical-item>
         </navbar-vertical>
@@ -208,16 +207,12 @@
             </step-content>
         </create-test>
 
-
-        <div class="cont">
-            <sidebar-wrapp>
-                <sidebar-header title="Блокеры">
-                    <div class="sidebar-subheader">Укажите зависимость</div>
-                    <choose-btn title="Выбрать"></choose-btn>
-                </sidebar-header>
-                <project-info-block title="функциональные"></project-info-block>
-            </sidebar-wrapp>
-            <search-and-add title="Найти и добавить"></search-and-add>
+        <sidebar-wrapp>
+            <sidebar-header title="Блокеры">
+                <div class="sidebar-subheader">Укажите зависимость</div>
+                <choose-btn title="Выбрать"></choose-btn>
+            </sidebar-header>
+            <project-info-block title="функциональные"></project-info-block>
             <blocker-wrapp>
                 <blocker-choosen number="5">
                     <choose-btn title="Добавить"></choose-btn>
@@ -241,8 +236,48 @@
                     <div class="select-item">Все2</div>
                 </sidebar-select>
             </blocker-wrapp>
-        </div>
+        </sidebar-wrapp>
 
+
+        <sidebar-wrapp>
+            <sidebar-header title="Тест кейсы">
+                <div class="sidebar-subheader">Группы тест кейсов </div>
+            </sidebar-header>
+            <project-info-block title="функциональные"></project-info-block>
+            <create-project-info-block title="Создание одного проекта">
+                <dropdown-block>
+                    <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-15" description="Создание проекта iCloud"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-35" description="Поделиться проектом in/out на компьютере"></test-cases-project-item>
+                </dropdown-block>
+            </create-project-info-block>
+            <create-project-info-block title="Создание одного проекта">
+                <dropdown-block>
+                    <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-15" description="Создание проекта iCloud"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-35" description="Поделиться проектом in/out на компьютере"></test-cases-project-item>
+                </dropdown-block>
+            </create-project-info-block>
+            <project-info-block title="автоматические"></project-info-block>
+            <create-project-info-block title="Создание одного проекта">
+                <dropdown-block>
+                    <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-15" description="Создание проекта iCloud"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-35" description="Поделиться проектом in/out на компьютере"></test-cases-project-item>
+                </dropdown-block>
+            </create-project-info-block>
+            <create-project-info-block title="Создание одного проекта">
+                <dropdown-block>
+                    <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-15" description="Создание проекта iCloud"></test-cases-project-item>
+                    <test-cases-project-item title="VVR-35" description="Поделиться проектом in/out на компьютере"></test-cases-project-item>
+                </dropdown-block>
+            </create-project-info-block>
+        </sidebar-wrapp>
         <sidebar-wrapp>
             <sidebar-header title="Связанные требования">
                 <div class="sidebar-subheader">Выберите требования из таблицы</div>
@@ -258,7 +293,7 @@
             <navbar-vertical-item title="доступно"></navbar-vertical-item>
             <navbar-vertical-item title="блокеры"></navbar-vertical-item>
             <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
-            <navbar-vertical-item title="зрители"></navbar-vertical-item>
+            <navbar-vertical-item title="тест кейсы"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
     </div>
@@ -426,4 +461,5 @@
         </navbar-vertical>
     </div>
 </body>
+
 </html>

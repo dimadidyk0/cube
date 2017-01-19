@@ -20,6 +20,9 @@
         cursor: pointer;
         transition: all 0.2s;
     }
+    .inner-dropdown {
+        overflow: hidden;
+    }
 </style>
 
 
@@ -50,21 +53,25 @@
 
             var dropdownArrow = this.querySelector('.dropdown-block__arrow');
             var innerDropdownCollection = this.querySelectorAll('blocker-person');
+            var innerDropdownTestsCollection = this.querySelectorAll('test-cases-project-item');
 
+            for (var i = 0; i < innerDropdownTestsCollection.length; i++) {
+                this.querySelector('.inner-dropdown').appendChild(innerDropdownTestsCollection[i])
+            }
             for (var i = 0; i < innerDropdownCollection.length; i++) {
                 this.querySelector('.inner-dropdown').appendChild(innerDropdownCollection[i])
             }
             this.querySelector('.dropdown-block__arrow').addEventListener("click", () => {
-                if (this.querySelector('.inner-dropdown').style.display == 'none') {
+                if (this.querySelector('.inner-dropdown').style.height == '0px') {
                     dropdownArrow.style.transform = 'rotate(0)';
                     dropdownArrow.style.left = '-12px';
                     dropdownArrow.style.top = '-17px';
-                    this.querySelector('.inner-dropdown').style.display = 'block';
+                    this.querySelector('.inner-dropdown').style.height = 'auto';
                 } else {
                     dropdownArrow.style.transform = 'rotate(-90deg)';
                     dropdownArrow.style.left = '-10px';
                     dropdownArrow.style.top = '-19px';
-                    this.querySelector('.inner-dropdown').style.display = 'none';
+                    this.querySelector('.inner-dropdown').style.height = '0px';
 
                 }
 

@@ -1,0 +1,67 @@
+<!--Style CSS-->
+<style>
+    test-cases-project-item {
+/*        display: inline-block;*/
+        width: 100%;
+display: -webkit-inline-flex;
+display: -moz-inline-flex;
+display: -ms-inline-flex;
+display: -o-inline-flex;
+display: inline-flex;
+        font: 13px 'globerregular';
+        height: 25px;
+        line-height: 25px;
+    }
+    .create-test__project-name {
+        margin-right: 5px;
+        display: inline-block;
+        max-width: 80px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .create-test__project-description {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 215px;
+    }
+</style>
+
+
+<!--Template-->
+<template id="test-cases-project-item__tmpl">
+    <span class="create-test__project-name"></span>
+    <span class="create-test__project-description"></span>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var TestCasesProjectItemTemplate = thisDoc.querySelector('#test-cases-project-item__tmpl');
+
+    class TestCasesProjectItem extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(TestCasesProjectItemTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.create-test__project-name').innerHTML = this.getAttribute('title');
+            this.querySelector('.create-test__project-description').innerHTML = this.getAttribute('description');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('test-cases-project-item', TestCasesProjectItem);
+
+</script>

@@ -1,0 +1,40 @@
+
+<style>
+    create-project-info-block {
+        width: 100%;
+        display: inline-block;
+    }
+    .create-project-info__header {
+        font: 13px 'globerbold';
+        line-height: 24px;
+    }
+
+</style>
+<template id="create-project-info-block__tmpl">
+    <h3 class="create-project-info__header"></h3>
+</template>
+
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var CreateProjectInfoBlockTemplate = thisDoc.querySelector('#create-project-info-block__tmpl');
+    class CreateProjectInfoBlock extends HTMLElement {
+
+        constructor() {
+            super()
+            this.insertBefore(CreateProjectInfoBlockTemplate.content.cloneNode(true), this.firstChild);
+
+        }
+
+        connectedCallback() {
+            this.querySelector('.create-project-info__header').innerHTML = this.getAttribute('title');
+        }
+
+        adoptedCallback() {}
+    }
+
+    customElements.define('create-project-info-block', CreateProjectInfoBlock);
+
+</script>

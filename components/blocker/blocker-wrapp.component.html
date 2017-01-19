@@ -4,20 +4,25 @@
 <!--Style CSS-->
 <style>
     blocker-wrapp {
-        width: 320px;
-        display: inline-block;
-        padding-left: 20px;
-        padding-right: 20px;
-/*        border-left: 1px solid #eee;*/
-/*        border-right: 1px solid #eee;*/
-        align-self: flex-end;
+        width: 100%;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+        margin-top: auto
     }
 </style>
 
 
 <!--Template-->
 <template id="blocker-wrapp__tmpl">
-
+    <search-and-add title="Найти и добавить"></search-and-add>
 </template>
 
 

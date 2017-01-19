@@ -1,66 +1,50 @@
+<style>
+    project-info-block {
+        display: block;
+        padding-top: 18px;
+        width: 280px;
+        font: 13px/18px globerregular;
+        vertical-align: top;
+    }
 
-    <style>
-        project-info-block {
-            display: block;
-            padding-top: 18px;
-            width: 280px;
-            font: 13px/18px globerregular;
-            vertical-align: top;
-        }   
-        
-        .project-info-block__header {
-            color: #909090;
-            font: 12px/24px globersemibold;
-            text-transform: uppercase;
-            position: relative;
-        }
-        .sidebar-info-main__link {
-            color: inherit;
-            text-decoration: none;
-        }
-/*
-        .project-info-block__link span:before {
-            content: "";
-            display: block;
-            position: absolute;
-            border: 3px solid transparent;
-            border-bottom: 4px solid transparent;
-            border-left: 3px solid transparent;
-            border-right: 3px solid transparent;
-            border-top: 4px solid #828282;
-            left: -12px;
-            top: 7px;
-        }
-*/
+    .project-info-block__header {
+        color: #909090;
+        font: 12px/24px globersemibold;
+        text-transform: uppercase;
+        position: relative;
+    }
 
-        </style>
-    <template id="project-info-block__tmpl">
-        <h3 class="project-info-block__header a project-info-block__link">
+    .sidebar-info-main__link {
+        color: inherit;
+        text-decoration: none;
+    }
+</style>
+<template id="project-info-block__tmpl">
+    <h3 class="project-info-block__header a project-info-block__link">
             <a href="#" class="sidebar-info-main__link"><span></span></a>
         </h3>
-    </template>
+</template>
 
-    <script>
-        "use strict";
-        var thatDoc = document;
-        var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
-        
-        var ProjectInfoBlockTemplate = thisDoc.querySelector('#project-info-block__tmpl');
-        class ProjectInfoBlock extends HTMLElement {
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
 
-            constructor() {
-                super()
-                this.insertBefore(ProjectInfoBlockTemplate.content.cloneNode(true), this.firstChild);
-                
-            }
+    var ProjectInfoBlockTemplate = thisDoc.querySelector('#project-info-block__tmpl');
+    class ProjectInfoBlock extends HTMLElement {
 
-            connectedCallback() {
-                this.querySelector('.sidebar-info-main__link span').innerHTML = this.getAttribute('title');
-            }
-            
-            adoptedCallback() {}
+        constructor() {
+            super()
+            this.insertBefore(ProjectInfoBlockTemplate.content.cloneNode(true), this.firstChild);
+
         }
 
-        customElements.define('project-info-block', ProjectInfoBlock);
+        connectedCallback() {
+            this.querySelector('.sidebar-info-main__link span').innerHTML = this.getAttribute('title');
+        }
 
-    </script>
+        adoptedCallback() {}
+    }
+
+    customElements.define('project-info-block', ProjectInfoBlock);
+</script>

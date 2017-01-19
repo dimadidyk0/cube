@@ -3,13 +3,23 @@
 
     search-and-add {
         display: inline-block;
+        width: 100%;
+/*        padding-left: 20px;*/
+/*        padding-right: 20px;*/
+/*        border-bottom: 1px solid #eee;*/
+        margin-top: auto;
+        position: relative;
+        order: -1;
+    }
+    search-and-add:after {
+        display: block;
+        content: '';
+        height: 1px;
         width: 320px;
-/*        position: absolute;*/
-/*        bottom: 0;*/
-        padding-left: 20px;
-        padding-right: 20px;
-        border-bottom: 1px solid #eee;
-        align-self: flex-end;
+        position: absolute;
+        bottom: 0;
+        background-color: #eee;
+        left: -20px;
     }
     .search-add__header {
         font: 11px 'globerregular';
