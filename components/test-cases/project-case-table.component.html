@@ -5,22 +5,27 @@
         align-items: center;
         font: 13px/23px globerbold;
     }
-    .project-case-table__caption{
+    
+    .project-case-table__caption {
         height: 35px;
         border-bottom: 1px solid #E4E4E4;
         display: table-row;
     }
+    
     project-case-table table {
         width: 100%;
         border-collapse: collapse;
     }
+    
     .project-case-table__caption td {
         min-width: 20px;
     }
-</style>  
+</style>
 <template id="project-case-table__tmpl">
     <table>
-        <tr class="project-case-table__caption"></tr>
+        <tbody>
+            <tr class="project-case-table__caption"></tr>
+        </tbody>
     </table>
 </template>
 
@@ -37,7 +42,7 @@
             super()
             this.insertBefore(ProjectCaseTableTemplate.content.cloneNode(true), this.firstChild);
             var tableAttr = this.attributes;
-            for (var i = 0; i < tableAttr.length;  i++) {
+            for (var i = 0; i < tableAttr.length; i++) {
                 var element = thatDoc.createElement("td");
                 element.innerHTML = tableAttr[i].nodeValue;
                 this.querySelector('.project-case-table__caption').appendChild(element);
@@ -49,12 +54,10 @@
 
         }
 
-        
 
-        adoptedCallback() {
-        }
+
+        adoptedCallback() {}
     }
 
     customElements.define('project-case-table', ProjectCaseTable);
-
 </script>
