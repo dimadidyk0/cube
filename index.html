@@ -18,6 +18,7 @@
     <link rel="import" href="components/blocker/blocker-wrapp.component.html">
     <link rel="import" href="components/project-info/project-info.component.html">
     <link rel="import" href="components/test-cases/test-cases.component.html">
+    <link rel="import" href="components/sidebar-wrapp/dropdown-block.component.html">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -59,40 +60,54 @@
                 <div class="sidebar-subheader">Участники спринта</div>
             </sidebar-header>
             <project-info-block title="FRONTEND">
-                <blocker-person name="Александр Анисимов" specialization="CSS"></blocker-person>
-                <blocker-person name="Александр Анисимов" specialization="java"></blocker-person>
-                <blocker-person name="Александр Анисимов" specialization="java"></blocker-person>
-                <blocker-person name="Александр Анисимов" specialization="CSS"></blocker-person>
+                <dropdown-block>
+                    <blocker-person name="Александр Анисимов" specialization="CSS"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="java"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="java"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="CSS"></blocker-person>
+                </dropdown-block>
             </project-info-block>
             <project-info-block title="DESIGNER">
-                <blocker-person name="Александр Анисимов" specialization="artdirector"></blocker-person>
-                <blocker-person name="Александр Анисимов" specialization="junior designer"></blocker-person>
-                <blocker-person name="Александр Анисимов" specialization="3d"></blocker-person>
-                <blocker-person name="Александр Анисимов" specialization="ui"></blocker-person>
+                <dropdown-block>
+                    <blocker-person name="Александр Анисимов" specialization="artdirector"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="junior designer"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="3d"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="ui"></blocker-person>
+                </dropdown-block>
             </project-info-block>
         </sidebar-wrapp>
         <sidebar-wrapp>
             <sidebar-header title="Фильтры">
                 <div class="sidebar-subheader"></div>
             </sidebar-header>
-            <project-info-block title="FRONTEND"></project-info-block>
-            <project-info-block title="LABEL"></project-info-block>
-            <project-info-block title="исполнитель">
-                <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
-                <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
-                <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
-                <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
-                <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
-                <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
-                <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
-                <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
-                <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
-                <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
-                <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
-                <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
+            <project-info-block title="приоритет">
+                <dropdown-block></dropdown-block>
             </project-info-block>
-            <project-info-block title="спринт"></project-info-block>
-            <project-info-block title="автор"></project-info-block>
+            <project-info-block title="LABEL">
+                <dropdown-block></dropdown-block>
+            </project-info-block>
+            <project-info-block title="исполнитель">
+                <dropdown-block>
+                    <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
+                    <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
+                    <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
+                    <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
+                    <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
+                    <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
+                    <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
+                    <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
+                    <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
+                    <blocker-person name="Заболуев Д.Л" specialization="Frontend"></blocker-person>
+                    <blocker-person name="Матвийчук О.С" specialization="designer"></blocker-person>
+                    <blocker-person name="Васильченко С.В" specialization="CSS"></blocker-person>
+                </dropdown-block>
+            </project-info-block>
+            <project-info-block title="спринт">
+                <dropdown-block> </dropdown-block>
+            </project-info-block>
+            <project-info-block title="автор">
+                <dropdown-block></dropdown-block>
+            </project-info-block>
         </sidebar-wrapp>
         <sidebar-wrapp>
             <sidebar-header title="Информация">
@@ -208,14 +223,18 @@
                     <choose-btn title="Добавить"></choose-btn>
                 </blocker-choosen>
                 <project-info-block title="РУКОВОДЯЩИЙ ПЕРСОНАЛ">
-                    <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
-                    <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
-                    <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                    <dropdown-block>
+                        <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                        <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                        <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                    </dropdown-block>
                 </project-info-block>
                 <project-info-block title="FRONTEND">
-                    <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
-                    <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
-                    <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                    <dropdown-block>
+                        <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                        <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                        <blocker-person name="Александр Анисимов" specialization="css"></blocker-person>
+                    </dropdown-block>
                 </project-info-block>
                 <sidebar-select title="Команда">
                     <div class="select-item">Все</div>
@@ -408,5 +427,9 @@
         </navbar-vertical>
     </div>
 </body>
+<<<<<<< HEAD
 
 </html>
+=======
+</html>
+>>>>>>> 08e158888822190db3b815c94ed83b9a6be2357f

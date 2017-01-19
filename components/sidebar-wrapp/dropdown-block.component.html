@@ -1,12 +1,32 @@
-
 <style>
+    dropdown-block {
+/*        display: inline-block;*/
+        width: 100%;
+        position: relative;
+        /*        overflow-y: hidden;*/
+    }
 
+    .dropdown-block__arrow {
+        content: "";
+        display: block;
+        position: absolute;
+        border: 3px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 4px solid #828282;
+        left: -12px;
+        top: -17px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
 </style>
 
 
 <!--Template-->
-<template id="sidebar-header__tmpl">
-
+<template id="dropdown-block__tmpl">
+    <span class="dropdown-block__arrow"></span>
+    <div class="inner-dropdown"></div>
 </template>
 
 
@@ -16,7 +36,7 @@
     var thatDoc = document;
     var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
 
-    var DropdownBlockTemplate = thisDoc.querySelector('#sidebar-header__tmpl');
+    var DropdownBlockTemplate = thisDoc.querySelector('#dropdown-block__tmpl');
     var DropdownBlockTemplateClone = DropdownBlockTemplate.content;
 
     class DropdownBlock extends HTMLElement {
@@ -28,6 +48,34 @@
 
         connectedCallback() {
 
+            var dropdownArrow = this.querySelector('.dropdown-block__arrow');
+            var innerDropdownCollection = this.querySelectorAll('blocker-person');
+
+            for (var i = 0; i < innerDropdownCollection.length; i++) {
+                this.querySelector('.inner-dropdown').appendChild(innerDropdownCollection[i])
+            }
+            this.querySelector('.dropdown-block__arrow').addEventListener("click", () => {
+                if (this.querySelector('.inner-dropdown').style.display == 'none') {
+                    dropdownArrow.style.transform = 'rotate(0)';
+                    dropdownArrow.style.left = '-12px';
+                    dropdownArrow.style.top = '-17px';
+                    this.querySelector('.inner-dropdown').style.display = 'block';
+                } else {
+                    dropdownArrow.style.transform = 'rotate(-90deg)';
+                    dropdownArrow.style.left = '-10px';
+                    dropdownArrow.style.top = '-19px';
+                    this.querySelector('.inner-dropdown').style.display = 'none';
+
+                }
+
+
+            });
+//
+            if(this.querySelector('.inner-dropdown').children.length == 0) {
+                dropdownArrow.style.transform = 'rotate(-90deg)';
+                dropdownArrow.style.left = '-10px';
+                dropdownArrow.style.top = '-19px';
+            }
         }
 
         adoptedCallback() {
@@ -36,5 +84,4 @@
     }
 
     customElements.define('dropdown-block', DropdownBlock);
-
 </script>
