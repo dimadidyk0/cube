@@ -19,6 +19,7 @@
     <link rel="import" href="components/project-info/project-info.component.html">
     <link rel="import" href="components/test-cases/test-cases.component.html">
     <link rel="import" href="components/sidebar-wrapp/dropdown-block.component.html">
+    <link rel="import" href="components/step-status/step-status.component.html">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -461,7 +462,19 @@
             <navbar-vertical-item title="зрители"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
+
+    </div>
+    <div class="container">
+        <sidebar-wrapp>
+            <sidebar-header title="Шаги теста">
+                <div class="sidebar-subheader">Сохранение проекта созданного через камеру</div>
+            </sidebar-header>
+            <step-status title="Шаг 1" description="Старт работы с приложением" status="pass"></step-status>
+            <step-status title="Шаг 2" description="Нажатие на кнопку" status="failed"></step-status>
+            <step-status title="Шаг 3" description="Добавление меток" status="blocked"></step-status>
+            <step-status title="Шаг 4" description="Результат" status="blocked"></step-status>
+        </sidebar-wrapp>
     </div>
 </body>
-</html>
 
+</html>

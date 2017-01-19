@@ -1,0 +1,100 @@
+<!--Style CSS-->
+<style>
+    step-status {
+        height: 65px;
+        border-bottom: 1px dotted #DDDDDD;
+        padding-top: 10px;
+        position: relative;
+    }
+    
+    .step-status__info {
+        display: inline-block;
+        width: 190px;
+    }
+    
+    .step-status__header {
+        font: 13px/24px globerbold;
+    }
+    
+    .step-status__status {
+        text-transform: uppercase;
+        color: white;
+        font: 10px globerbold;
+        display: inline-block;
+        text-align: center;
+        width: 75px;
+        position: absolute;
+        height: 18px;
+        padding: 5px 0 0 0;
+        margin: 0px 0 0 0;
+        top: 13px;
+        right: 0;
+    }
+    
+    .step-status__description {
+        font: 13px/24px globerregular;
+    }
+    
+    .step-status__status-blocked {
+        background-color: #6A93A7;
+    }
+    
+    .step-status__status-pass {
+        background-color: #12C31A;
+    }
+    
+    .step-status__status-failed {
+        background-color: #D0021B;
+    }
+</style>
+
+
+<!--Template-->
+<template id="step-status__tmpl">
+    <div class="step-status__info">
+        <h3 class="step-status__header">
+            
+        </h3>
+        <p class="step-status__description">
+            
+        </p>
+    </div>
+    <div class="step-status__status">
+
+    </div>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var StepStatusTemplate = thisDoc.querySelector('#step-status__tmpl');
+
+    class StepStatus extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(StepStatusTemplate.content.cloneNode(true));
+            this.querySelector('.step-status__header').innerHTML = this.getAttribute('title');
+            this.querySelector('.step-status__description').innerHTML = this.getAttribute('description');
+            this.querySelector('.step-status__status').innerHTML = this.getAttribute('status');
+            var status = this.getAttribute("status");
+            if (status) {
+                this.querySelector('.step-status__status').classList.add("step-status__status-" + status)
+            }
+        }
+
+        connectedCallback() {
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('step-status', StepStatus);
+</script>
