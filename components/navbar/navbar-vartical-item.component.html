@@ -28,7 +28,7 @@
         cursor: pointer;
     }
 
-    [enable] {
+    navbar-vertical-item[enable]>.navbar-vertical__item {
         color: #68C0FF;
         cursor: pointer;
     }
@@ -66,6 +66,7 @@
                 this.removeAttribute('enable')
             }
         }
+
         constructor() {
             super()
             this.appendChild(NavbarVerticalItemTemplate.content.cloneNode(true));
@@ -74,6 +75,20 @@
         connectedCallback() {
             this.querySelector('.navbar-vertical__item').innerHTML = this.getAttribute('title');
             var SidebarHeaderCollect = thatDoc.querySelectorAll('sidebar-header');
+
+            if (this.enable) {
+            } else {
+                for (var i = 0; i < SidebarHeaderCollect.length; i++) {
+
+                    if (this.textContent.toLowerCase().trim() == SidebarHeaderCollect[i].querySelector('h3').textContent.toLowerCase().trim()) {
+                        if (SidebarHeaderCollect[i].parentElement.style.display == 'none') {
+                            SidebarHeaderCollect[i].parentElement.style.display = 'block';
+                        } else {
+                            SidebarHeaderCollect[i].parentElement.style.display = 'none';
+                        }
+                    }
+                }
+            }
 
             this.addEventListener("click", () => {
 
