@@ -1,0 +1,206 @@
+
+<!--Атрибуты компонента:
+    name=" имя "
+    done
+    withtest
+    doing
+    todo
+    waiting
+    bug
+    progressdone=" число "
+-->
+
+<!--Style CSS -->
+<style>
+    feature-card-footer {
+        height: 23px;
+        width: 100%;
+        border-top: 1px solid #F4F4F4;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        align-items: center;
+    }
+
+    .feature-card--footer__name {
+        font: 11px 'globerregular';
+        color: #676767;
+        padding-left: 10px;
+        margin-right: auto;
+    }
+
+    .card--footer__status {
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        justify-content: center;
+        width: 54px;
+        height: 12px;
+        background-color: #eee;
+        margin-right: 10px;
+        color: #fff;
+        font: 10px 'globerbold';
+        padding-top: 2px;
+        text-transform: uppercase;
+    }
+    .card--footer__progressbar {
+        display: inline-block;
+        width: 54px;
+        background-color: #CA4545;
+        height: 3px;
+        margin-right: 10px;
+    }
+    .card--footer__progress {
+        height: 100%;
+        width: 0;
+        background-color: #32C732;
+    }
+
+</style>
+
+
+<!--Template-->
+<template id="feature-card--footer__tmpl">
+    <span class="feature-card--footer__name"></span>
+    <div class="card--footer__progressbar">
+        <div class="card--footer__progress"></div>
+    </div>
+    <div class="card--footer__status"></div>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var FeatureCardFooterTemplate = thisDoc.querySelector('#feature-card--footer__tmpl');
+    var FeatureCardFooterTemplateClone = FeatureCardFooterTemplate.content;
+
+    class FeatureCardFooter extends HTMLElement {
+
+        static get observedAttributes() {
+            return ['done', 'doing', 'todo', 'waiting', 'bug', 'withtest'];
+        }
+
+        get done() {
+            return this.hasAttribute('done');
+        }
+
+
+        get doing() {
+            return this.hasAttribute('doing');
+        }
+        set doing(val) {
+            if(val) {
+                this.setAttribute('doing', '')
+            } else {
+                this.removeAttribute('doing')
+            }
+        }
+
+        get todo() {
+            return this.hasAttribute('todo');
+        }
+        set todo(val) {
+            if(val) {
+                this.setAttribute('todo', '')
+            } else {
+                this.removeAttribute('todo')
+            }
+        }
+
+        get waiting() {
+            return this.hasAttribute('waiting');
+        }
+        set waiting(val) {
+            if(val) {
+                this.setAttribute('waiting', '')
+            } else {
+                this.removeAttribute('waiting')
+            }
+        }
+
+        get bug() {
+            return this.hasAttribute('bug');
+        }
+        set bug(val) {
+            if(val) {
+                this.setAttribute('bug', '')
+            } else {
+                this.removeAttribute('bug')
+            }
+        }
+
+        get withtest() {
+            return this.hasAttribute('withtest');
+        }
+        set withtest(val) {
+            if(val) {
+                this.setAttribute('withtest', '')
+            } else {
+                this.removeAttribute('withtest')
+            }
+        }
+
+        constructor() {
+            super()
+            this.appendChild(FeatureCardFooterTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            var statusButton = this.querySelector('.card--footer__status');
+            var progressBar = this.querySelector('.card--footer__progressbar');
+
+            if (this.done) {
+                statusButton.style.backgroundColor = '#18A818';
+                statusButton.innerHTML = 'DONE';
+                progressBar.style.display = 'inline-block';
+            } else {
+                progressBar.style.display = 'none';
+            }
+
+            if (this.doing) {
+                if (this.bug) {
+                    statusButton.style.backgroundColor = '#D90000';
+                } else {
+                    statusButton.style.backgroundColor = '#154B85';
+                }
+                statusButton.innerHTML = 'doing';
+
+                if (this.withtest) {
+                    progressBar.style.backgroundColor = '#E0E0E0';
+                }
+            }
+
+            if (this.todo) {
+                if (this.bug) {
+                    statusButton.style.backgroundColor = '#D90000';
+                } else {
+                    statusButton.style.backgroundColor = '#FCDE12';
+                }
+                statusButton.innerHTML = 'to do';
+            }
+
+            if (this.waiting) {
+                statusButton.style.backgroundColor = '#DBDBDB';
+                statusButton.innerHTML = 'waiting';
+            }
+
+            this.querySelector('.feature-card--footer__name').innerHTML = this.getAttribute('name');
+            this.querySelector('.card--footer__progress').style.width = this.getAttribute('progressdone') + '%';
+            //            var innerInputText = this.querySelector('.feature-card-description');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('feature-card-footer', FeatureCardFooter);
+</script>

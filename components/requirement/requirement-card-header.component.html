@@ -1,10 +1,9 @@
 <!--Style CSS -->
 <style>
     requirement-card-header {
-        height: 25px;
+        height: 23px;
         border-bottom: 1px solid #F4F4F4;
-        width: 100%; 
-/*        display: inline-block;*/
+        width: 100%;
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
@@ -12,33 +11,60 @@
         display: flex;
         -ms-align-items: center;
         align-items: center;
-        justify-content: space-between ;
     }
-    .requirement-card--header__name {
-        color: #808080;
-        text-transform: uppercase;
-        font: 13px 'globersemibold';
-        padding-left: 10px;
+    .requirement-card--header__title {
+        font: 10px 'globerbold';
+        margin-left: 6px;
+        padding-top: 4px;
     }
     .requirement-card--header__star {
-/*        float: right;*/
-        margin-right: 7px;
-/*        margin-top: 7px;*/
-        height: 10.8px;
-        width: 11.36px;
-        background-image: url(requirement-img/Star.png);
+        display: inline-block;
+        height: 10px;
+        width: 11px;
+        background-image: url(cards-img/Star.png);
+        background-position: center center;
         -webkit-background-size: cover;
         background-size: cover;
-        background-position: center center;
-        display: inline-block;
+        margin-left: 5px;
+    }
+    .requirement-card--header__name {
+        font: 11px 'globerregular';
+        color: #676767;
+        margin-left: auto;
+        margin-right: 10px;
+        padding-top: 2px;
+    }
+    .requirement-card--header__bracket--left {
+         height: 13px;
+        width: 3px;
+        border-left: 1px solid #DCDCDC;
+        border-top: 1px solid #DCDCDC;
+        border-bottom: 1px solid #DCDCDC;
+    }
+    .requirement-card--header__bracket--right {
+        height: 13px;
+        width: 3px;
+        border-right: 1px solid #DCDCDC;
+        border-top: 1px solid #DCDCDC;
+        border-bottom: 1px solid #DCDCDC;
+        margin-right: 10px;
+    }
+    .requirement-card--header__number {
+        font: 10px 'globerbold';
+        padding-top: 4px;
+        min-width: 10px;
     }
 </style>
 
 
 <!--Template-->
 <template id="requirement-card--header__tmpl">
-    <span class="requirement-card--header__name"></span>
+    <div class="requirement-card--header__title"></div>
     <span class="requirement-card--header__star"></span>
+    <div class="requirement-card--header__name"></div>
+    <div class="requirement-card--header__bracket--left"></div>
+    <div class="requirement-card--header__number"></div>
+    <div class="requirement-card--header__bracket--right"></div>
 </template>
 
 
@@ -50,7 +76,7 @@
     var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
 
     var RequirementCardHeaderTemplate = thisDoc.querySelector('#requirement-card--header__tmpl');
-    var RequirementCardHeaderTemplateClone = RequirementCardHeaderTemplate.content;
+    var RequirementCardFeatureHeaderTemplateClone = RequirementCardHeaderTemplate.content;
 
     class RequirementCardHeader extends HTMLElement {
 
@@ -60,8 +86,10 @@
         }
 
         connectedCallback() {
-            this.querySelector('.requirement-card--header__name').innerHTML = this.getAttribute('title');
-            var innerInputText = this.querySelector('.requirement-card-description');
+            this.querySelector('.requirement-card--header__title').innerHTML = this.getAttribute('title');
+            this.querySelector('.requirement-card--header__name').innerHTML = this.getAttribute('name');
+            this.querySelector('.requirement-card--header__number').innerHTML = this.getAttribute('number');
+
         }
 
         adoptedCallback() {

@@ -1,12 +1,12 @@
-<link rel="import" href="requirement-card-header.component.html">
-<link rel="import" href="requirement-card-footer.component.html">
+<link rel="import" href="feature-card-header.component.html">
+<link rel="import" href="feature-card-footer.component.html">
 <link rel="import" href="card-text.component.html">
 <!--Style CSS -->
 <style>
-    requirement-card {
+    feature-card {
         width: 100%;
         border: 1px solid #E8E8E8;
-        border-left: 2px solid #84E2E7;
+        border-left: 2px solid #FF2D55;
         margin-top: 25px;
         display: -webkit-flex;
         display: -moz-flex;
@@ -23,7 +23,7 @@
 
 
 <!--Template-->
-<template id="requirement-card__tmpl">
+<template id="feature-card__tmpl">
 
 </template>
 
@@ -35,14 +35,14 @@
     var thatDoc = document;
     var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
 
-    var RequirementCardTemplate = thisDoc.querySelector('#requirement-card__tmpl');
-    var RequirementCardTemplateClone = RequirementCardTemplate.content;
+    var FeatureCardTemplate = thisDoc.querySelector('#feature-card__tmpl');
+    var FeatureCardTemplateClone = FeatureCardTemplate.content;
 
-    class RequirementCard extends HTMLElement {
+    class FeatureCard extends HTMLElement {
 
         constructor() {
             super()
-            this.appendChild(RequirementCardTemplate.content.cloneNode(true));
+            this.appendChild(FeatureCardTemplate.content.cloneNode(true));
         }
 
         connectedCallback() {
@@ -54,6 +54,6 @@
         }
     }
 
-    customElements.define('requirement-card', RequirementCard);
+    customElements.define('feature-card', FeatureCard);
 
 </script>

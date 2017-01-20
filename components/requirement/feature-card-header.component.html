@@ -1,0 +1,164 @@
+<!--Style CSS -->
+<style>
+    feature-card-header {
+        height: 23px;
+        border-bottom: 1px solid #F4F4F4;
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -ms-align-items: center;
+        align-items: center;
+    }
+    .feature-card--header__name {
+        color: #000;
+        width: 65px;
+        height: 100%;
+        border-right: 1px solid #DCDCDC;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        -ms-align-items: center;
+        align-items: center;
+        justify-content: center;
+        font: 10px 'globersemibold';
+        text-transform: uppercase;
+        padding-top: 2px;
+    }
+    .feature-card--header__text {
+        font: 11px 'globerregular';
+        color: #676767;
+        padding-left: 4px;
+    }
+    .card--header__time {
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        min-width: 106px;
+        height: 100%;
+        margin-right: 12px;
+        margin-left: auto;
+        -ms-align-items: center;
+        align-items: center;
+    }
+    .card--header__input-functions {
+        height: 15px;
+        min-width: 20px;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+        font: 10px 'globerbold';
+        padding-top: 4px;
+        border: 1px solid #E0E0E0;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .card-header__empty-up {
+        display: inline-block;
+        height: 15px;
+        width: 13px;
+        border-top: 1px solid #E0E0E0;
+    }
+    .card-header__empty-down {
+        display: inline-block;
+        height: 15px;
+        width: 13px;
+        border-bottom: 1px solid #E0E0E0;
+    }
+    .card--header__full-time {
+        height: 15px;
+        min-width: 40px;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+        font: 10px 'globerbold';
+        padding-top: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+        border: 1px solid #E0E0E0;
+    }
+    .card--header__output-functions {
+        height: 15px;
+        min-width: 20px;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+        font: 10px 'globerbold';
+        padding-top: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+        border: 1px solid #E0E0E0;
+        color: #D90000;
+    }
+</style>
+
+
+<!--Template-->
+<template id="feature-card--header__tmpl">
+    <span class="feature-card--header__name"></span>
+    <span class="feature-card--header__text"></span>
+    <div class="card--header__time">
+        <div class="card--header__input-functions"></div>
+        <div class="card-header__empty-up"></div>
+        <div class="card--header__full-time"></div>
+        <div class="card-header__empty-down"></div>
+        <div class="card--header__output-functions"></div>
+    </div>
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var FeatureCardHeaderTemplate = thisDoc.querySelector('#feature-card--header__tmpl');
+    var FeatureCardFeatureHeaderTemplateClone = FeatureCardHeaderTemplate.content;
+
+    class FeatureCardHeader extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(FeatureCardHeaderTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.feature-card--header__name').innerHTML = this.getAttribute('title');
+            this.querySelector('.feature-card--header__text').innerHTML = this.getAttribute('text');
+            this.querySelector('.card--header__input-functions').innerHTML = this.getAttribute('input');
+            this.querySelector('.card--header__full-time').innerHTML = this.getAttribute('time');
+            this.querySelector('.card--header__output-functions').innerHTML = this.getAttribute('output');
+            var innerInputText = this.querySelector('.feature-card-description');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('feature-card-header', FeatureCardHeader);
+
+</script>

@@ -8,6 +8,7 @@
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="components/sidebar-wrapp/sidebar-wrapp.component.html">
     <link rel="import" href="components/create-test/create-test.component.html">
+    <link rel="import" href="components/requirement/feature-card.component.html">
     <link rel="import" href="components/requirement/requirement-card.component.html">
     <link rel="import" href="components/requirement/choose-btn.component.html">
     <link rel="import" href="components/test-steps/info-message.component.html">
@@ -274,9 +275,49 @@
             <sidebar-header title="Связанные требования" subtitle="Выберите требования из таблицы">
                 <choose-btn title="Выбрать"></choose-btn>
             </sidebar-header>
-            <requirement-card></requirement-card>
-            <requirement-card></requirement-card>
-            <requirement-card></requirement-card>
+            <feature-card>
+                <feature-card-header title="F.JVHB.0001" text="Mixed" input="20" time="10д 6ч" output="10"></feature-card-header>
+                <card-text  title="Система управления сайтом">
+                    <div class="requirement-card-description">При помощи системы управления сайтом (ITCMS) структура и состав разделов сайта в дальнейшем могут быть изменены и дополнены.</div>
+                </card-text>
+                <feature-card-footer name="Васильченко С.В" doing bug></feature-card-footer>
+            </feature-card>
+            <feature-card>
+                <feature-card-header title="F.JVHB.0001" text="Mixed" input="20" time="10д 6ч" output="10"></feature-card-header>
+                <card-text  title="Система управления сайтом">
+                    <div class="requirement-card-description">При помощи системы управления сайтом (ITCMS) структура и состав разделов сайта в дальнейшем могут быть изменены и дополнены.</div>
+                </card-text>
+                <feature-card-footer name="Васильченко С.В" done progressdone="30" withtest></feature-card-footer>
+            </feature-card>
+            <feature-card>
+                <feature-card-header title="F.JVHB.0001" text="Mixed" input="20" time="10д 6ч" output="10"></feature-card-header>
+                <card-text  title="Система управления сайтом">
+                    <div class="requirement-card-description">При помощи системы управления сайтом (ITCMS) структура и состав разделов сайта в дальнейшем могут быть изменены и дополнены.</div>
+                </card-text>
+                <feature-card-footer name="Васильченко С.В" todo></feature-card-footer>
+            </feature-card>
+            <feature-card>
+                <feature-card-header title="F.JVHB.0001" text="Mixed" input="20" time="10д 6ч" output="10"></feature-card-header>
+                <card-text  title="Система управления сайтом">
+                    <div class="requirement-card-description"></div>
+<!--                    TEST-->
+                </card-text>
+                <feature-card-footer name="Васильченко С.В" waiting></feature-card-footer>
+            </feature-card>
+            <requirement-card>
+                <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                <card-text  title="Личный кабинет пользователя">
+                    <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                </card-text>
+                <requirement-card-footer date="22.10.16" input="20" time="10д 6ч" output="10"></requirement-card-footer>
+            </requirement-card>
+            <requirement-card>
+                <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                <card-text  title="Личный кабинет пользователя">
+                    <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                </card-text>
+                <requirement-card-footer date="22.10.16" ></requirement-card-footer>
+            </requirement-card>
         </sidebar-wrapp>
 
         <navbar-vertical>
