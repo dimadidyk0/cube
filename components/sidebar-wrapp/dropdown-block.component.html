@@ -1,11 +1,11 @@
 <style>
     dropdown-block {
-/*        display: inline-block;*/
+        /*        display: inline-block;*/
         width: 100%;
         position: relative;
         /*        overflow-y: hidden;*/
     }
-
+    
     .dropdown-block__arrow {
         content: "";
         display: block;
@@ -20,6 +20,7 @@
         cursor: pointer;
         transition: all 0.2s;
     }
+    
     .inner-dropdown {
         overflow: hidden;
     }
@@ -51,7 +52,7 @@
             return this.hasAttribute('dropped');
         }
         set dropped(val) {
-            if(val) {
+            if (val) {
                 this.setAttribute('dropped', '')
             } else {
                 this.removeAttribute('dropped')
@@ -101,7 +102,7 @@
                 }
             });
 
-            if(this.querySelector('.inner-dropdown').children.length == 0) {
+            if (this.querySelector('.inner-dropdown').children.length == 0) {
                 dropdownArrow.style.transform = 'rotate(-90deg)';
                 dropdownArrow.style.left = '-10px';
                 dropdownArrow.style.top = '-19px';
