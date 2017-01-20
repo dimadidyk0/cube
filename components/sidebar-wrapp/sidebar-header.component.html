@@ -45,11 +45,7 @@
 
         connectedCallback() {
             this.querySelector('.sidebar__header').innerHTML = this.getAttribute('title');
-            var innerInputText = this.querySelector('.sidebar-subheader');
-            this.sidebarContent = this.querySelector('.sidebar__subheader');
-            this.sidebarContent.innerHTML = innerInputText.innerHTML;
-            innerInputText.innerHTML = '';
-
+            this.querySelector('.sidebar__subheader').innerHTML = this.getAttribute('subtitle');
         }
 
         adoptedCallback() {

@@ -40,27 +40,22 @@
         <navbar-vertical>
             <navbar-vertical-item title="меню"></navbar-vertical-item>
             <navbar-vertical-item enable title="Информация"></navbar-vertical-item>
-            <navbar-vertical-item enable title="фильтры"></navbar-vertical-item>
+            <navbar-vertical-item title="фильтры"></navbar-vertical-item>
             <navbar-vertical-item title="участники"></navbar-vertical-item>
-            <navbar-vertical-item title="шаги теста"></navbar-vertical-item>
+            <navbar-vertical-item enable title="шаги теста"></navbar-vertical-item>
         </navbar-vertical>
 
         <sidebar-wrapp>
-            <sidebar-header title="Меню">
-                <div class="sidebar-subheader"></div>
-            </sidebar-header>
-
+            <sidebar-header title="Меню"></sidebar-header>
             <sidebar-nav-link title="перейти к UX"></sidebar-nav-link>
             <sidebar-nav-link title="перейти к UI"></sidebar-nav-link>
             <sidebar-nav-link title="показать user story"></sidebar-nav-link>
             <sidebar-nav-link title="применить мастер страницы"></sidebar-nav-link>
         </sidebar-wrapp>
         <sidebar-wrapp>
-            <sidebar-header title="Участники">
-                <div class="sidebar-subheader">Участники спринта</div>
-            </sidebar-header>
+            <sidebar-header title="Участники" subtitle="Участники спринта"></sidebar-header>
             <project-info-block title="FRONTEND">
-                <dropdown-block dropped>
+                <dropdown-block dropped >
                     <blocker-person name="Александр Анисимов" specialization="CSS" img="components/project-info/img/test.png"></blocker-person>
                     <blocker-person name="Александр Анисимов" specialization="java" img="components/project-info/img/test.png"></blocker-person>
                     <blocker-person name="Александр Анисимов" specialization="java" img="components/project-info/img/test.png"></blocker-person>
@@ -77,9 +72,7 @@
             </project-info-block>
         </sidebar-wrapp>
         <sidebar-wrapp>
-            <sidebar-header title="Фильтры">
-                <div class="sidebar-subheader"></div>
-            </sidebar-header>
+            <sidebar-header title="Фильтры"></sidebar-header>
             <project-info-block title="приоритет">
                 <dropdown-block></dropdown-block>
             </project-info-block>
@@ -110,8 +103,7 @@
             </project-info-block>
         </sidebar-wrapp>
         <sidebar-wrapp>
-            <sidebar-header title="Информация">
-                <div class="sidebar-subheader">Заполните поля </div>
+            <sidebar-header title="Информация" subtitle="Заполните поля">
                 <choose-btn title="Сохранить"></choose-btn>
             </sidebar-header>
             <sidebar-textinput title="Summary*" placeholder="Запись проекта через камеру "></sidebar-textinput>
@@ -176,8 +168,7 @@
         </sidebar-wrapp>
 
         <sidebar-wrapp>
-            <sidebar-header title="Шаги теста">
-                <div class="sidebar-subheader">Добавьте шаги и заполните поля</div>
+            <sidebar-header title="Шаги теста" subtitle="Добавьте шаги и заполните поля">
                 <choose-btn title="Добавить"></choose-btn>
             </sidebar-header>
             <step-dragndrop draggable="true" title="Старт работы с приложением"></step-dragndrop>
@@ -188,19 +179,9 @@
                 <div class="info-message__text">Вы можете установить последовательность перетакскивая шаги</div>
             </info-message>
         </sidebar-wrapp>
-        <sidebar-wrapp>
-            <sidebar-header title="Шаги теста">
-                <div class="sidebar-subheader">Сохранение проекта созданного через камеру</div>
-            </sidebar-header>
-            <step-status title="Шаг 1" description="Старт работы с приложением" status="pass"></step-status>
-            <step-status title="Шаг 2" description="Нажатие на кнопку" status="failed"></step-status>
-            <step-status title="Шаг 3" description="Добавление меток" status="blocked"></step-status>
-            <step-status title="Шаг 4" description="Результат" status="to do"></step-status>
-        </sidebar-wrapp>
 
         <create-test>
-            <step-header title="Шаг 1">
-                <div class="step-header-subheader">Создание тест кейса</div>
+            <step-header title="Шаг 1" subtitle="Создание тест кейса">
                 <step-save-btn></step-save-btn>
             </step-header>
             <step-content>
@@ -218,8 +199,7 @@
         </create-test>
 
         <sidebar-wrapp>
-            <sidebar-header title="Блокеры">
-                <div class="sidebar-subheader">Укажите зависимость</div>
+            <sidebar-header title="Блокеры" subtitle="Укажите зависимость">
                 <choose-btn title="Выбрать"></choose-btn>
             </sidebar-header>
             <project-info-block title="функциональные"></project-info-block>
@@ -235,7 +215,7 @@
                     </dropdown-block>
                 </project-info-block>
                 <project-info-block title="FRONTEND">
-                    <dropdown-block>
+                    <dropdown-block dropped>
                         <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
                         <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
                         <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
@@ -250,8 +230,7 @@
 
 
         <sidebar-wrapp>
-            <sidebar-header title="Тест кейсы">
-                <div class="sidebar-subheader">Группы тест кейсов </div>
+            <sidebar-header title="Тест кейсы" subtitle="Группы тест кейсов">
             </sidebar-header>
             <project-info-block title="функциональные"></project-info-block>
             <create-project-info-block title="Создание одного проекта">
@@ -289,8 +268,7 @@
             </create-project-info-block>
         </sidebar-wrapp>
         <sidebar-wrapp>
-            <sidebar-header title="Связанные требования">
-                <div class="sidebar-subheader">Выберите требования из таблицы</div>
+            <sidebar-header title="Связанные требования" subtitle="Выберите требования из таблицы">
                 <choose-btn title="Выбрать"></choose-btn>
             </sidebar-header>
             <requirement-card></requirement-card>
@@ -318,19 +296,20 @@
         </navbar-search-input>
         <navbar-horizontal-project title="VVR"></navbar-horizontal-project>
     </navbar-horizontal>
+
     <div class="container">
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
             <navbar-vertical-item title="доступно"></navbar-vertical-item>
-            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
-            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
+            <navbar-vertical-item enable title="шаги теста"></navbar-vertical-item>
+<!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
+<!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
             <navbar-vertical-item title="зрители"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
 
         <sidebar-wrapp>
-            <sidebar-header title="VVR-2">
-                <div class="sidebar-subheader">Сохранение созданного проекта через камеру</div>
+            <sidebar-header title="VVR-2" subtitle="Сохранение созданного проекта через камеру">
             </sidebar-header>
             <project-info-block title="Основаня информация">
                 <project-info-item round="disc" title="Тип" value="Ручной" img="components/project-info/img/test.png"></project-info-item>
@@ -355,9 +334,13 @@
                 Сохранение проекта созданного через камеру
             </project-info-block>
         </sidebar-wrapp>
+
+        <sidebar-wrapp>
+            <sidebar-header title="Шаги теста" subtitle="Добавьте шаги и заполните поля"></sidebar-header>
+        </sidebar-wrapp>
+
         <create-test>
-            <step-header title="Шаг 2">
-                <div class="step-header-subheader">Создание тест кейса</div>
+            <step-header title="Шаг 2" subtitle="Создание тест кейса">
                 <step-save-btn></step-save-btn>
             </step-header>
             <step-content>
@@ -365,9 +348,7 @@
             </step-content>
         </create-test>
         <sidebar-wrapp>
-            <sidebar-header title="Report bug">
-                <div class="sidebar-subheader">Укажите зависимость</div>
-            </sidebar-header>
+            <sidebar-header title="Report bug" subtitle="Укажите зависимость"></sidebar-header>
             <sidebar-textinput title="Summary*" placeholder="Исправить"></sidebar-textinput>
             <sidebar-select title="Приоритет">
                 <p class="select-item">Средний</p>
@@ -382,10 +363,8 @@
             <sidebar-textarea title="Описание*" height="82"></sidebar-textarea>
             <sidebar-textarea title="Дефект*" height="82"></sidebar-textarea>
         </sidebar-wrapp>
-        <sidebar-wrapp header="TEST">
-            <sidebar-header title="Данные теста">
-                <div class="sidebar-subheader">Укажите зависимость</div>
-            </sidebar-header>
+        <sidebar-wrapp>
+            <sidebar-header title="Данные теста" subtitle="Укажите зависимость"></sidebar-header>
             <sidebar-text>
                 Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML,
                 как правило, предлагают схожие подходы к работе с требованиями.
@@ -393,11 +372,10 @@
         </sidebar-wrapp>
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
-            <navbar-vertical-item title="доступно"></navbar-vertical-item>
-            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
-            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
-            <navbar-vertical-item title="зрители"></navbar-vertical-item>
+<!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
+            <navbar-vertical-item enable  title="данные теста"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
+            <navbar-vertical-item enable  title="report bug"></navbar-vertical-item>
         </navbar-vertical>
     </div>
     <navbar-horizontal>
@@ -414,27 +392,13 @@
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
             <navbar-vertical-item title="доступно"></navbar-vertical-item>
-            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
-            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
+<!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
+<!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
             <navbar-vertical-item title="зрители"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
-        <!--<sidebar-wrapp>
-            <sidebar-header title="Шаги теста">
-                <div class="sidebar-subheader">Добавьте шаги и заполните поля</div>
-                <choose-btn title="Добавить"></choose-btn>
-            </sidebar-header>
-            <step-dragndrop draggable="true" title="Старт работы с приложением"></step-dragndrop>
-            <step-dragndrop draggable="true" title="Нажатие на кнопку"></step-dragndrop>
-            <step-dragndrop draggable="true" title="Добавление меток"></step-dragndrop>
-            <step-dragndrop draggable="true" title="Результат"></step-dragndrop>
-            <info-message>
-                <div class="info-message__text">Вы можете установить последовательность перетакскивая шаги</div>
-            </info-message>
-        </sidebar-wrapp>-->
         <create-test>
-            <step-header title="Тест кейсы">
-                <div class="step-header-subheader">Группы</div>
+            <step-header title="Тест кейсы" subtitle="Группы">
                 <choose-btn title="Создать тест кейс"></choose-btn>
                 <choose-btn title="Создать новую группу"></choose-btn>
             </step-header>
@@ -446,19 +410,35 @@
                 </project-case-table>
             </project-case>
         </create-test>
+
         <sidebar-wrapp>
-            <sidebar-header title="Связанные требования">
-                <div class="sidebar-subheader">Выберите требования из таблицы</div>
-                <choose-btn title="Выбрать"></choose-btn>
-            </sidebar-header>
-            <requirement-card></requirement-card>
-            <requirement-card></requirement-card>
-            <requirement-card></requirement-card>
+            <sidebar-header title="VVR-2" subtitle="Сохранение созданного проекта через камеру"></sidebar-header>
+            <project-info-block title="Основаня информация">
+                <project-info-item round="disc" title="Тип" value="Ручной" img="components/project-info/img/test.png"></project-info-item>
+                <project-info-item round="round" title="Версия" value="Итерация 1"></project-info-item>
+                <project-info-item title="Folder" value="Создание одного проекта"></project-info-item>
+                <project-info-item title="Приоритет" value="Средний"></project-info-item>
+                <project-info-item title="Фиксированная величина" value="0.4"></project-info-item>
+                <project-info-item title="Компонент" value="camera sreen"></project-info-item>
+                <project-info-item title="Label" value="Mobile, Camera"></project-info-item>
+                <project-info-item title="Browser" value="Any browser"></project-info-item>
+                <project-info-item title="OS" value="Any OS"></project-info-item>
+                <project-info-item title="Дата завершения" value="2015-05-10"></project-info-item>
+                <project-info-item title="Запланированное время" value="00:10:00"></project-info-item>
+            </project-info-block>
+            <project-info-block title="Руководящий персонал">
+                <project-info-item title="Subsystem" value="Frontend: Admin" img="components/project-info/img/test.png"></project-info-item>
+                <project-info-item title="Ответственнй" value="Валентин Никитин" img="components/project-info/img/test.png"></project-info-item>
+                <project-info-item title="Проверяющий" value="Alexey Volkov"></project-info-item>
+                <project-info-item title="Утверждающий" value="Алексей Рижков"></project-info-item>
+            </project-info-block>
+            <project-info-block title="Описание">
+                Сохранение проекта созданного через камеру
+            </project-info-block>
         </sidebar-wrapp>
+
         <sidebar-wrapp>
-            <sidebar-header title="История прохождения">
-                <div class="sidebar-subheader">Cохранение проекта созданного через камеру</div>
-            </sidebar-header>
+            <sidebar-header title="История прохождения" subtitle="Cохранение проекта созданного через камеру"></sidebar-header>
             <project-info-block>
                 <project-info-item title="Дата проведения" value="2015-05-10"></project-info-item>
                 <project-info-item title="Статус" value="blocked"></project-info-item>
@@ -475,12 +455,20 @@
                 </sidebar-text>
             </project-info-block>
         </sidebar-wrapp>
+
+        <sidebar-wrapp>
+            <sidebar-header title="Шаги теста" subtitle="Сохранение проекта созданного через камеру"></sidebar-header>
+            <step-status title="Шаг 1" description="Старт работы с приложением" status="pass"></step-status>
+            <step-status title="Шаг 2" description="Нажатие на кнопку" status="failed"></step-status>
+            <step-status title="Шаг 3" description="Добавление меток" status="blocked"></step-status>
+            <step-status title="Шаг 4" description="Результат" status="to do"></step-status>
+        </sidebar-wrapp>
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
             <navbar-vertical-item title="доступно"></navbar-vertical-item>
-            <navbar-vertical-item title="блокеры"></navbar-vertical-item>
-            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>
-            <navbar-vertical-item title="зрители"></navbar-vertical-item>
+<!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
+            <navbar-vertical-item enable title="шаги теста"></navbar-vertical-item>
+            <navbar-vertical-item enable title="история прохождения"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
 

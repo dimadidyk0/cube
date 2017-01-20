@@ -49,10 +49,7 @@
 
         connectedCallback() {
             this.querySelector('.step-header__header').innerHTML = this.getAttribute('title');
-            var innerInputText = this.querySelector('.step-header-subheader');
-            this.sidebarContent = this.querySelector('.step-header__subheader');
-            this.sidebarContent.innerHTML = innerInputText.innerHTML;
-            innerInputText.innerHTML = '';
+            this.querySelector('.step-header__subheader').innerHTML = this.getAttribute('subtitle');
 
         }
 
