@@ -20,6 +20,7 @@
     <link rel="import" href="components/test-cases/test-cases.component.html">
     <link rel="import" href="components/sidebar-wrapp/dropdown-block.component.html">
     <link rel="import" href="components/step-status/step-status.component.html">
+    <link rel="import" href="components/blocker/blocker-recomended-btn.component.html">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -55,7 +56,7 @@
         <sidebar-wrapp>
             <sidebar-header title="Участники" subtitle="Участники спринта"></sidebar-header>
             <project-info-block title="FRONTEND">
-                <dropdown-block dropped >
+                <dropdown-block dropped>
                     <blocker-person name="Александр Анисимов" specialization="CSS" img="components/project-info/img/test.png"></blocker-person>
                     <blocker-person name="Александр Анисимов" specialization="java" img="components/project-info/img/test.png"></blocker-person>
                     <blocker-person name="Александр Анисимов" specialization="java" img="components/project-info/img/test.png"></blocker-person>
@@ -203,28 +204,30 @@
                 <choose-btn title="Выбрать"></choose-btn>
             </sidebar-header>
             <project-info-block title="функциональные"></project-info-block>
+            <create-project-info-block title="Создание одного проекта"></create-project-info-block>
+            <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+            <test-cases-project-item title="VVR-2" description="Создание проекта через камеру"></test-cases-project-item>
+            <test-cases-project-item title="VVR-3" description="Создание проекта через галерею"></test-cases-project-item>
+            <test-cases-project-item title="VVR-4" description="Создание проекта через iCloud"></test-cases-project-item>
+            <test-cases-project-item title="VVR-22" description="Поделиться неполным проектом через"></test-cases-project-item>
+            <project-info-block title="АВТОМАТИЧЕСКИЕ "></project-info-block>
+            <create-project-info-block title="Создание одного проекта"></create-project-info-block>
+            <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+            <test-cases-project-item title="VVR-2" description="Создание проекта через камеру"></test-cases-project-item>
+            <test-cases-project-item title="VVR-3" description="Создание проекта через галерею"></test-cases-project-item>
+            <test-cases-project-item title="VVR-4" description="Создание проекта через iCloud"></test-cases-project-item>
             <blocker-wrapp>
-                <blocker-choosen number="5">
+                <blocker-choosen number="0">
                     <choose-btn title="Добавить"></choose-btn>
                 </blocker-choosen>
-                <project-info-block title="РУКОВОДЯЩИЙ ПЕРСОНАЛ">
-                    <dropdown-block>
-                        <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
-                        <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
-                        <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
-                    </dropdown-block>
-                </project-info-block>
-                <project-info-block title="FRONTEND">
+                <project-info-block title="функциональные"></project-info-block>
+                <create-project-info-block title="Создание одного проекта">
                     <dropdown-block dropped>
-                        <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
-                        <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
-                        <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
+                        <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
+                        <test-cases-project-item title="VVR-15" description="Создание проекта через iCloud"></test-cases-project-item>
                     </dropdown-block>
-                </project-info-block>
-                <sidebar-select title="Команда">
-                    <div class="select-item">Все</div>
-                    <div class="select-item">Все2</div>
-                </sidebar-select>
+                </create-project-info-block>
+                <blocker-recomended-btn title="РЕКОМЕНДУЕМЫЕ"></blocker-recomended-btn>
             </blocker-wrapp>
         </sidebar-wrapp>
 
@@ -234,7 +237,7 @@
             </sidebar-header>
             <project-info-block title="функциональные"></project-info-block>
             <create-project-info-block title="Создание одного проекта">
-                <dropdown-block>
+                <dropdown-block dropped>
                     <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
                     <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
                     <test-cases-project-item title="VVR-15" description="Создание проекта iCloud"></test-cases-project-item>
@@ -259,7 +262,7 @@
                 </dropdown-block>
             </create-project-info-block>
             <create-project-info-block title="Создание одного проекта">
-                <dropdown-block>
+                <dropdown-block dropped >
                     <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
                     <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
                     <test-cases-project-item title="VVR-15" description="Создание проекта iCloud"></test-cases-project-item>
@@ -278,7 +281,7 @@
 
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
-            <navbar-vertical-item title="доступно"></navbar-vertical-item>
+<!--            <navbar-vertical-item title="доступ но"></navbar-vertical-item>-->
             <navbar-vertical-item enable title="блокеры"></navbar-vertical-item>
             <navbar-vertical-item enable title="связанные требования"></navbar-vertical-item>
             <navbar-vertical-item title="тест кейсы"></navbar-vertical-item>
@@ -302,11 +305,45 @@
             <navbar-vertical-item title="проект"></navbar-vertical-item>
             <navbar-vertical-item title="доступно"></navbar-vertical-item>
             <navbar-vertical-item enable title="шаги теста"></navbar-vertical-item>
-<!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
-<!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
+            <!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
+            <!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
             <navbar-vertical-item title="зрители"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
+
+        <sidebar-wrapp>
+            <sidebar-header title="Доступно" subtitle="Добавьте шаги и заполните поля"></sidebar-header>
+            <project-info-block title="РУКОВОДЯЩИЙ ПЕРСОНАЛ">
+                <dropdown-block dropped>
+                    <blocker-person name="Александр Анисимов" specialization="CSS" img="components/project-info/img/test.png"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="CSS" img="components/project-info/img/test.png"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="CSS" img="components/project-info/img/test.png"></blocker-person>
+                </dropdown-block>
+            </project-info-block>
+            <project-info-block title="frontend">
+                <dropdown-block dropped>
+                    <blocker-person name="Александр Анисимов" specialization="CSS" img="components/project-info/img/test.png"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="CSS" img="components/project-info/img/test.png"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="CSS" img="components/project-info/img/test.png"></blocker-person>
+                </dropdown-block>
+            </project-info-block>
+            <blocker-wrapp>
+            <blocker-choosen number="5">
+                <choose-btn title="Добавить"></choose-btn>
+            </blocker-choosen>
+            <project-info-block title="РУКОВОДЯЩИЙ ПЕРСОНАЛ">
+                <dropdown-block>
+                    <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
+                    <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
+                </dropdown-block>
+            </project-info-block>
+            <sidebar-select title="Команда">
+                <div class="select-item">Все</div>
+                <div class="select-item">Все2</div>
+            </sidebar-select>
+            </blocker-wrapp>
+        </sidebar-wrapp>
 
         <sidebar-wrapp>
             <sidebar-header title="VVR-2" subtitle="Сохранение созданного проекта через камеру">
@@ -366,16 +403,15 @@
         <sidebar-wrapp>
             <sidebar-header title="Данные теста" subtitle="Укажите зависимость"></sidebar-header>
             <sidebar-text>
-                Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML,
-                как правило, предлагают схожие подходы к работе с требованиями.
+                Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML, как правило, предлагают схожие подходы к работе с требованиями.
             </sidebar-text>
         </sidebar-wrapp>
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
-<!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
-            <navbar-vertical-item enable  title="данные теста"></navbar-vertical-item>
+            <!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
+            <navbar-vertical-item enable title="данные теста"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
-            <navbar-vertical-item enable  title="report bug"></navbar-vertical-item>
+            <navbar-vertical-item enable title="report bug"></navbar-vertical-item>
         </navbar-vertical>
     </div>
     <navbar-horizontal>
@@ -391,9 +427,9 @@
     <div class="container">
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
-            <navbar-vertical-item title="доступно"></navbar-vertical-item>
-<!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
-<!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
+<!--            <navbar-vertical-item title="доступно"></navbar-vertical-item>-->
+            <!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
+            <!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
             <navbar-vertical-item title="зрители"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
@@ -465,8 +501,8 @@
         </sidebar-wrapp>
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
-            <navbar-vertical-item title="доступно"></navbar-vertical-item>
-<!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
+<!--            <navbar-vertical-item title="доступно"></navbar-vertical-item>-->
+            <!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
             <navbar-vertical-item enable title="шаги теста"></navbar-vertical-item>
             <navbar-vertical-item enable title="история прохождения"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>

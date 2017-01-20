@@ -1,0 +1,58 @@
+<style>
+    blocker-recomended-btn {
+        width: 100%;
+        height: 30px;
+/*        display: inline-block;*/
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        align-items: center;
+        font: 13px 'globersemibold';
+        color: #373737;
+        background-color: rgba(0, 133, 190, 0.18);
+        cursor: pointer;
+        margin-top: 34px;
+    }
+    .blocker-recomended-btn {
+        margin: auto;
+    }
+</style>
+
+
+<template id="blocker-recomended-btn__tmpl">
+    <div class="blocker-recomended-btn"></div>
+</template>
+
+
+<script>
+
+    "use script";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var RecomendedButtonTemplate = thisDoc.querySelector('#blocker-recomended-btn__tmpl');
+
+    class RecomendedButton extends HTMLElement {
+
+        constructor() {
+            super();
+            this.appendChild(RecomendedButtonTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.addEventListener("click", () => {
+                alert('RecomendButton');
+            });
+            this.querySelector('.blocker-recomended-btn').innerHTML = this.getAttribute('title');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('blocker-recomended-btn', RecomendedButton);
+
+</script>
