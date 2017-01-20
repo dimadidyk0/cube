@@ -9,15 +9,15 @@
         cursor: pointer;
     }
     
-    .tree-item__parent .tree-item__arrow:before {
+    .tree-item__parent .tree-item__arrow {
         position: absolute;
-        content: "";
         border-bottom: 4px solid transparent;
         border-left: 3px solid transparent;
         border-right: 3px solid transparent;
         border-top: 4px solid black;
         top: 7px;
         left: -12px;
+        transition: all 0.2s;
     }
     
     .tree-item__level-1 {
@@ -67,18 +67,6 @@
             if (nestingLevel) {
                 if (nestingLevel <= 3) {
                     this.querySelector('.tree-item__row').classList.add("tree-item__level-" + nestingLevel);
-
-
-                    var treeItemCollection = this.querySelectorAll('tree-item');
-
-                    this.addEventListener("click", () => {
-
-                        // treeItemCollection.style.display = 'none';
-                        console.log("s");
-
-                    });
-
-
                 } else {
                     this.querySelector('.tree-item__row').classList.add("tree-item__level-3");
                 }
@@ -90,8 +78,35 @@
             this.querySelector('.tree-item__name').innerHTML = this.getAttribute('title');
             this.querySelector('.tree-item__description').innerHTML = this.getAttribute('description');
             if (this.childNodes.length > 3) {
-                console.log(this.childNodes.length);
                 this.querySelector('.tree-item__row').classList.add("tree-item__parent");
+                var treeItemCollection = this.querySelectorAll('tree-item');
+                this.querySelector('.tree-item__row').addEventListener("click", () => {
+                    var a = this.querySelector('.tree-item__arrow');
+                    if (this.querySelector('.tree-item__arrow').style.transform == 'rotate(-90deg)') {
+                        a.style.transform = 'rotate(0)';
+                        a.style.left = '-12px';
+                        a.style.top = '7px';
+
+                        console.log(treeItemCollection.length);
+
+                        for (var i = 0; i < treeItemCollection.length; i++) {
+                            this.getElementsByTagName("tree-item")[i].style.display = "block";
+                        }
+                    } else {
+                        a.style.transform = 'rotate(-90deg)';
+                        a.style.left = '-10px';
+                        a.style.top = '5px';
+                        for (var i = 0; i < treeItemCollection.length; i++) {
+                            this.getElementsByTagName("tree-item")[i].style.display = "none";
+                        }
+                    }
+
+
+                    // treeItemCollection.style.display = 'none';
+                    console.log(treeItemCollection);
+
+
+                });
             }
 
         }
