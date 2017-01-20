@@ -262,7 +262,7 @@
                 </dropdown-block>
             </create-project-info-block>
             <create-project-info-block title="Создание одного проекта">
-                <dropdown-block dropped >
+                <dropdown-block dropped>
                     <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
                     <test-cases-project-item title="VVR-1" description="Создание проекта через камеру"></test-cases-project-item>
                     <test-cases-project-item title="VVR-15" description="Создание проекта iCloud"></test-cases-project-item>
@@ -281,7 +281,7 @@
 
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
-<!--            <navbar-vertical-item title="доступ но"></navbar-vertical-item>-->
+            <!--            <navbar-vertical-item title="доступ но"></navbar-vertical-item>-->
             <navbar-vertical-item enable title="блокеры"></navbar-vertical-item>
             <navbar-vertical-item enable title="связанные требования"></navbar-vertical-item>
             <navbar-vertical-item title="тест кейсы"></navbar-vertical-item>
@@ -328,20 +328,20 @@
                 </dropdown-block>
             </project-info-block>
             <blocker-wrapp>
-            <blocker-choosen number="5">
-                <choose-btn title="Добавить"></choose-btn>
-            </blocker-choosen>
-            <project-info-block title="РУКОВОДЯЩИЙ ПЕРСОНАЛ">
-                <dropdown-block>
-                    <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
-                    <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
-                    <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
-                </dropdown-block>
-            </project-info-block>
-            <sidebar-select title="Команда">
-                <div class="select-item">Все</div>
-                <div class="select-item">Все2</div>
-            </sidebar-select>
+                <blocker-choosen number="5">
+                    <choose-btn title="Добавить"></choose-btn>
+                </blocker-choosen>
+                <project-info-block title="РУКОВОДЯЩИЙ ПЕРСОНАЛ">
+                    <dropdown-block>
+                        <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
+                        <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
+                        <blocker-person name="Александр Анисимов" specialization="css" img="components/project-info/img/test.png"></blocker-person>
+                    </dropdown-block>
+                </project-info-block>
+                <sidebar-select title="Команда">
+                    <div class="select-item">Все</div>
+                    <div class="select-item">Все2</div>
+                </sidebar-select>
             </blocker-wrapp>
         </sidebar-wrapp>
 
@@ -403,7 +403,8 @@
         <sidebar-wrapp>
             <sidebar-header title="Данные теста" subtitle="Укажите зависимость"></sidebar-header>
             <sidebar-text>
-                Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML, как правило, предлагают схожие подходы к работе с требованиями.
+                Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML,
+                как правило, предлагают схожие подходы к работе с требованиями.
             </sidebar-text>
         </sidebar-wrapp>
         <navbar-vertical>
@@ -427,7 +428,7 @@
     <div class="container">
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
-<!--            <navbar-vertical-item title="доступно"></navbar-vertical-item>-->
+            <!--            <navbar-vertical-item title="доступно"></navbar-vertical-item>-->
             <!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
             <!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
             <navbar-vertical-item title="зрители"></navbar-vertical-item>
@@ -501,19 +502,23 @@
         </sidebar-wrapp>
         <sidebar-wrapp>
             <sidebar-header title="Требования" subtitle="Дерево требований к проекту "></sidebar-header>
-            <create-project-info-block title="1 Software Development">
-                <dropdown-block dropped>
-                    <test-cases-project-item title="1.1" description="Define preminely resources">
-                    </test-cases-project-item>
-                    <test-cases-project-item title="1.1" description="Define preminely resources"></test-cases-project-item>
-                    <test-cases-project-item title="1.1" description="Define preminely resources"></test-cases-project-item>
-                    <test-cases-project-item title="1.1" description="Define preminely resources"></test-cases-project-item>
-                </dropdown-block>
-            </create-project-info-block>
+            <tree-item title="1.1.1" description="Define preminely resources" level="1">
+                <tree-item title="1.1.1" description="Define preminely resources" level="2"></tree-item>
+                <tree-item title="1.1.1" description="Define preminely resources" level="2"></tree-item>
+                <tree-item title="1.1.1" description="Define preminely resources" level="2">
+                    <tree-item title="1.1.1" description="Define preminely resources" level="3"></tree-item>
+                    <tree-item title="1.1.1" description="Define preminely resources" level="3"></tree-item>
+                    <tree-item title="1.1.1" description="Define preminely resources" level="3"></tree-item>
+                </tree-item>
+            </tree-item>
+            <tree-item title="1.1.1" description="Define preminely resources" level="1">
+                <tree-item title="1.1.1" description="Define preminely resources" level="3"></tree-item>
+            </tree-item>
+            <tree-item title="1.1.1" description="Define preminely resources" level="1"></tree-item>
         </sidebar-wrapp>
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
-<!--            <navbar-vertical-item title="доступно"></navbar-vertical-item>-->
+            <!--            <navbar-vertical-item title="доступно"></navbar-vertical-item>-->
             <!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
             <navbar-vertical-item enable title="шаги теста"></navbar-vertical-item>
             <navbar-vertical-item enable title="история прохождения"></navbar-vertical-item>

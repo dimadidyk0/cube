@@ -1,17 +1,18 @@
 <!--Style CSS-->
 <style>
     test-cases-project-item {
-/*        display: inline-block;*/
+        /*        display: inline-block;*/
         width: 100%;
-display: -webkit-inline-flex;
-display: -moz-inline-flex;
-display: -ms-inline-flex;
-display: -o-inline-flex;
-display: inline-flex;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
         font: 13px 'globerregular';
         height: 25px;
         line-height: 25px;
     }
+    
     .create-test__project-name {
         margin-right: 5px;
         display: inline-block;
@@ -20,6 +21,7 @@ display: inline-flex;
         white-space: nowrap;
         text-overflow: ellipsis;
     }
+    
     .create-test__project-description {
         display: inline-block;
         overflow: hidden;
@@ -53,6 +55,7 @@ display: inline-flex;
         }
 
         connectedCallback() {
+
             this.querySelector('.create-test__project-name').innerHTML = this.getAttribute('title');
             this.querySelector('.create-test__project-description').innerHTML = this.getAttribute('description');
         }
@@ -63,5 +66,4 @@ display: inline-flex;
     }
 
     customElements.define('test-cases-project-item', TestCasesProjectItem);
-
 </script>
