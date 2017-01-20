@@ -1,3 +1,13 @@
+<!--Атрибуты компонента:
+title=" project? "
+technology=" text "
+input=" number of input features "
+time=" amount of time "
+output=" number of output features "
+detailed     - детализиовано и связано
+blocked      - есть блокер в дочерних фичах
+influence=" high or medium"
+-->
 <!--Style CSS -->
 <style>
     feature-card-header {
@@ -47,7 +57,7 @@
         -ms-align-items: center;
         align-items: center;
     }
-    .card--header__input-functions {
+    .card--header__input-features {
         height: 15px;
         min-width: 20px;
         display: -webkit-inline-flex;
@@ -63,6 +73,8 @@
         border: 1px solid #E0E0E0;
         padding-left: 4px;
         padding-right: 4px;
+        color: #c6c6c6;
+        position: relative;
     }
     .card-header__empty-up {
         display: inline-block;
@@ -92,8 +104,9 @@
         padding-left: 4px;
         padding-right: 4px;
         border: 1px solid #E0E0E0;
+        color: #c6c6c6;
     }
-    .card--header__output-functions {
+    .card--header__output-features {
         height: 15px;
         min-width: 20px;
         display: -webkit-inline-flex;
@@ -109,8 +122,17 @@
         padding-left: 4px;
         padding-right: 4px;
         border: 1px solid #E0E0E0;
-        color: #D90000;
+        color: #c6c6c6;
     }
+    .fill {
+        display: inline-block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: red;
+        z-index: 10;
+    }
+
 </style>
 
 
@@ -119,11 +141,13 @@
     <span class="feature-card--header__name"></span>
     <span class="feature-card--header__text"></span>
     <div class="card--header__time">
-        <div class="card--header__input-functions"></div>
+        <div class="card--header__input-features"></div>
         <div class="card-header__empty-up"></div>
         <div class="card--header__full-time"></div>
         <div class="card-header__empty-down"></div>
-        <div class="card--header__output-functions"></div>
+        <div class="card--header__output-features">
+
+        </div>
     </div>
 </template>
 
@@ -140,18 +164,62 @@
 
     class FeatureCardHeader extends HTMLElement {
 
+        static get observedAttributes() {
+            return ['detailed', 'blocked'];
+        }
+
+        get detailed() {
+            return this.hasAttribute('detailed');
+        }
+
+        get blocked() {
+            return this.hasAttribute('blocked');
+        }
+
+
         constructor() {
             super()
             this.appendChild(FeatureCardHeaderTemplate.content.cloneNode(true));
         }
 
         connectedCallback() {
+
             this.querySelector('.feature-card--header__name').innerHTML = this.getAttribute('title');
-            this.querySelector('.feature-card--header__text').innerHTML = this.getAttribute('text');
-            this.querySelector('.card--header__input-functions').innerHTML = this.getAttribute('input');
+            this.querySelector('.feature-card--header__text').innerHTML = this.getAttribute('technology');
+            this.querySelector('.card--header__input-features').innerHTML = this.getAttribute('input');
             this.querySelector('.card--header__full-time').innerHTML = this.getAttribute('time');
-            this.querySelector('.card--header__output-functions').innerHTML = this.getAttribute('output');
+            this.querySelector('.card--header__output-features').innerHTML = this.getAttribute('output');
             var innerInputText = this.querySelector('.feature-card-description');
+            var inputFeatures = this.querySelector('.card--header__input-features');
+            var fullTime = this.querySelector('.card--header__full-time');
+            var outputFeatures = this.querySelector('.card--header__output-features');
+            var influenceFeatures = this.getAttribute('influence');
+
+            if ((this.getAttribute('output') == '') || (this.hasAttribute('output') == false)) {
+                outputFeatures.innerHTML = '-';
+            }
+
+            if (this.detailed) {
+                fullTime.style.color = '#000';
+                inputFeatures.style.color = '#000';
+                if (this.blocked) {
+                    fullTime.style.borderColor = '#D90000';
+                }
+                switch (influenceFeatures.trim()) {
+                    case 'high':
+                        outputFeatures.style.color = '#D90000';
+                        break;
+                    case 'medium':
+                        outputFeatures.style.color = 'orange';
+                        break;
+                    case '':
+                        outputFeatures.style.color = '#000';
+                        break;
+                }
+//                console.log(influenceFeatures.trim());
+//                console.log(this.hasAttribute('output'));
+
+            }
         }
 
         adoptedCallback() {

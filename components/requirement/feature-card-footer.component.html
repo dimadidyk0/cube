@@ -6,8 +6,11 @@
     doing
     todo
     waiting
-    bug
+    blocked      - блокер по моей задаче
     progressdone=" число "
+    tests=" количество тестов "
+    teststart    - тесты запущены
+    testpass=" количество пройденных тестов  "
 -->
 
 <!--Style CSS -->
@@ -84,69 +87,85 @@
 
     class FeatureCardFooter extends HTMLElement {
 
-        static get observedAttributes() {
-            return ['done', 'doing', 'todo', 'waiting', 'bug', 'withtest'];
-        }
+//        static get observedAttributes() {
+//            return ['done', 'doing', 'todo', 'waiting', 'blocked', 'withtest', 'teststart'];
+//        }
 
         get done() {
             return this.hasAttribute('done');
         }
-
+//        set done(val) {
+//            if(val) {
+//                this.setAttribute('done', '')
+//            } else {
+//                this.removeAttribute('done')
+//            }
+//        }
 
         get doing() {
             return this.hasAttribute('doing');
         }
-        set doing(val) {
-            if(val) {
-                this.setAttribute('doing', '')
-            } else {
-                this.removeAttribute('doing')
-            }
-        }
+//        set doing(val) {
+//            if(val) {
+//                this.setAttribute('doing', '')
+//            } else {
+//                this.removeAttribute('doing')
+//            }
+//        }
 
         get todo() {
             return this.hasAttribute('todo');
         }
-        set todo(val) {
-            if(val) {
-                this.setAttribute('todo', '')
-            } else {
-                this.removeAttribute('todo')
-            }
-        }
+//        set todo(val) {
+//            if(val) {
+//                this.setAttribute('todo', '')
+//            } else {
+//                this.removeAttribute('todo')
+//            }
+//        }
 
         get waiting() {
             return this.hasAttribute('waiting');
         }
-        set waiting(val) {
-            if(val) {
-                this.setAttribute('waiting', '')
-            } else {
-                this.removeAttribute('waiting')
-            }
-        }
+//        set waiting(val) {
+//            if(val) {
+//                this.setAttribute('waiting', '')
+//            } else {
+//                this.removeAttribute('waiting')
+//            }
+//        }
 
-        get bug() {
-            return this.hasAttribute('bug');
+        get blocker() {
+            return this.hasAttribute('blocker');
         }
-        set bug(val) {
-            if(val) {
-                this.setAttribute('bug', '')
-            } else {
-                this.removeAttribute('bug')
-            }
-        }
+//        set blocker(val) {
+//            if(val) {
+//                this.setAttribute('blocker', '')
+//            } else {
+//                this.removeAttribute('blocker')
+//            }
+//        }
 
         get withtest() {
             return this.hasAttribute('withtest');
         }
-        set withtest(val) {
-            if(val) {
-                this.setAttribute('withtest', '')
-            } else {
-                this.removeAttribute('withtest')
-            }
+//        set withtest(val) {
+//            if(val) {
+//                this.setAttribute('withtest', '')
+//            } else {
+//                this.removeAttribute('withtest')
+//            }
+//        }
+        get teststart() {
+            return this.hasAttribute('teststart');
         }
+//        set teststart(val) {
+//            if(val) {
+//                this.setAttribute('teststart', '')
+//            } else {
+//                this.removeAttribute('teststart')
+//            }
+//        }
 
         constructor() {
             super()
@@ -154,19 +173,32 @@
         }
 
         connectedCallback() {
+            console.log(this.attributes);
             var statusButton = this.querySelector('.card--footer__status');
             var progressBar = this.querySelector('.card--footer__progressbar');
+            var testPass = this.getAttribute('testpass');
+            var allTests = this.getAttribute('tests');
+            var progressTests = 100 / (allTests / testPass) + '%';
 
             if (this.done) {
                 statusButton.style.backgroundColor = '#18A818';
                 statusButton.innerHTML = 'DONE';
                 progressBar.style.display = 'inline-block';
+
+                if ((this.getAttribute('tests') == '') || (this.hasAttribute('tests') == false)) {
+                    progressBar.style.width = '3px';
+                    progressBar.style.backgroundColor = '#D90000';
+                } else {
+                    if (this.teststart == false) {
+                        progressBar.style.backgroundColor = '#E0E0E0';
+                    }
+                }
             } else {
                 progressBar.style.display = 'none';
             }
 
             if (this.doing) {
-                if (this.bug) {
+                if (this.blocker) {
                     statusButton.style.backgroundColor = '#D90000';
                 } else {
                     statusButton.style.backgroundColor = '#154B85';
@@ -179,22 +211,24 @@
             }
 
             if (this.todo) {
-                if (this.bug) {
+                if (this.blocker) {
                     statusButton.style.backgroundColor = '#D90000';
                 } else {
                     statusButton.style.backgroundColor = '#FCDE12';
+                    statusButton.style.color = '#000';
                 }
                 statusButton.innerHTML = 'to do';
             }
 
             if (this.waiting) {
                 statusButton.style.backgroundColor = '#DBDBDB';
+                statusButton.style.color = '#000';
                 statusButton.innerHTML = 'waiting';
             }
 
             this.querySelector('.feature-card--footer__name').innerHTML = this.getAttribute('name');
-            this.querySelector('.card--footer__progress').style.width = this.getAttribute('progressdone') + '%';
-            //            var innerInputText = this.querySelector('.feature-card-description');
+            this.querySelector('.card--footer__progress').style.width = progressTests;
+
         }
 
         adoptedCallback() {
