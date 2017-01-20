@@ -1,76 +1,161 @@
+
+<!--Атрибуты компонента:
+name=" имя "
+done
+withtest
+doing
+todo
+waiting
+bug
+progressdone=" число "
+-->
+
 <!--Style CSS -->
 <style>
     requirement-card-footer {
-        height: 27px;
-        width: 100%; 
-        border-top: 1px solid #F4F4F4;
+        height: 23px;
+        width: 100%;
+        border-top : 1px solid #F4F4F4;
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
         display: -o-flex;
         display: flex;
-        padding-left: 15px;
         align-items: center;
     }
-    .requirement-card--footer__more {
-        margin-right: 11px;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
-        display: flex;
-        width: 11px;
-        justify-content: space-between;
+
+    .requirement-card--footer__stone {
+        width: 5px;
+        height: 5px;
+        background-color: green;
+        transform: rotate(45deg);
+        margin-left: 11px;
     }
-    .requirement-card--footer__more--dot {
-        width: 2px;
-        height: 2px;
-        border-radius: 50%;
-        margin-right: 1px;
-        background-color: #000;
-    }
-    .requirement-card--footer__balls {
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
-        display: flex;
-        max-width: 82%;
-    }
-    .requirement-card--footer__ball {
-        display: inline-block;
-        height: 12px;
-        width: 12px;
-        text-align: center;
+    .requirement-card--footer__date {
         font: 10px 'globerbold';
-        border-radius: 50%;
-        background-color: #89b46a;
-        line-height: 15.5px;
-        margin-right: 6px;
+        padding-top: 4px;
+        margin-left: 4px;
+    }
+    .card--footer__time {
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        min-width: 106px;
+        height: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        -ms-align-items: center;
+        align-items: center;
+    }
+    .card--footer__input-functions {
+        height: 15px;
+        min-width: 20px;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+        font: 10px 'globerbold';
+        padding-top: 4px;
+        border: 1px solid #E0E0E0;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .card-footer__empty-up {
+        display: inline-block;
+        height: 15px;
+        width: 13px;
+        border-top: 1px solid #E0E0E0;
+    }
+    .card-footer__empty-down {
+        display: inline-block;
+        height: 15px;
+        width: 13px;
+        border-bottom: 1px solid #E0E0E0;
+    }
+    .card--footer__full-time {
+        height: 15px;
+        min-width: 40px;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+        font: 10px 'globerbold';
+        padding-top: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+        border: 1px solid #E0E0E0;
+    }
+    .card--footer__output-functions {
+        height: 15px;
+        min-width: 20px;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+        font: 10px 'globerbold';
+        padding-top: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+        border: 1px solid #E0E0E0;
+        color: #D90000;
+    }
+    .card--footer__progressbar--wrapp {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 10px;
+        width: 54px;
+        margin-right: 10px;
     }
 </style>
 
 
 <!--Template-->
 <template id="requirement-card--footer__tmpl">
-    <span class="requirement-card--footer__more">
-        <span class="requirement-card--footer__more--dot"></span>
-        <span class="requirement-card--footer__more--dot"></span>
-        <span class="requirement-card--footer__more--dot"></span>
-    </span>
-    <div class="requirement-card--footer__balls">
-        <div class="requirement-card--footer__ball">8</div>
-        <div class="requirement-card--footer__ball">21</div>
-        <div class="requirement-card--footer__ball">21</div>
-        <div class="requirement-card--footer__ball">34</div>
-        <div class="requirement-card--footer__ball">3</div>
+    <div class="requirement-card--footer__stone"></div>
+    <span class="requirement-card--footer__date"></span>
+    <div class="card--footer__time">
+        <div class="card--footer__input-functions"></div>
+        <div class="card-footer__empty-up"></div>
+        <div class="card--footer__full-time"></div>
+        <div class="card-footer__empty-down"></div>
+        <div class="card--footer__output-functions"></div>
+    </div>
+    <div class="card--footer__progressbar--wrapp">
+        <div class="card--footer__progressbar">
+            <div class="card--footer__progress"></div>
+        </div>
+        <div class="card--footer__progressbar">
+            <div class="card--footer__progress"></div>
+        </div>
     </div>
 </template>
 
 
 <!--Script-->
 <script>
-
     "use strict";
     var thatDoc = document;
     var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
@@ -80,14 +165,18 @@
 
     class RequirementCardFooter extends HTMLElement {
 
+
+
         constructor() {
             super()
             this.appendChild(RequirementCardFooterTemplate.content.cloneNode(true));
         }
 
         connectedCallback() {
-//            this.querySelector('.requirement-card--header__name').innerHTML = this.getAttribute('title');
-//            var innerInputText = this.querySelector('.requirement-card-description');
+            this.querySelector('.requirement-card--footer__date').innerHTML = this.getAttribute('date');
+            this.querySelector('.card--footer__input-functions').innerHTML = this.getAttribute('input');
+            this.querySelector('.card--footer__full-time').innerHTML = this.getAttribute('time');
+            this.querySelector('.card--footer__output-functions').innerHTML = this.getAttribute('output');
         }
 
         adoptedCallback() {
@@ -96,5 +185,4 @@
     }
 
     customElements.define('requirement-card-footer', RequirementCardFooter);
-
 </script>
