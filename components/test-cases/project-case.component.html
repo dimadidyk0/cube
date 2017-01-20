@@ -3,19 +3,24 @@
         font-family: globerregular;
         display: block;
         clear: both;
-        line-height: 24px; 
+        line-height: 24px;
+        overflow: hidden;
     }
+    
     .project-case__header {
         display: flex;
         flex-direction: row;
         align-items: center;
         height: 71px;
+        white-space: nowrap;
         padding: 0 20px;
         border-bottom: 1px solid #D4DDE5;
     }
+    
     .project-case__item {
         width: auto;
     }
+    
     .project-case__item--link {
         cursor: pointer;
         background: url(img/arrow.png);
@@ -24,41 +29,48 @@
         background-size: cover;
         margin-top: -6px;
     }
+    
     .project-case__item--name {
         font-size: 16px;
         padding: 0 20px;
     }
+    
     .project-case__propertie {
         padding: 0 20px;
         display: table-cell;
     }
+    
     .project-case__propertie-span1 {
         display: block;
         color: #A9A9A9;
         font-size: 13px;
         text-align: left;
     }
+    
     .project-case__propertie-span1 {
         display: block;
         text-align: left;
     }
+    
     .project-case__item--progress {
         display: flex;
-        flex-direction: row; 
-        margin: 0 auto;       
+        flex-direction: row;
+        margin: 0 auto;
     }
-    .project-case__item--progress div{
+    
+    .project-case__item--progress div {
         min-width: 30px;
-        margin:0 4px;
-        padding-top: 2px; 
+        margin: 0 4px;
+        padding-top: 2px;
     }
+    
     div.project-case__progress-line {
         height: 23px;
         padding: 0;
         width: 170px;
         background-color: #E7E7E7;
     }
-</style>  
+</style>
 <template id="project-case__tmpl">
     <div class="project-case__header">
         <div class="project-case__item project-case__item--link"></div>
@@ -100,14 +112,14 @@
             this.querySelector('.project-case__item--name').innerHTML = this.getAttribute('name');
             var caseProperties = this.getAttribute('properties');
             var caseArr = caseProperties.split(', ');
-            for (var i = 0; i < caseArr.length;  i++) {
+            for (var i = 0; i < caseArr.length; i++) {
                 var caseIncapsulateArr = caseArr[i].split(': ');
                 var element = thatDoc.createElement("div");
                 element.setAttribute('class', 'project-case__propertie');
                 this.querySelector('.project-case__item--properties').appendChild(element);
                 var span1 = thatDoc.createElement("span");
                 span1.innerHTML = caseIncapsulateArr[0];
-                span1.setAttribute('class', 'project-case__propertie-span1');    
+                span1.setAttribute('class', 'project-case__propertie-span1');
                 var span2 = thatDoc.createElement("span");
                 span2.setAttribute('class', 'project-case__propertie-span2');
                 span2.innerHTML = caseIncapsulateArr[1];
@@ -120,12 +132,10 @@
 
         }
 
-        
 
-        adoptedCallback() {
-        }
+
+        adoptedCallback() {}
     }
 
     customElements.define('project-case', ProjectCase);
-
 </script>

@@ -1,0 +1,75 @@
+<!--Style CSS-->
+<style>
+    .string-element__content {
+        height: 30px;
+        margin: 0 -20px;
+        padding: 0 20px;
+        font: 13px/32px globerregular;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 318px;
+        border: 1px solid transparent;
+        height: 30px;
+    }
+    
+    .string-element__content-failed {
+        background-color: #F9DEE2;
+    }
+    
+    .string-element__content-failed:hover {
+        border: 1px solid #FFA4A4
+    }
+    
+    .string-element__content-pass {
+        background-color: #DAF5DA;
+    }
+    
+    .string-element__content-blocked {
+        background-color: #C8D7DF;
+    }
+</style>
+
+
+<!--Template-->
+<template id="string-element__tmpl">
+    <div class="string-element__content"></div>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var StringElementTemplate = thisDoc.querySelector('#string-element__tmpl');
+
+    String.prototype.trimAll = function() {
+        var r = /\s+/g;
+        return this.replace(r, '');
+    }
+
+    class StringElement extends HTMLElement {
+
+
+        constructor() {
+            super()
+            this.appendChild(StringElementTemplate.content.cloneNode(true));
+
+        }
+
+        connectedCallback() {
+            this.querySelector(".string-element__content").innerHTML = this.getAttribute("content");
+            if (this.getAttribute("status")) {
+                this.querySelector(".string-element__content").classList.add("string-element__content-" + this.getAttribute("status").trimAll());
+            }
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('string-element', StringElement);
+</script>
