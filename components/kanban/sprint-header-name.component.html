@@ -1,0 +1,69 @@
+
+<!-- Style CSS-->
+<style>
+
+    sprint-name {
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+        height: 100%;
+        margin-right: 83px;
+    }
+    .sprint-name__subheader {
+        font: 13px 'globerregular';
+        line-height: 24px;
+        margin-top: 12px;
+    }
+    .sprint-name__header {
+        font: 30.97px 'globerregular';
+        line-height: 24px;
+        margin-top: 9px;
+    }
+</style>
+
+
+
+<!--Template-->
+<template id="sprint-name__tmpl">
+    <p class="sprint-name__subheader"></p>
+    <h3 class="sprint-name__header"></h3>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var SprintNameTemplate = thisDoc.querySelector('#sprint-name__tmpl');
+    var SprintNameTemplateClone = SprintNameTemplate.content;
+
+    class SprintName extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(SprintNameTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.sprint-name__header').innerHTML = this.getAttribute('title');
+            this.querySelector('.sprint-name__subheader').innerHTML = this.getAttribute('subtitle');
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('sprint-name', SprintName);
+
+</script>

@@ -1,13 +1,17 @@
 
 <!--Атрибуты компонента:
-name=" имя "
-done
-withtest
-doing
-todo
-waiting
-bug
-progressdone=" число "
+    approved    - майлстоун утвержден
+    risk        - есть риски
+    date=" date "
+    input="20"
+    time="10д 6ч"
+    output="9"
+    influence="high"
+    accepttests="30"
+    functests="10"
+    accepttestpass="21"
+    teststart
+    functestpass=" кол-во пройденных функциональных "
 -->
 
 <!--Style CSS -->
@@ -27,7 +31,7 @@ progressdone=" число "
     .requirement-card--footer__stone {
         width: 5px;
         height: 5px;
-        background-color: green;
+        background-color: #C7C7C7;
         transform: rotate(45deg);
         margin-left: 11px;
     }
@@ -49,7 +53,7 @@ progressdone=" число "
         -ms-align-items: center;
         align-items: center;
     }
-    .card--footer__input-functions {
+    .card--footer__input-requirement {
         height: 15px;
         min-width: 20px;
         display: -webkit-inline-flex;
@@ -65,6 +69,7 @@ progressdone=" число "
         border: 1px solid #E0E0E0;
         padding-left: 4px;
         padding-right: 4px;
+        color: #c6c6c6;
     }
     .card-footer__empty-up {
         display: inline-block;
@@ -94,8 +99,9 @@ progressdone=" число "
         padding-left: 4px;
         padding-right: 4px;
         border: 1px solid #E0E0E0;
+        color: #c6c6c6;
     }
-    .card--footer__output-functions {
+    .card--footer__output-requirement {
         height: 15px;
         min-width: 20px;
         display: -webkit-inline-flex;
@@ -111,7 +117,7 @@ progressdone=" число "
         padding-left: 4px;
         padding-right: 4px;
         border: 1px solid #E0E0E0;
-        color: #D90000;
+        color: #c6c6c6;
     }
     .card--footer__progressbar--wrapp {
         display: -webkit-flex;
@@ -125,9 +131,27 @@ progressdone=" число "
         -o-flex-direction: column;
         flex-direction: column;
         justify-content: space-between;
+        align-items: flex-end;
         height: 10px;
-        width: 54px;
         margin-right: 10px;
+    }
+    .card--footer__progressbar--functional,
+    .card--footer__progressbar--acceptance {
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        width: 54px;
+        background-color: #CA4545;
+        height: 3px;
+        margin-right: 10px;
+    }
+    .card--footer__progress--functional,
+    .card--footer__progress--acceptance{
+        height: 100%;
+        width: 0;
+        background-color: #32C732;
     }
 </style>
 
@@ -137,18 +161,18 @@ progressdone=" число "
     <div class="requirement-card--footer__stone"></div>
     <span class="requirement-card--footer__date"></span>
     <div class="card--footer__time">
-        <div class="card--footer__input-functions"></div>
+        <div class="card--footer__input-requirement"></div>
         <div class="card-footer__empty-up"></div>
         <div class="card--footer__full-time"></div>
         <div class="card-footer__empty-down"></div>
-        <div class="card--footer__output-functions"></div>
+        <div class="card--footer__output-requirement"></div>
     </div>
     <div class="card--footer__progressbar--wrapp">
-        <div class="card--footer__progressbar">
-            <div class="card--footer__progress"></div>
+        <div class="card--footer__progressbar--acceptance">
+            <div class="card--footer__progress--acceptance"></div>
         </div>
-        <div class="card--footer__progressbar">
-            <div class="card--footer__progress"></div>
+        <div class="card--footer__progressbar--functional">
+            <div class="card--footer__progress--functional"></div>
         </div>
     </div>
 </template>
@@ -165,7 +189,22 @@ progressdone=" число "
 
     class RequirementCardFooter extends HTMLElement {
 
+        get approved() {
+            return this.hasAttribute('approved');
+        }
+        get risk() {
+            return this.hasAttribute('risk');
+        }
+        get detailed() {
+            return this.hasAttribute('detailed');
+        }
 
+        get blocked() {
+            return this.hasAttribute('blocked');
+        }
+        get teststart() {
+            return this.hasAttribute('teststart');
+        }
 
         constructor() {
             super()
@@ -174,10 +213,79 @@ progressdone=" число "
 
         connectedCallback() {
             this.querySelector('.requirement-card--footer__date').innerHTML = this.getAttribute('date');
-            this.querySelector('.card--footer__input-functions').innerHTML = this.getAttribute('input');
+            this.querySelector('.card--footer__input-requirement').innerHTML = this.getAttribute('input');
             this.querySelector('.card--footer__full-time').innerHTML = this.getAttribute('time');
-            this.querySelector('.card--footer__output-functions').innerHTML = this.getAttribute('output');
+            this.querySelector('.card--footer__output-requirement').innerHTML = this.getAttribute('output');
+
+            var stone = this.querySelector('.requirement-card--footer__stone');
+            var inputRequirement = this.querySelector('.card--footer__input-requirement');
+            var fullTime = this.querySelector('.card--footer__full-time');
+            var outputRequirement = this.querySelector('.card--footer__output-requirement');
+            var influenceRequirement = this.getAttribute('influence');
+            var progressBarFunctional = this.querySelector('.card--footer__progressbar--functional');
+            var progressBarAcceptance = this.querySelector('.card--footer__progressbar--acceptance');
+            var testPassFunctional = this.getAttribute('functestpass');
+            var allTestsFunctional = this.getAttribute('functests');
+            var progressTestsFunctional = 100 / (allTestsFunctional / testPassFunctional) + '%';
+            var testPassAcceptance = this.getAttribute('accepttestpass');
+            var allTestsAcceptance = this.getAttribute('accepttests');
+            var progressTestsAcceptance = 100 / (allTestsAcceptance / testPassAcceptance) + '%';
+
+            if(this.approved) {
+                stone.style.backgroundColor = '#32C732';
+            }
+            if (this.risk) {
+                stone.style.backgroundColor = '#D90000';
+            }
+
+            if ((this.getAttribute('output') == '') || (this.hasAttribute('output') == false)) {
+                outputRequirement.innerHTML = '-';
+            }
+
+            if (this.detailed) {
+                fullTime.style.color = '#000';
+                inputRequirement.style.color = '#000';
+                if (this.blocked) {
+                    fullTime.style.borderColor = '#D90000';
+                }
+                switch (influenceRequirement.trim()) {
+                    case 'high':
+                        outputRequirement.style.color = '#D90000';
+                        break;
+                    case 'medium':
+                        outputRequirement.style.color = 'orange';
+                        break;
+                    case '':
+                        outputRequirement.style.color = '#000';
+                        break;
+                }
+            }
+
+            if ((this.getAttribute('functests') == '') || (this.hasAttribute('functests') == false)) {
+                progressBarFunctional.style.width = '3px';
+                progressBarFunctional.style.backgroundColor = '#D90000';
+            } else {
+                if (this.teststart == false) {
+                    progressBarFunctional.style.backgroundColor = '#E0E0E0';
+                    this.querySelector('.card--footer__progress--functional').style.backgroundColor = 'transparent';
+                }
+            }
+            if ((this.getAttribute('accepttests') == '') || (this.hasAttribute('accepttests') == false)) {
+                progressBarAcceptance.style.width = '3px';
+                progressBarAcceptance.style.backgroundColor = '#D90000';
+            } else {
+                if (this.teststart == false) {
+                    progressBarAcceptance.style.backgroundColor = '#E0E0E0';
+                    this.querySelector('.card--footer__progress--acceptance').style.backgroundColor = 'transparent';
+                }
+            }
+
+
+            this.querySelector('.card--footer__progress--functional').style.width = progressTestsFunctional;
+            this.querySelector('.card--footer__progress--acceptance').style.width = progressTestsAcceptance;
+
         }
+
 
         adoptedCallback() {
 

@@ -2,12 +2,10 @@
 <!--Атрибуты компонента:
     name=" имя "
     done
-    withtest
     doing
     todo
     waiting
     blocked      - блокер по моей задаче
-    progressdone=" число "
     tests=" количество тестов "
     teststart    - тесты запущены
     testpass=" количество пройденных тестов  "
@@ -94,78 +92,26 @@
         get done() {
             return this.hasAttribute('done');
         }
-//        set done(val) {
-//            if(val) {
-//                this.setAttribute('done', '')
-//            } else {
-//                this.removeAttribute('done')
-//            }
-//        }
 
         get doing() {
             return this.hasAttribute('doing');
         }
-//        set doing(val) {
-//            if(val) {
-//                this.setAttribute('doing', '')
-//            } else {
-//                this.removeAttribute('doing')
-//            }
-//        }
 
         get todo() {
             return this.hasAttribute('todo');
         }
-//        set todo(val) {
-//            if(val) {
-//                this.setAttribute('todo', '')
-//            } else {
-//                this.removeAttribute('todo')
-//            }
-//        }
 
         get waiting() {
             return this.hasAttribute('waiting');
         }
-//        set waiting(val) {
-//            if(val) {
-//                this.setAttribute('waiting', '')
-//            } else {
-//                this.removeAttribute('waiting')
-//            }
-//        }
 
         get blocker() {
             return this.hasAttribute('blocker');
         }
-//        set blocker(val) {
-//            if(val) {
-//                this.setAttribute('blocker', '')
-//            } else {
-//                this.removeAttribute('blocker')
-//            }
-//        }
 
-        get withtest() {
-            return this.hasAttribute('withtest');
-        }
-//        set withtest(val) {
-//            if(val) {
-//                this.setAttribute('withtest', '')
-//            } else {
-//                this.removeAttribute('withtest')
-//            }
-//        }
         get teststart() {
             return this.hasAttribute('teststart');
         }
-//        set teststart(val) {
-//            if(val) {
-//                this.setAttribute('teststart', '')
-//            } else {
-//                this.removeAttribute('teststart')
-//            }
-//        }
 
         constructor() {
             super()
@@ -173,7 +119,6 @@
         }
 
         connectedCallback() {
-            console.log(this.attributes);
             var statusButton = this.querySelector('.card--footer__status');
             var progressBar = this.querySelector('.card--footer__progressbar');
             var testPass = this.getAttribute('testpass');
@@ -204,10 +149,6 @@
                     statusButton.style.backgroundColor = '#154B85';
                 }
                 statusButton.innerHTML = 'doing';
-
-                if (this.withtest) {
-                    progressBar.style.backgroundColor = '#E0E0E0';
-                }
             }
 
             if (this.todo) {

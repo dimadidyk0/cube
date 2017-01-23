@@ -1,0 +1,70 @@
+
+<!-- Style CSS-->
+<style>
+
+    sprint-description {
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+        height: 100%;
+        margin-right: 40px;
+    }
+    .sprint-description__subheader {
+        font: 13px 'globerbold';
+        line-height: 24px;
+        margin-bottom: auto;
+    }
+    .sprint-description__header {
+        font: 13px 'globerregular';
+        line-height: 24px;
+        color: #A9A9A9;
+        margin-top: auto;
+    }
+</style>
+
+
+
+<!--Template-->
+<template id="sprint-description__tmpl">
+    <h3 class="sprint-description__header"></h3>
+    <p class="sprint-description__subheader"></p>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var SprintDescriptionTemplate = thisDoc.querySelector('#sprint-description__tmpl');
+    var SprintDescriptionTemplateClone = SprintDescriptionTemplate.content;
+
+    class SprintDescription extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(SprintDescriptionTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.sprint-description__header').innerHTML = this.getAttribute('title');
+            this.querySelector('.sprint-description__subheader').innerHTML = this.getAttribute('subtitle');
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('sprint-description', SprintDescription);
+
+</script>
