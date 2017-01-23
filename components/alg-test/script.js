@@ -6,26 +6,33 @@
 var array = document.getElementsByTagName("div");
 var button = document.getElementById("button");
 
-var newArr = [];
+var newArr = document.querySelectorAll('.elem');
+console.log(newArr);
 
-// function something() {
-//     for (var i = 0; i < array.length; i++) {
-//         newArr.push(array[i]);
-//         array[i].onclick = function() {
-//             console.log(array[i].innerHTML);
-//         }
-//     }
-// }
-// something();
-document.querySelector("div").onclick = function() {
-    console.log("s");
-}
 for (var i = 0; i < array.length; i++) {
-    array[i].classList.add("elem-" + (i + 1));
+    var arrayItem = array[i];
+    array[i].onclick = function() {
+        if (newArr.length < 4) {
+            newArr.push(this);
+            this.classList.add('elem');
+        } else {
+            for (var z = 0; z < array.length; z++) {
+                array[z].classList.remove("elem");
+                console.log(array[z]);
+            };
+            newArr.shift();
+            newArr.push(this);
+            for (var a = 0; a < newArr.length; a++) {
+                newArr[a].classList.add("elem");
+            };
+        };
+        for (var a = 0; a < newArr.length; a++) {
+            if (arrayItem !== newArr[a]) {
+
+            };
+        };
+
+        console.log(newArr);
+
+    }
 }
-
-// array[0].onclick = function() {
-//     console.log("ass");
-// }
-
-// button.addEventListener("click", something);
