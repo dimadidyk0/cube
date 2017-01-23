@@ -11,6 +11,7 @@
         margin-bottom: 38px;
         overflow: hidden;
         margin-top: 14px;
+        transition: all 0.5s;
     }
     .person-task-wrapp {
         display: -webkit-flex;
@@ -77,6 +78,7 @@
             this.querySelector('.person-task-wrapp__name').innerHTML = this.getAttribute('name');
 
             this.querySelector('.person-task-wrapp__arrow').addEventListener("click", () => {
+
                 if(this.style.height == 'auto') {
                     this.style.height = '0px';
                 } else {
