@@ -1,0 +1,56 @@
+<link rel="import" href="sprint-header-name.component.html">
+<link rel="import" href="sprint-header-description.component.html">
+<link rel="import" href="sprint-task-progress.component.html">
+<!-- Style CSS-->
+<style>
+
+    sprint-header {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        padding-left: 20px;
+        height: 80px;
+        border: 1px solid #ECECEC;
+        background-color: #fff;
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+</style>
+
+
+
+<!--Template-->
+<template id="sprint-header__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var SprintHeaderTemplate = thisDoc.querySelector('#sprint-header__tmpl');
+
+    class SprintHeader extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(SprintHeaderTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('sprint-header', SprintHeader);
+
+</script>

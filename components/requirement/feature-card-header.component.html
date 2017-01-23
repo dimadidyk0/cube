@@ -124,15 +124,6 @@ influence=" high or medium"
         border: 1px solid #E0E0E0;
         color: #c6c6c6;
     }
-    .fill {
-        display: inline-block;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: red;
-        z-index: 10;
-    }
-
 </style>
 
 
@@ -146,7 +137,6 @@ influence=" high or medium"
         <div class="card--header__full-time"></div>
         <div class="card-header__empty-down"></div>
         <div class="card--header__output-features">
-
         </div>
     </div>
 </template>
@@ -189,6 +179,7 @@ influence=" high or medium"
             this.querySelector('.card--header__input-features').innerHTML = this.getAttribute('input');
             this.querySelector('.card--header__full-time').innerHTML = this.getAttribute('time');
             this.querySelector('.card--header__output-features').innerHTML = this.getAttribute('output');
+
             var innerInputText = this.querySelector('.feature-card-description');
             var inputFeatures = this.querySelector('.card--header__input-features');
             var fullTime = this.querySelector('.card--header__full-time');
@@ -216,9 +207,6 @@ influence=" high or medium"
                         outputFeatures.style.color = '#000';
                         break;
                 }
-//                console.log(influenceFeatures.trim());
-//                console.log(this.hasAttribute('output'));
-
             }
         }
 

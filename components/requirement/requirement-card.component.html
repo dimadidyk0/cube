@@ -6,7 +6,7 @@
     requirement-card {
         width: 100%;
         border: 1px solid #E8E8E8;
-        border-left: 2px solid #84E2E7;
+/*        border-left: 2px solid #84E2E7;*/
         margin-top: 25px;
         display: -webkit-flex;
         display: -moz-flex;
@@ -18,6 +18,17 @@
         -ms-flex-direction: column;
         -o-flex-direction: column;
         flex-direction: column;
+        position: relative;
+    }
+    requirement-card:after {
+        background: linear-gradient(to bottom, #D90000 33%,#84E2E7 33%, #84E2E7 66%, #4F50B7 33%);
+        position: absolute;
+        content: '';
+/*        height: 2px;*/
+        width: 2px;
+        left: 0;
+        bottom: 0;
+        top: 0;
     }
 </style>
 

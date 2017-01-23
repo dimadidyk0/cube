@@ -1,0 +1,69 @@
+<!-- Style CSS-->
+<style>
+
+    person-task-wrapp {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -ms-align-items: center;
+        align-items: center;
+        height: 80px;
+        width: 100%;
+        background-color: #CFDFE7;
+        height: 40px;
+        padding-left: 20px;
+    }
+    .person-task-wrapp__arrow {
+        width: 14px;
+        display: inline-block;
+        height: 6px;
+        background-image: url(kanban-img/person-task-arrow.png);
+        background-position: center center;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    .person-task-wrapp__name {
+        font: 16px 'globerbold';
+        line-height: 24px;
+        margin: auto;
+    }
+</style>
+
+
+
+<!--Template-->
+<template id="person-task-wrapp__tmpl">
+    <span class="person-task-wrapp__arrow"></span>
+    <h3 class="person-task-wrapp__name"></h3>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var PersonTaskWrappTemplate = thisDoc.querySelector('#person-task-wrapp__tmpl');
+
+    class PersonTaskWrapp extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(PersonTaskWrappTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.querySelector('.person-task-wrapp__name').innerHTML = this.getAttribute('name');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('person-task-wrapp', PersonTaskWrapp);
+
+</script>
