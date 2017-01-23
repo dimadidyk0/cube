@@ -1,7 +1,18 @@
 <!-- Style CSS-->
 <style>
-
     person-task-wrapp {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        position: relative;
+        padding-top: 40px;
+        margin-bottom: 38px;
+        overflow: hidden;
+        margin-top: 14px;
+    }
+    .person-task-wrapp {
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
@@ -14,6 +25,8 @@
         background-color: #CFDFE7;
         height: 40px;
         padding-left: 20px;
+        position: absolute;
+        top: 0;
     }
     .person-task-wrapp__arrow {
         width: 14px;
@@ -23,6 +36,9 @@
         background-position: center center;
         -webkit-background-size: cover;
         background-size: cover;
+    }
+    .person-task-wrapp__arrow:hover {
+        cursor: pointer;
     }
     .person-task-wrapp__name {
         font: 16px 'globerbold';
@@ -35,8 +51,10 @@
 
 <!--Template-->
 <template id="person-task-wrapp__tmpl">
-    <span class="person-task-wrapp__arrow"></span>
-    <h3 class="person-task-wrapp__name"></h3>
+    <div class="person-task-wrapp">
+        <span class="person-task-wrapp__arrow"></span>
+        <h3 class="person-task-wrapp__name"></h3>
+    </div>
 </template>
 
 
@@ -57,6 +75,15 @@
 
         connectedCallback() {
             this.querySelector('.person-task-wrapp__name').innerHTML = this.getAttribute('name');
+
+            this.querySelector('.person-task-wrapp__arrow').addEventListener("click", () => {
+                if(this.style.height == 'auto') {
+                    this.style.height = '0px';
+                } else {
+                    this.style.height = 'auto';
+                }
+
+            });
         }
 
         adoptedCallback() {

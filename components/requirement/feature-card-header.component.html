@@ -196,16 +196,20 @@ influence=" high or medium"
                 if (this.blocked) {
                     fullTime.style.borderColor = '#D90000';
                 }
-                switch (influenceFeatures.trim()) {
-                    case 'high':
-                        outputFeatures.style.color = '#D90000';
-                        break;
-                    case 'medium':
-                        outputFeatures.style.color = 'orange';
-                        break;
-                    case '':
-                        outputFeatures.style.color = '#000';
-                        break;
+                if (this.hasAttribute('influence')) {
+                    switch (influenceFeatures.trim()) {
+                        case 'high':
+                            outputFeatures.style.color = '#D90000';
+                            break;
+                        case 'medium':
+                            outputFeatures.style.color = 'orange';
+                            break;
+                        case '':
+                            outputFeatures.style.color = '#000';
+                            break;
+                    }
+                } else {
+                    outputFeatures.style.color = '#000';
                 }
             }
         }

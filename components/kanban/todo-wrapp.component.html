@@ -1,0 +1,51 @@
+
+<!-- Style CSS-->
+<style>
+
+    todo-wrapp {
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+/*        min-width: 320px;*/
+        margin-right: 7px;
+    }
+
+</style>
+
+
+
+<!--Template-->
+<template id="todo-wrapp__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var TodoWrappTemplate = thisDoc.querySelector('#todo-wrapp__tmpl');
+
+    class TodoWrapp extends HTMLElement {
+
+        constructor() {
+            super()
+            this.appendChild(TodoWrappTemplate.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+//            this.querySelector('.todo-wrapp__header').innerHTML = this.getAttribute('title');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('todo-wrapp', TodoWrapp);
+
+</script>

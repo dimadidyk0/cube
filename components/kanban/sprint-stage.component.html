@@ -1,0 +1,94 @@
+
+<!-- Style CSS-->
+<style>
+
+    sprint-stage {
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+/*        margin-right: 14px;*/
+        height: 40px;
+        background-color: #545454;
+        color: #fff;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+        font: 13px 'globerbold';
+        box-sizing: border-box;
+        text-transform: uppercase;
+        margin-right: 10px;
+        min-width: 320px;
+    }
+
+</style>
+
+
+
+<!--Template-->
+<template id="sprint-stage__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var SprintStageTemplate = thisDoc.querySelector('#sprint-stage__tmpl');
+
+    class SprintStage extends HTMLElement {
+
+
+        constructor() {
+            super()
+            this.appendChild(SprintStageTemplate.content.cloneNode(true));
+
+        }
+
+        connectedCallback() {
+            this.innerHTML = this.getAttribute('title').toLowerCase();
+
+            function del_spaces(str)
+            {
+                str = str.replace(/\s/g, '');
+                return str;
+            }
+            var innerText = del_spaces(this.innerHTML);
+
+            var todoWrapper = thatDoc.querySelector('todo-wrapp');
+            var doingWrapper = thatDoc.querySelector('doing-wrapp');
+            var reviewWrapper = thatDoc.querySelector('review-wrapp');
+            var doneWrapper = thatDoc.querySelector('done-wrapp');
+
+            var innerTodoWidth = todoWrapper.querySelectorAll('kanban-cards-wrapp').length;
+            var innerDoingWidth = doingWrapper.querySelectorAll('kanban-cards-wrapp').length;
+            var innerReviewWidth = reviewWrapper.querySelectorAll('kanban-cards-wrapp').length;
+            var innerDoneWidth = doneWrapper.querySelectorAll('kanban-cards-wrapp').length;
+
+            if (innerText+'-wrapp' == 'todo-wrapp') {
+                this.style.width = (320*innerTodoWidth) + (7*(innerTodoWidth-1)) +'px';
+            }
+            if (innerText+'-wrapp' == 'doing-wrapp') {
+                this.style.width = (320*innerDoingWidth) + (7*(innerDoingWidth-1)) +'px';
+            }
+            if (innerText+'-wrapp' == 'review-wrapp') {
+                this.style.width = (320*innerReviewWidth) + (7*(innerReviewWidth-1)) +'px';
+            }
+            if (innerText+'-wrapp' == 'done-wrapp') {
+                this.style.width = (320*innerDoneWidth) + (7*(innerDoneWidth-1)) +'px';
+            }
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('sprint-stage', SprintStage);
+
+</script>
