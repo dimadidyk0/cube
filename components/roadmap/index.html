@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="import" href="../../index.html">
 <link rel="stylesheet" href="style.css">
+<link rel="import" href="../../index.html">
 
-<script src="bower_components/moment/moment.js"></script>
+
+
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,6 @@
 </head>
 
 <body>
-    <script src="bower_components/moment/moment.js"></script>
 
 
 
@@ -23,31 +23,82 @@
             <div class="roadmap__wrapper">
                 <div class="roadmap__year">2016</div>
                 <div class="roadmap__row-wrapper">
-                    <div class="roadmap__row">
+                    <div class="roadmap__row roadmap__row-vvr">
                         <h3 class="roadmap__row-header">VVR</h3>
-                        <div class="roadmap__time-grahp">
-                            <div class="roadmap__milestones">
-                                <span class="milestones-date">14.04</span>
-                                <img src="box-1.png" alt="" class="milestones-point">
-                                <h3 class="milestones-name">Alfa</h3>
-                            </div>
-                            <div class="roadmap__milestones">
-                                <span class="milestones-date">14.04</span>
-                                <img src="box-1.png" alt="" class="milestones-point">
-                                <h3 class="milestones-name">Alfa</h3>
-                            </div>
-                            <div class="roadmap__milestones">
-                                <span class="milestones-date">14.04</span>
-                                <img src="box-1.png" alt="" class="milestones-point">
-                                <h3 class="milestones-name">Alfa</h3>
-                            </div>
+                        <div class="roadmap__time-grahp" id="planned">
+
                         </div>
-                        <div class="roadmap__time-grahp">
+                        <div class="roadmap__time-grahp" id="outcome">
                             <div class="roadmap__milestones">
                                 <img src="box-3.png" alt="" class="milestones-point">
 
-                                <span class="milestones-date milestones-date--down">14.04</span>
+                                <!--<span class="milestones-date milestones-date--down">14.04</span>-->
                             </div>
+                        </div>
+                        <!--<div class="roadmap__time-grahp">
+                            <div class="roadmap__milestones">
+                                <img src="box-3.png" alt="" class="milestones-point milestones-point--estimated-fact">
+                                <img src="box-2.png" alt="" class="milestones-point milestones-point--estimated">
+                                <img src="box-4.png" alt="" class="milestones-point milestones-point--fact-late">
+
+                        <span class="milestones-date milestones-date--down">14.04</span>
+
+                    </div>
+                </div>-->
+                    </div>
+                    <div class="roadmap__row roadmap__row--item">
+                        <div class="roadmap__row-header-block">
+                            <h3 class="roadmap__row-item-header">Business</h3>
+                        </div>
+                        <div class="roadmap__task-line">
+                            <div class="roadmap__task-item">Task item thing</div>
+                            <div class="roadmap__task-item">Task item</div>
+                        </div>
+                        <div class="roadmap__task-line">
+                            <div class="roadmap__task-item">Task item</div>
+                            <div class="roadmap__task-item">Task item description</div>
+                        </div>
+                        <div class="roadmap__task-line">
+                            <div class="roadmap__task-item">Task item</div>
+                            <div class="roadmap__task-item">Task item some</div>
+                        </div>
+                    </div>
+                    <div class="roadmap__row roadmap__row--item">
+                        <div class="roadmap__row-header-block">
+                            <h3 class="roadmap__row-item-header">development</h3>
+                        </div>
+                        <div class="roadmap__task-line">
+                            <div class="roadmap__task-item">Task item any</div>
+                            <div class="roadmap__task-item">Task item</div>
+                        </div>
+                        <div class="roadmap__task-line">
+                            <div class="roadmap__task-item">Task item</div>
+                            <div class="roadmap__task-item">Task item word</div>
+                        </div>
+                    </div>
+                    <div class="roadmap__row roadmap__row--item">
+                        <div class="roadmap__row-header-block">
+                            <h3 class="roadmap__row-item-header">design</h3>
+                        </div>
+                        <div class="roadmap__task-line">
+                            <div class="roadmap__task-item">Task item when</div>
+                            <div class="roadmap__task-item">Task item</div>
+                        </div>
+                        <div class="roadmap__task-line">
+                            <div class="roadmap__task-item">Task item</div>
+                            <div class="roadmap__task-item">Task item execute</div>
+                        </div>
+                        <div class="roadmap__task-line">
+                            <div class="roadmap__task-item">Task item</div>
+                            <div class="roadmap__task-item">Task item</div>
+                        </div>
+                        <div class="roadmap__task-line">
+                            <div class="roadmap__task-item">Task item conversetion</div>
+                            <div class="roadmap__task-item">Task item</div>
+                        </div>
+                        <div class="roadmap__task-line">
+                            <div class="roadmap__task-item">Task item</div>
+                            <div class="roadmap__task-item">Task item</div>
                         </div>
                     </div>
                 </div>
@@ -111,24 +162,38 @@
         </step-content>
     </create-test>
     <script>
-        var a = 100;
-        var test = document.querySelector('.roadmap__milestones');
-        test.style.left = a * (100 / 365) + "%";
+        var roadmapRowHeader = document.querySelectorAll('.roadmap__row-header-block');
+        for (var i = 0; i < roadmapRowHeader.length; i++) {
+            roadmapRowHeader[i].style.width = getComputedStyle(roadmapRowHeader[i]).height;
+        }
+    </script>
 
 
-        var data = {
+
+
+    <script>
+        let data = [{
+
             "milestones": [{
-                "title": "Alfa release",
-                "plannedDate": "14-04-2016",
-                "estimatedDate": "10-04-2016"
+
+                "title": "Alpha release",
+                "plannedDate": "14-02-2016",
+                "estimatedDate": "10-02-2016"
+            }, {
+
+                "title": "test release",
+                "plannedDate": "14-11-2016",
+                "estimatedDate": "10-12-2016"
             }, {
                 "title": "Beta release",
                 "plannedDate": "22-06-2016",
                 "estimatedDate": "13-07-2016"
             }, {
-                "title": "Varsion 2.0",
-                "plannedDate": "19-09-2016"
+                "title": "Version 2.0",
+                "plannedDate": "19-09-2016",
+                "estimatedDate": ""
             }],
+        }, {
             "requirements": [{
                 "business": [{
                     "title": "Анадиз итераций",
@@ -182,30 +247,69 @@
                     "row": 2
                 }]
             }]
+        }];
+
+        let whole = document.querySelector('.roadmap__calendar').offsetWidth;
+        let part = document.querySelector('.roadmap__month-block').offsetWidth;
+
+
+        //ВАЖНО: месяц, указанный в данных на единицу больше, чем выдаёт new Date()
+        function dayPercentage(day, daysInMonth) {
+            return day / daysInMonth;
         }
 
-        data.milestones.forEach(function(value) {
-
-            data = JSON.parse(data);
-            console.log(data);
-        });
-
-        console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
-
-
-        var milestonesArray = document.querySelectorAll('.roadmap__milestones');
-        for (var i = 0; i < milestonesArray.length; i++) {
-            document.querySelector('.milestones-name').innerHTML = data.milestones;
+        function lastDayOfMonth(year, month) {
+            //вычисляет какой день последний в месяце. Год указан для определения високосных годов
+            let date = new Date(year, month, 0);
+            return date.getDate();
         }
 
-        var str = '{"title":"Конференция","date":"2014-11-30T12:00:00.000Z"}';
-
-        var event = JSON.parse(str, function(key, value) {
-            if (key == 'date') return new Date(value);
-            return value;
+        let milestones = data[0].milestones;
+        let pContainer = document.querySelector('#planned');
+        let eContainer = document.querySelector('#outcome');
+        milestones.forEach((m, index) => {
+            let planned = m.plannedDate.split('-').map(i => parseInt(i)); //  DD/MM/YY int
+            let est = m.estimatedDate.split('-').map(i => parseInt(i)); //  DD/MM/YY int
+            let percentPlanned = getPercentage(planned[0], planned[1], planned[2])
+            let percentEst = getPercentage(est[0], est[1], est[2]);
+            let dateP = [planned[0], planned[1]].join('.');
+            let dateE = [est[0], est[1]].join('.');
+            let title = m.title;
+            placeDot(percentPlanned, dateP, title, pContainer, index);
+            if (m.estimatedDate) placeDot(percentEst, dateE, title, eContainer, index);
         });
 
-        cosole.log(event.date.getDate()); // теперь сработает!
+        function placeDot(percentage, date, title, container, i) {
+            let dot = document.createElement('div');
+            dot.className = 'roadmap__milestones';
+            dot.id = i;
+            let span = document.createElement('span');
+            span.className = 'milestones-date';
+            span.innerHTML = date;
+            let h3 = document.createElement('h3');
+            h3.className = 'milestones-name';
+            h3.innerHTML = title;
+            let img = document.createElement('img');
+            img.src = 'box-1.png';
+            img.className = "milestones-point";
+            dot.appendChild(span);
+            dot.appendChild(img);
+            dot.appendChild(h3);
+            container.appendChild(dot);
+            let correction = 100 * document.querySelector('.roadmap__milestones').offsetWidth / whole;
+            dot.style.left = (100 * percentage - correction / 2) + '%';
+            dot.style.position = 'absolute';
+
+        }
+
+        function getPercentage(day, month, year) {
+            // 1/24 - расстояние до начала места (убран), 1/12 - размер одной клетки, 
+            return (
+
+                1 / 12 * ((month - 1) + dayPercentage(day, lastDayOfMonth(year, month)))
+            )
+
+        }
     </script>
 
 
