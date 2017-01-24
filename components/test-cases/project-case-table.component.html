@@ -34,8 +34,12 @@
     class ProjectCaseTable extends HTMLElement {
 
         constructor() {
-            super()
+            super();
+        }
+
+        connectedCallback() {
             this.insertBefore(ProjectCaseTableTemplate.content.cloneNode(true), this.firstChild);
+
             var tableAttr = this.attributes;
             var row = thisDoc.createElement("div");
             row.setAttribute('class', 'project-case-table__caption');
@@ -47,10 +51,6 @@
                 this.querySelector('.project-case-table__caption').appendChild(element);
 
             }
-        }
-
-        connectedCallback() {
-
         }
 
 

@@ -57,11 +57,12 @@
     class NavbarHorizontalProject extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(NavbarHorizontalProjectTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(NavbarHorizontalProjectTemplate.content.cloneNode(true));
+
             this.querySelector('.navbar-project__name').innerHTML = this.getAttribute('title');
         }
 

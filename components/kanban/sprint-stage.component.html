@@ -44,12 +44,12 @@
 
 
         constructor() {
-            super()
-            this.appendChild(SprintStageTemplate.content.cloneNode(true));
-
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(SprintStageTemplate.content.cloneNode(true));
+
             this.innerHTML = this.getAttribute('title').toLowerCase();
 
             function del_spaces(str)

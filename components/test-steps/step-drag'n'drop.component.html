@@ -54,11 +54,12 @@
     class StepDragNDrop extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(StepDragNDropTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(StepDragNDropTemplate.content.cloneNode(true));
+
             this.querySelector('.step-dragndrop__text').innerHTML = this.getAttribute('title');
         }
 

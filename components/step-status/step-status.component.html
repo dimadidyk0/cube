@@ -86,7 +86,10 @@
     class StepStatus extends HTMLElement {
 
         constructor() {
-            super()
+            super();
+        }
+
+        connectedCallback() {
             this.appendChild(StepStatusTemplate.content.cloneNode(true));
             this.querySelector('.step-status__header').innerHTML = this.getAttribute('title');
             this.querySelector('.step-status__description').innerHTML = this.getAttribute('description');
@@ -95,10 +98,6 @@
             if (status) {
                 this.querySelector('.step-status__status').classList.add("step-status__status-" + status.trimAll())
             }
-        }
-
-        connectedCallback() {
-
         }
 
         adoptedCallback() {

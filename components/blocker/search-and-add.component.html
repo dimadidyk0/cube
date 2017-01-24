@@ -73,12 +73,13 @@
     class SearchAndAdd extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(SearchAndAddTemplate.content.cloneNode(true));
+            super();
 
         }
 
         connectedCallback() {
+            this.appendChild(SearchAndAddTemplate.content.cloneNode(true));
+
             this.querySelector('.search-add__header').innerHTML = this.getAttribute('title');
             this.querySelector('.search-add__arrow').addEventListener("click", () => {
                 alert('Arrow');

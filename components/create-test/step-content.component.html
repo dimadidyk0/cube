@@ -34,12 +34,11 @@
     class StepContent extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(StepContentTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
-
+            this.appendChild(StepContentTemplate.content.cloneNode(true));
         }
 
         adoptedCallback() {

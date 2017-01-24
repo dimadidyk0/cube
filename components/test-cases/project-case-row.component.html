@@ -81,8 +81,12 @@
     class ProjectCaseRow extends HTMLElement {
 
         constructor() {
-            super()
+            super();
+        }
+
+        connectedCallback() {
             this.appendChild(ProjectCaseRowTemplate.content.cloneNode(true));
+
             var tableAttr = this.attributes;
             for (var i = 0; i < tableAttr.length; i++) {
                 var element = thisDoc.createElement("div");
@@ -99,10 +103,6 @@
                 }
             }
 
-
-        }
-
-        connectedCallback() {
 
         }
 

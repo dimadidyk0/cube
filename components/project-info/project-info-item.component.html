@@ -108,13 +108,12 @@
     class ProjectInfoItem extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(ProjectInfoItemTemplate.content.cloneNode(true));
-
-
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(ProjectInfoItemTemplate.content.cloneNode(true));
+
             this.querySelector('.project-info-item__variable').innerHTML = this.getAttribute('title');
             var isStatus = this.getAttribute('title');
             if (isStatus == 'Статус' || isStatus == 'статус' || isStatus == 'Status' || isStatus == 'status') {

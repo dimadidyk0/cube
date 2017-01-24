@@ -50,11 +50,11 @@
     class TestCasesProjectItem extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(TestCasesProjectItemTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(TestCasesProjectItemTemplate.content.cloneNode(true));
 
             this.querySelector('.create-test__project-name').innerHTML = this.getAttribute('title');
             this.querySelector('.create-test__project-description').innerHTML = this.getAttribute('description');

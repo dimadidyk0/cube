@@ -52,11 +52,11 @@
     class NavbarHorizontal extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(NavbarHorizontalTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(NavbarHorizontalTemplate.content.cloneNode(true));
 
         }
 

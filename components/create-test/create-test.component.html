@@ -31,12 +31,11 @@
     class CreateTest extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(CreateTestTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
-
+            this.appendChild(CreateTestTemplate.content.cloneNode(true));
         }
 
         adoptedCallback() {

@@ -60,11 +60,12 @@
     class SidebarSelect extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(SidebarSelectTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(SidebarSelectTemplate.content.cloneNode(true));
+
             this.querySelector('h3').innerHTML = this.getAttribute('title');
 
             var innerSelectCollection = this.querySelectorAll('.select-item');

@@ -47,12 +47,11 @@
     class KanbanDesk extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(KanbanDeskTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
-
+            this.appendChild(KanbanDeskTemplate.content.cloneNode(true));
         }
 
         adoptedCallback() {

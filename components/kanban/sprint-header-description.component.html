@@ -50,11 +50,12 @@
     class SprintDescription extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(SprintDescriptionTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(SprintDescriptionTemplate.content.cloneNode(true));
+
             this.querySelector('.sprint-description__header').innerHTML = this.getAttribute('title');
             this.querySelector('.sprint-description__subheader').innerHTML = this.getAttribute('subtitle');
 

@@ -34,10 +34,11 @@
         
         constructor() {
             super();
-            this.appendChild(StepSaveButtonTemplate.content.cloneNode(true));
         }
         
         connectedCallback() {
+            this.appendChild(StepSaveButtonTemplate.content.cloneNode(true));
+
             this.addEventListener("click", () => {
                 alert('Button');
             });

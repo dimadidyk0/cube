@@ -37,12 +37,11 @@
     class BlockerWrapp extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(BlockerWrappTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
-
+            this.appendChild(BlockerWrappTemplate.content.cloneNode(true));
         }
 
         adoptedCallback() {

@@ -25,12 +25,14 @@
     class SidebarText extends HTMLElement {
 
         constructor() {
-            super()
-            this.insertBefore(SidebarTextTemplate.content.cloneNode(true), this.firstChild);
-            this.querySelector('.sidebar-text__header').innerHTML = this.getAttribute('header');
+            super();
         }
 
-        connectedCallback() {}
+        connectedCallback() {
+            this.insertBefore(SidebarTextTemplate.content.cloneNode(true), this.firstChild);
+
+            this.querySelector('.sidebar-text__header').innerHTML = this.getAttribute('header');
+        }
 
         adoptedCallback() {}
     }

@@ -33,11 +33,12 @@
     class ReviewWrapp extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(ReviewWrappTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(ReviewWrappTemplate.content.cloneNode(true));
+
             //            this.querySelector('.todo-wrapp__header').innerHTML = this.getAttribute('title');
         }
 

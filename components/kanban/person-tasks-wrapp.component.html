@@ -70,11 +70,13 @@
     class PersonTaskWrapp extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(PersonTaskWrappTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(PersonTaskWrappTemplate.content.cloneNode(true));
+
+
             this.querySelector('.person-task-wrapp__name').innerHTML = this.getAttribute('name');
 
             this.querySelector('.person-task-wrapp__arrow').addEventListener("click", () => {

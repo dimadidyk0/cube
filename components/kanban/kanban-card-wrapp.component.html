@@ -59,11 +59,12 @@
     class KanbanCardsWrapp extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(KanbanCardsWrappTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(KanbanCardsWrappTemplate.content.cloneNode(true));
+
             this.querySelector('.kanban-cards-wrapp__header').innerHTML = this.getAttribute('title');
         }
 

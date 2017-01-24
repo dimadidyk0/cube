@@ -33,11 +33,12 @@
     class TodoWrapp extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(TodoWrappTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(TodoWrappTemplate.content.cloneNode(true));
+
 //            this.querySelector('.todo-wrapp__header').innerHTML = this.getAttribute('title');
         }
 

@@ -168,11 +168,11 @@ influence=" high or medium"
 
 
         constructor() {
-            super()
-            this.appendChild(FeatureCardHeaderTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(FeatureCardHeaderTemplate.content.cloneNode(true));
 
             this.querySelector('.feature-card--header__name').innerHTML = this.getAttribute('title');
             this.querySelector('.feature-card--header__text').innerHTML = this.getAttribute('technology');

@@ -36,12 +36,13 @@
     class NavbarSearchBtn extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(NavbarSearchBtnTemplate.content.cloneNode(true));
+            super();
 
         }
 
         connectedCallback() {
+            this.appendChild(NavbarSearchBtnTemplate.content.cloneNode(true));
+
             this.addEventListener("click", () => {
                 var valueSearchInput = this.parentNode.querySelector('.navbar-search').value;
 

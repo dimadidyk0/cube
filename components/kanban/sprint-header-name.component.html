@@ -49,11 +49,12 @@
     class SprintName extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(SprintNameTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(SprintNameTemplate.content.cloneNode(true));
+
             this.querySelector('.sprint-name__header').innerHTML = this.getAttribute('title');
             this.querySelector('.sprint-name__subheader').innerHTML = this.getAttribute('subtitle');
 

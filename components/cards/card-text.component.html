@@ -48,11 +48,12 @@
     class RequirementCardText extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(RequirementCardTextTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(RequirementCardTextTemplate.content.cloneNode(true));
+
             this.querySelector('.requirement-card-text__header').innerHTML = this.getAttribute('title');
             var innerInputText = this.querySelector('.requirement-card-description');
             this.cardContent = this.querySelector('.requirement-card-text__description');

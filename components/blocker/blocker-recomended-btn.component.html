@@ -38,10 +38,11 @@
 
         constructor() {
             super();
-            this.appendChild(RecomendedButtonTemplate.content.cloneNode(true));
         }
 
         connectedCallback() {
+            this.appendChild(RecomendedButtonTemplate.content.cloneNode(true));
+
             this.addEventListener("click", () => {
                 alert('RecomendButton');
             });
