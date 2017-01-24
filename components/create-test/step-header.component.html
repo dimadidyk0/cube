@@ -43,11 +43,12 @@
     class StepHeader extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(StepHeaderTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(StepHeaderTemplate.content.cloneNode(true));
+
             this.querySelector('.step-header__header').innerHTML = this.getAttribute('title');
             this.querySelector('.step-header__subheader').innerHTML = this.getAttribute('subtitle');
 

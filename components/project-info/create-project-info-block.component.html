@@ -23,12 +23,12 @@
     class CreateProjectInfoBlock extends HTMLElement {
 
         constructor() {
-            super()
-            this.insertBefore(CreateProjectInfoBlockTemplate.content.cloneNode(true), this.firstChild);
-
+            super();
         }
 
         connectedCallback() {
+            this.insertBefore(CreateProjectInfoBlockTemplate.content.cloneNode(true), this.firstChild);
+
             this.querySelector('.create-project-info__header').innerHTML = this.getAttribute('title');
         }
 

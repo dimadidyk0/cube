@@ -1,0 +1,78 @@
+<link rel="import" href="sprint-header.component.html">
+<link rel="import" href="person-tasks-wrapp.component.html">
+<!-- Style CSS-->
+<style>
+
+    kanban-cards-wrapp {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        width: 320px;
+        padding-left: 9px;
+        padding-right: 9px;
+        background-color: #fff;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+        margin-right: 7px;
+    }
+    .kanban-cards-wrapp__header {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+        height: 30px;
+        background-color: #F0F0F0;
+        margin-left: -9px;
+        margin-right: -9px;
+        margin-bottom: 20px;
+        font: 13px 'globerbold';
+        text-transform: uppercase;
+        order: -1;
+    }
+</style>
+
+
+
+<!--Template-->
+<template id="kanban-cards-wrapp__tmpl">
+    <div class="kanban-cards-wrapp__header"></div>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var KanbanCardsWrappTemplate = thisDoc.querySelector('#kanban-cards-wrapp__tmpl');
+
+    class KanbanCardsWrapp extends HTMLElement {
+
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.appendChild(KanbanCardsWrappTemplate.content.cloneNode(true));
+
+            this.querySelector('.kanban-cards-wrapp__header').innerHTML = this.getAttribute('title');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('kanban-cards-wrapp', KanbanCardsWrapp);
+
+</script>

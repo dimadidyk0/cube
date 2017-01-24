@@ -63,11 +63,13 @@
     class BlockerPerson extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(BlockerPersonTemplate.content.cloneNode(true));
+            super();
+
         }
 
         connectedCallback() {
+            this.appendChild(BlockerPersonTemplate.content.cloneNode(true));
+
             this.querySelector('.blocker-person__name').innerHTML = this.getAttribute('name');
             this.querySelector('.blocker-person__specialization').innerHTML = this.getAttribute('specialization');
             var imgSource = this.getAttribute("img");

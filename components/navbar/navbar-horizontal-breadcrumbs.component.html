@@ -43,11 +43,12 @@
     class NavbarBreadcrumbs extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(NavbarBreadcrumbsTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(NavbarBreadcrumbsTemplate.content.cloneNode(true));
+
             this.querySelector('.navbar-breadcrumbs__link').innerHTML = this.getAttribute('title');
         }
 

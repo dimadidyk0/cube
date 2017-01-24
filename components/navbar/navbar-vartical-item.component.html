@@ -52,27 +52,17 @@
     var NavbarVerticalItemTemplateClone = NavbarVerticalItemTemplate.content;
 
     class NavbarVerticalItem extends HTMLElement {
-
-        static get observedAttributes() {
-            return ['enable'];
-        }
         get enable() {
             return this.hasAttribute('enable');
         }
-        set enable(val) {
-            if(val) {
-                this.setAttribute('enable', '')
-            } else {
-                this.removeAttribute('enable')
-            }
-        }
 
         constructor() {
-            super()
-            this.appendChild(NavbarVerticalItemTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(NavbarVerticalItemTemplate.content.cloneNode(true));
+
             this.querySelector('.navbar-vertical__item').innerHTML = this.getAttribute('title');
             var SidebarHeaderCollect = thatDoc.querySelectorAll('sidebar-header');
 

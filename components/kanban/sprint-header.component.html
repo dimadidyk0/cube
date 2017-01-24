@@ -38,11 +38,11 @@
     class SprintHeader extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(SprintHeaderTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(SprintHeaderTemplate.content.cloneNode(true));
 
         }
 

@@ -36,11 +36,11 @@
     class BlockerChoosen extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(BlockerChoosenTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(BlockerChoosenTemplate.content.cloneNode(true));
             this.querySelector('.blocker-choosen__number').innerHTML = this.getAttribute('number');
         }
 

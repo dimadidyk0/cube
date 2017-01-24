@@ -54,12 +54,12 @@
 
 
         constructor() {
-            super()
-            this.appendChild(StringElementTemplate.content.cloneNode(true));
-
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(StringElementTemplate.content.cloneNode(true));
+
             this.querySelector(".string-element__content").innerHTML = this.getAttribute("content");
             if (this.getAttribute("status")) {
                 this.querySelector(".string-element__content").classList.add("string-element__content-" + this.getAttribute("status").trimAll());

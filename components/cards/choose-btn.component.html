@@ -37,10 +37,11 @@
 
         constructor() {
             super();
-            this.appendChild(ChooseButtonTemplate.content.cloneNode(true));
         }
 
         connectedCallback() {
+            this.appendChild(ChooseButtonTemplate.content.cloneNode(true));
+
             this.addEventListener("click", () => {
                 alert('ChooseButton');
             });

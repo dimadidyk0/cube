@@ -1,0 +1,51 @@
+
+<!-- Style CSS-->
+<style>
+
+    done-wrapp {
+       display: -webkit-inline-flex;
+       display: -moz-inline-flex;
+       display: -ms-inline-flex;
+       display: -o-inline-flex;
+       display: inline-flex;
+/*        min-width: 320px;*/
+        margin-right: 7px;
+    }
+
+</style>
+
+
+
+<!--Template-->
+<template id="done-wrapp__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var DoneWrappTemplate = thisDoc.querySelector('#done-wrapp__tmpl');
+
+    class DoneWrapp extends HTMLElement {
+
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.appendChild(DoneWrappTemplate.content.cloneNode(true));
+            //            this.querySelector('.todo-wrapp__header').innerHTML = this.getAttribute('title');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('done-wrapp', DoneWrapp);
+
+</script>

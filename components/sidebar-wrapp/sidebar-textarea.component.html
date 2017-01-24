@@ -45,11 +45,12 @@
     class SidebarTextArea extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(SidebarTextAreaTemplate.content.cloneNode(true))
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(SidebarTextAreaTemplate.content.cloneNode(true))
+
             this.querySelector('.textarea__header').innerHTML = this.getAttribute('title');
             if (isNaN(this.getAttribute('height')) == false) {
                 this.querySelector('.info-textarea').style.height = this.getAttribute('height') + 'px';

@@ -34,12 +34,12 @@
     class ProjectInfoBlock extends HTMLElement {
 
         constructor() {
-            super()
-            this.insertBefore(ProjectInfoBlockTemplate.content.cloneNode(true), this.firstChild);
-
+            super();
         }
 
         connectedCallback() {
+            this.insertBefore(ProjectInfoBlockTemplate.content.cloneNode(true), this.firstChild);
+
             this.querySelector('.sidebar-info-main__link span').innerHTML = this.getAttribute('title');
         }
 

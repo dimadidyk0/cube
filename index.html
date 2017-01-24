@@ -8,9 +8,9 @@
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="components/sidebar-wrapp/sidebar-wrapp.component.html">
     <link rel="import" href="components/create-test/create-test.component.html">
-    <link rel="import" href="components/requirement/feature-card.component.html">
-    <link rel="import" href="components/requirement/requirement-card.component.html">
-    <link rel="import" href="components/requirement/choose-btn.component.html">
+    <link rel="import" href="components/cards/feature-card.component.html">
+    <link rel="import" href="components/cards/requirement-card.component.html">
+    <link rel="import" href="components/cards/choose-btn.component.html">
     <link rel="import" href="components/test-steps/info-message.component.html">
     <link rel="import" href="components/test-steps/step-drag'n'drop.component.html">
     <link rel="import" href="components/navbar/navbar-vertical.component.html">
@@ -279,6 +279,7 @@
             <sidebar-header title="Связанные требования" subtitle="Выберите требования из таблицы">
                 <choose-btn title="Выбрать"></choose-btn>
             </sidebar-header>
+<<<<<<< HEAD
             <!--
            <feature-card>
                <feature-card-header title="some" technology="S ingle" input="10" time="4д" output="4" detailed influence="high"></feature-card-header>
@@ -309,6 +310,11 @@
                     <div class="requirement-card-description">При помощи системы управления сайтом (ITCMS) структура и состав разделов сайта в дальнейшем могут быть изменены и дополнены.</div>
                 </card-text>
                 <feature-card-footer name="Васильченко С.В" done tests="10" teststart testpass="2"></feature-card-footer>
+=======
+
+            <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart done>
+                <span>Загрузка pdf файлов в icloud и создание проекта</span>
+>>>>>>> 9245333c0a510849913ac0dd73d879d28cf5e3e7
             </feature-card>
 
             <requirement-card>
@@ -451,8 +457,7 @@
         <sidebar-wrapp>
             <sidebar-header title="Данные теста" subtitle="Укажите зависимость"></sidebar-header>
             <sidebar-text>
-                Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML,
-                как правило, предлагают схожие подходы к работе с требованиями.
+                Теперь рассмотрим определение требований с использованием понятия "Use Case". Как уже говорилось ранее, в стандарте UML отсутствует привязка к стадиям создания АС, однако, производители CASE - средств для работы с UML и методологий использования UML, как правило, предлагают схожие подходы к работе с требованиями.
             </sidebar-text>
         </sidebar-wrapp>
         <navbar-vertical>
@@ -597,9 +602,6 @@
 
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
-            <!--            <navbar-vertical-item title="доступно"></navbar-vertical-item>-->
-            <!--            <navbar-vertical-item title="блокеры"></navbar-vertical-item>-->
-            <!--            <navbar-vertical-item title="связанные требования"></navbar-vertical-item>-->
             <navbar-vertical-item title="зрители"></navbar-vertical-item>
             <navbar-vertical-item title="файлы "></navbar-vertical-item>
         </navbar-vertical>
@@ -610,12 +612,128 @@
                 <sprint-description title="Дата начала:" subtitle="2017-01-16"></sprint-description>
                 <sprint-description title="Дата выполнения" subtitle="2017-01-30"></sprint-description>
                 <sprint-description title="Выполнено" subtitle="24 задачи /142 ч"></sprint-description>
-                <sprint-task-progress title="72%"></sprint-task-progress>
+                <sprint-task-progress title="20%"></sprint-task-progress>
                 <sprint-description title="Выполнено" subtitle="24 задачи /142 ч"></sprint-description>
                 <sprint-task-progress title="50%"></sprint-task-progress>
             </sprint-header>
+<<<<<<< HEAD
             <person-task-wrapp name="Aлександр Ваисильченко">
                 </erson-task-wrapp>
+=======
+            <div>
+                <sprint-stage title="to do"></sprint-stage>
+                <sprint-stage title="doing"></sprint-stage>
+                <sprint-stage title="review"></sprint-stage>
+                <sprint-stage title="DONE"></sprint-stage>
+            </div>
+
+            <person-task-wrapp name="Aлександр Ваисильченко">
+                <todo-wrapp>
+                    <kanban-cards-wrapp title="waiting">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="waiting">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="READY TO WORK">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                </todo-wrapp>
+                <doing-wrapp>
+                    <kanban-cards-wrapp title="in progress">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                </doing-wrapp>
+                <review-wrapp>
+                    <kanban-cards-wrapp title="auto testing">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="code review">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="manual testing">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                </review-wrapp>
+                <done-wrapp>
+                    <kanban-cards-wrapp title="done">
+
+                    </kanban-cards-wrapp>
+                </done-wrapp>
+            </person-task-wrapp>
+            <person-task-wrapp name="Aлександр Ваисильченко">
+                <todo-wrapp>
+
+
+                    <kanban-cards-wrapp title="READY TO WORK">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                </todo-wrapp>
+                <doing-wrapp>
+                    <kanban-cards-wrapp title="in progress">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                </doing-wrapp>
+                <review-wrapp>
+                    <kanban-cards-wrapp title="auto testing">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="code review">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="manual testing">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                </review-wrapp>
+                <done-wrapp>
+                    <kanban-cards-wrapp title="done">
+
+                    </kanban-cards-wrapp>
+                </done-wrapp>
+            </person-task-wrapp>
+>>>>>>> 9245333c0a510849913ac0dd73d879d28cf5e3e7
         </kanban-desk>
 
     </div>

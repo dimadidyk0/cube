@@ -35,11 +35,12 @@
     class NavbarBars extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(NavbarBarsTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(NavbarBarsTemplate.content.cloneNode(true));
+
             this.addEventListener("click", () => {
                 alert('More Menu-item');
             });

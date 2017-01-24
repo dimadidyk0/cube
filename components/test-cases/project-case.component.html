@@ -103,12 +103,12 @@
     class ProjectCase extends HTMLElement {
 
         constructor() {
-            super()
-            this.insertBefore(ProjectCaseTemplate.content.cloneNode(true), this.firstChild);
-
+            super();
         }
 
         connectedCallback() {
+            this.insertBefore(ProjectCaseTemplate.content.cloneNode(true), this.firstChild);
+
             this.querySelector('.project-case__item--name').innerHTML = this.getAttribute('name');
             var caseProperties = this.getAttribute('properties');
             var caseArr = caseProperties.split(', ');

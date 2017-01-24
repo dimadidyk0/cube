@@ -207,11 +207,12 @@
         }
 
         constructor() {
-            super()
-            this.appendChild(RequirementCardFooterTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(RequirementCardFooterTemplate.content.cloneNode(true));
+
             this.querySelector('.requirement-card--footer__date').innerHTML = this.getAttribute('date');
             this.querySelector('.card--footer__input-requirement').innerHTML = this.getAttribute('input');
             this.querySelector('.card--footer__full-time').innerHTML = this.getAttribute('time');

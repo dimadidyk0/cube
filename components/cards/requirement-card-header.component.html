@@ -81,11 +81,12 @@
     class RequirementCardHeader extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(RequirementCardHeaderTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(RequirementCardHeaderTemplate.content.cloneNode(true));
+
             this.querySelector('.requirement-card--header__title').innerHTML = this.getAttribute('title');
             this.querySelector('.requirement-card--header__name').innerHTML = this.getAttribute('name');
             this.querySelector('.requirement-card--header__number').innerHTML = this.getAttribute('number');

@@ -36,12 +36,11 @@
     class NavbarVertical extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(NavbarVerticalTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
-
+            this.appendChild(NavbarVerticalTemplate.content.cloneNode(true));
         }
 
         adoptedCallback() {

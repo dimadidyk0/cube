@@ -51,12 +51,12 @@
     class NavbarSearchInput extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(NavbarSearchInputTemplate.content.cloneNode(true));
-
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(NavbarSearchInputTemplate.content.cloneNode(true));
+
 //            this.querySelector('.sidebar-textinput__header').innerHTML = this.getAttribute('title');
 //            if (this.getAttribute('placeholder') != null) {
 //                this.querySelector('.sidebar-textinput__text').setAttribute('placeholder', this.getAttribute('placeholder'));

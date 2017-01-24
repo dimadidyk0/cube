@@ -52,12 +52,11 @@
     class RequirementCard extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(RequirementCardTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
-
+            this.appendChild(RequirementCardTemplate.content.cloneNode(true));
         }
 
         adoptedCallback() {

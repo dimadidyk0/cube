@@ -33,11 +33,12 @@
     class InfoMessage extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(InfoMessageTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(InfoMessageTemplate.content.cloneNode(true));
+
             var innerInputText = this.querySelector('.info-message__text');
             this.messageContent = this.querySelector('.info-message');
             this.messageContent.innerHTML = innerInputText.innerHTML;

@@ -168,11 +168,11 @@ influence=" high or medium"
 
 
         constructor() {
-            super()
-            this.appendChild(FeatureCardHeaderTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(FeatureCardHeaderTemplate.content.cloneNode(true));
 
             this.querySelector('.feature-card--header__name').innerHTML = this.getAttribute('title');
             this.querySelector('.feature-card--header__text').innerHTML = this.getAttribute('technology');
@@ -196,16 +196,20 @@ influence=" high or medium"
                 if (this.blocked) {
                     fullTime.style.borderColor = '#D90000';
                 }
-                switch (influenceFeatures.trim()) {
-                    case 'high':
-                        outputFeatures.style.color = '#D90000';
-                        break;
-                    case 'medium':
-                        outputFeatures.style.color = 'orange';
-                        break;
-                    case '':
-                        outputFeatures.style.color = '#000';
-                        break;
+                if (this.hasAttribute('influence')) {
+                    switch (influenceFeatures.trim()) {
+                        case 'high':
+                            outputFeatures.style.color = '#D90000';
+                            break;
+                        case 'medium':
+                            outputFeatures.style.color = 'orange';
+                            break;
+                        case '':
+                            outputFeatures.style.color = '#000';
+                            break;
+                    }
+                } else {
+                    outputFeatures.style.color = '#000';
                 }
             }
         }

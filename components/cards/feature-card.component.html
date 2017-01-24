@@ -1,0 +1,126 @@
+
+<!--Style CSS -->
+<style>
+    feature-card {
+        width: 100%;
+        border: 1px solid #E8E8E8;
+        border-left: 2px solid #199B07;
+        margin-top: 25px;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+    }
+    kanban-cards-wrapp feature-card {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+</style>
+
+
+<!--Template-->
+<template id="feature-card__tmpl">
+    <feature-card-header></feature-card-header>
+    <card-text>
+        <div class="requirement-card-description"></div>
+    </card-text>
+    <feature-card-footer></feature-card-footer>
+</template>
+
+
+<!--Script-->
+<script>
+
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var FeatureCardTemplate = thisDoc.querySelector('#feature-card__tmpl');
+    var FeatureCardTemplateClone = FeatureCardTemplate.content;
+
+    class FeatureCard extends HTMLElement {
+
+        get done() {
+            return this.hasAttribute('done');
+        }
+
+        get doing() {
+            return this.hasAttribute('doing');
+        }
+
+        get todo() {
+            return this.hasAttribute('todo');
+        }
+
+        get waiting() {
+            return this.hasAttribute('waiting');
+        }
+
+        get blocker() {
+            return this.hasAttribute('blocker');
+        }
+
+        get teststart() {
+            return this.hasAttribute('teststart');
+        }
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.appendChild(FeatureCardTemplate.content.cloneNode(true));
+
+            var cardHeader = this.querySelector('feature-card-header');
+            var cardFooter = this.querySelector('feature-card-footer');
+            var cardText = this.querySelector('card-text');
+
+            cardHeader.setAttribute('title', this.getAttribute('title'));
+            cardHeader.setAttribute('technology', this.getAttribute('technology'));
+            cardHeader.setAttribute('input', this.getAttribute('input'));
+            cardHeader.setAttribute('time', this.getAttribute('time'));
+            cardHeader.setAttribute('output', this.getAttribute('output'));
+            cardText.setAttribute('title', this.getAttribute('innerheader'));
+            cardFooter.setAttribute('name', this.getAttribute('name'));
+            cardFooter.setAttribute('tests', this.getAttribute('tests'));
+            cardFooter.setAttribute('testpass', this.getAttribute('testpass'));
+            this.querySelector('.requirement-card-description').innerHTML = this.querySelector('span').textContent;
+            this.querySelector('span').textContent = '';
+
+            if (this.done) {
+                cardFooter.setAttribute('done', '');
+            }
+            if (this.todo) {
+                cardFooter.setAttribute('todo', '');
+            }
+            if (this.doing) {
+                cardFooter.setAttribute('doing', '');
+            }
+            if (this.teststart) {
+                cardFooter.setAttribute('teststart', '');
+            }
+            if (this.blocker) {
+                cardFooter.setAttribute('blocker', '');
+            }
+            if (this.waiting) {
+                cardFooter.setAttribute('waiting', '');
+            }
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('feature-card', FeatureCard);
+
+</script>
+
+<link rel="import" href="feature-card-header.component.html">
+<link rel="import" href="feature-card-footer.component.html">
+<link rel="import" href="card-text.component.html">

@@ -41,11 +41,11 @@
     class SidebarWrapp extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(SidebarWrappTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(SidebarWrappTemplate.content.cloneNode(true));
 
         }
 

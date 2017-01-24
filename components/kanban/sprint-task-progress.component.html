@@ -60,11 +60,12 @@
     class SprintTaskProgress extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(SprintTaskProgressTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(SprintTaskProgressTemplate.content.cloneNode(true));
+
             this.querySelector('.sprint-task-progress__header').innerHTML = this.getAttribute('title');
 
             var tastProgress = this.querySelector('.sprint-task-progress__progress');

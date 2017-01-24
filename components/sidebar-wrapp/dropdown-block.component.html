@@ -51,21 +51,13 @@
         get dropped() {
             return this.hasAttribute('dropped');
         }
-        set dropped(val) {
-            if (val) {
-                this.setAttribute('dropped', '')
-            } else {
-                this.removeAttribute('dropped')
-            }
-        }
-
 
         constructor() {
-            super()
-            this.appendChild(DropdownBlockTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(DropdownBlockTemplate.content.cloneNode(true));
 
             var dropdownArrow = this.querySelector('.dropdown-block__arrow');
             var innerDropdownCollection = this.querySelectorAll('blocker-person');

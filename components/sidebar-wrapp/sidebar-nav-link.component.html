@@ -41,12 +41,12 @@
     class SidebarNavLink extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(SidebarNavLinkTemplate.content.cloneNode(true));
-
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(SidebarNavLinkTemplate.content.cloneNode(true));
+
             this.querySelector('.sidebar-nav-link').innerHTML = this.getAttribute('title');
 
         }

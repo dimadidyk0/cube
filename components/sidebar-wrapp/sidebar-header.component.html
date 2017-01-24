@@ -39,11 +39,12 @@
     class SidebarHeader extends HTMLElement {
 
         constructor() {
-            super()
-            this.appendChild(SidebarHeaderTemplate.content.cloneNode(true));
+            super();
         }
 
         connectedCallback() {
+            this.appendChild(SidebarHeaderTemplate.content.cloneNode(true));
+
             this.querySelector('.sidebar__header').innerHTML = this.getAttribute('title');
             this.querySelector('.sidebar__subheader').innerHTML = this.getAttribute('subtitle');
         }
