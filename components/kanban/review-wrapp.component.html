@@ -10,6 +10,7 @@
         display: inline-flex;
 /*        min-width: 320px;*/
         margin-right: 7px;
+        justify-content: flex-end;
     }
 
 </style>
@@ -39,7 +40,18 @@
         connectedCallback() {
             this.appendChild(ReviewWrappTemplate.content.cloneNode(true));
 
-            //            this.querySelector('.todo-wrapp__header').innerHTML = this.getAttribute('title');
+            var reviewCollection = thatDoc.querySelectorAll('review-wrapp');
+            var min = reviewCollection[0].childElementCount;
+            var max = min;
+            for (var i = 1; i < reviewCollection.length; ++i) {
+                if (reviewCollection[i].childElementCount > max) max = reviewCollection[i].childElementCount;
+                if (reviewCollection[i].childElementCount < min) min = reviewCollection[i].childElementCount;
+            }
+            var widthReview = (320*max) + (7*max) +'px';
+
+            for (let i = 0; i < reviewCollection.length; i++) {
+                this.style.width = widthReview;
+            }
         }
 
         adoptedCallback() {

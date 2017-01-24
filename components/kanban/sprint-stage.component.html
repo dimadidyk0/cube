@@ -59,27 +59,48 @@
             }
             var innerText = del_spaces(this.innerHTML);
 
-            var todoWrapper = thatDoc.querySelector('todo-wrapp');
-            var doingWrapper = thatDoc.querySelector('doing-wrapp');
-            var reviewWrapper = thatDoc.querySelector('review-wrapp');
-            var doneWrapper = thatDoc.querySelector('done-wrapp');
+            var todoWrapperCollection = thatDoc.querySelectorAll('todo-wrapp');
+            var doingWrapperCollection = thatDoc.querySelectorAll('doing-wrapp');
+            var reviewWrapperCollection = thatDoc.querySelectorAll('review-wrapp');
+            var doneWrapperCollection = thatDoc.querySelectorAll('done-wrapp');
 
-            var innerTodoWidth = todoWrapper.querySelectorAll('kanban-cards-wrapp').length;
-            var innerDoingWidth = doingWrapper.querySelectorAll('kanban-cards-wrapp').length;
-            var innerReviewWidth = reviewWrapper.querySelectorAll('kanban-cards-wrapp').length;
-            var innerDoneWidth = doneWrapper.querySelectorAll('kanban-cards-wrapp').length;
+            var todoWrapperMin = todoWrapperCollection[0].childElementCount;
+            var todoWrapperMax = todoWrapperMin;
+            for (var i = 1; i < todoWrapperCollection.length; ++i) {
+                if (todoWrapperCollection[i].childElementCount > todoWrapperMax) todoWrapperMax = todoWrapperCollection[i].childElementCount;
+                if (todoWrapperCollection[i].childElementCount < todoWrapperMin) todoWrapperMin = todoWrapperCollection[i].childElementCount;
+            }
+            var doingWrapperMin = doingWrapperCollection[0].childElementCount;
+            var doingWrapperMax = doingWrapperMin;
+            for (var i = 1; i < doingWrapperCollection.length; ++i) {
+                if (doingWrapperCollection[i].childElementCount > doingWrapperMax) doingWrapperMax = doingWrapperCollection[i].childElementCount;
+                if (doingWrapperCollection[i].childElementCount < doingWrapperMin) doingWrapperMin = doingWrapperCollection[i].childElementCount;
+            }
+            var reviewWrapperMin = reviewWrapperCollection[0].childElementCount;
+            var reviewWrapperMax = reviewWrapperMin;
+            for (var i = 1; i < reviewWrapperCollection.length; ++i) {
+                if (reviewWrapperCollection[i].childElementCount > reviewWrapperMax) reviewWrapperMax = reviewWrapperCollection[i].childElementCount;
+                if (reviewWrapperCollection[i].childElementCount < reviewWrapperMin) reviewWrapperMin = reviewWrapperCollection[i].childElementCount;
+            }
+            var doneWrapperMin = doneWrapperCollection[0].childElementCount;
+            var doneWrapperMax = doneWrapperMin;
+            for (var i = 1; i < doneWrapperCollection.length; ++i) {
+                if (doneWrapperCollection[i].childElementCount > doneWrapperMax) doneWrapperMax = doneWrapperCollection[i].childElementCount;
+                if (doneWrapperCollection[i].childElementCount < doneWrapperMin) doneWrapperMin = doneWrapperCollection[i].childElementCount;
+            }
+
 
             if (innerText+'-wrapp' == 'todo-wrapp') {
-                this.style.width = (320*innerTodoWidth) + (7*(innerTodoWidth-1)) +'px';
+                this.style.width = (320*todoWrapperMax) + (7*(todoWrapperMax-1)) +'px';
             }
             if (innerText+'-wrapp' == 'doing-wrapp') {
-                this.style.width = (320*innerDoingWidth) + (7*(innerDoingWidth-1)) +'px';
+                this.style.width = (320*doingWrapperMax) + (7*(doingWrapperMax-1)) +'px';
             }
             if (innerText+'-wrapp' == 'review-wrapp') {
-                this.style.width = (320*innerReviewWidth) + (7*(innerReviewWidth-1)) +'px';
+                this.style.width = (320*reviewWrapperMax) + (7*(reviewWrapperMax-1)) +'px';
             }
             if (innerText+'-wrapp' == 'done-wrapp') {
-                this.style.width = (320*innerDoneWidth) + (7*(innerDoneWidth-1)) +'px';
+                this.style.width = (320*doneWrapperMax) + (7*(doneWrapperMax-1)) +'px';
             }
 
         }
