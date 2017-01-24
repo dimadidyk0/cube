@@ -23,6 +23,7 @@
     <link rel="import" href="components/step-status/step-status.component.html">
     <link rel="import" href="components/blocker/blocker-recomended-btn.component.html">
     <link rel="import" href="components/kanban/kanban-desk.component.html">
+    <link rel="import" href="components/requirement-table/requirement-table.component.html">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -279,43 +280,7 @@
             <sidebar-header title="Связанные требования" subtitle="Выберите требования из таблицы">
                 <choose-btn title="Выбрать"></choose-btn>
             </sidebar-header>
-<<<<<<< HEAD
-            <!--
-           <feature-card>
-               <feature-card-header title="some" technology="S ingle" input="10" time="4д" output="4" detailed influence="high"></feature-card-header>
-               <card-text  title="Система управления сайтом">
-                   <div class="requirement-card-description"></div>
-               </card-text>
-               <feature-card-footer name="Васильченко С.В" done tests="4" teststart testpass="2"></feature-card-footer>
-           </feature-card>
-            <feature-card>
-                <feature-card-header title="F.JVHB.0001" technology="Single" input="3" time="4д" output="4" detailed blocked influence="high"></feature-card-header>
-                <card-text  title="Система управления сайтом">
-                    <div class="requirement-card-description"></div>
-                </card-text>
-                <feature-card-footer name="Васильченко С.В" done tests="10" teststart></feature-card-footer>
-            </feature-card>
-            <feature-card>
-                <feature-card-header title="F.JVHB.0001" technology="Mixed" input="20" time="10д 6ч" output="10" influence="medium" detailed></feature-card-header>
-                <card-text  title="Система управления сайтом">
-                    <div class="requirement-card-description">При помощи системы управления сайтом (ITCMS) структура и состав разделов сайта в дальнейшем могут быть изменены и дополнены.</div>
-                </card-text>
-                <feature-card-footer name="Васильченко С.В" done withtest tests="60" teststart testpass="39"></feature-card-footer>
-            </feature-card>
--->
-            <feature-card>
 
-                <feature-card-header title="F.JVHB.0001" technology="Mixed" input="20" time="10д 6ч" output="10"></feature-card-header>
-                <card-text title="Система управления сайтом">
-                    <div class="requirement-card-description">При помощи системы управления сайтом (ITCMS) структура и состав разделов сайта в дальнейшем могут быть изменены и дополнены.</div>
-                </card-text>
-                <feature-card-footer name="Васильченко С.В" done tests="10" teststart testpass="2"></feature-card-footer>
-=======
-
-            <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart done>
-                <span>Загрузка pdf файлов в icloud и создание проекта</span>
->>>>>>> 9245333c0a510849913ac0dd73d879d28cf5e3e7
-            </feature-card>
 
             <requirement-card>
                 <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
@@ -616,10 +581,8 @@
                 <sprint-description title="Выполнено" subtitle="24 задачи /142 ч"></sprint-description>
                 <sprint-task-progress title="50%"></sprint-task-progress>
             </sprint-header>
-<<<<<<< HEAD
             <person-task-wrapp name="Aлександр Ваисильченко">
-                </erson-task-wrapp>
-=======
+                </person-task-wrapp>
             <div>
                 <sprint-stage title="to do"></sprint-stage>
                 <sprint-stage title="doing"></sprint-stage>
@@ -645,6 +608,14 @@
                             <span>Загрузка pdf файлов в icloud и создание проекта</span>
                         </feature-card>
                     </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="waiting">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
                     <kanban-cards-wrapp title="READY TO WORK">
                         <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
                             <span>Загрузка pdf файлов в icloud и создание проекта</span>
@@ -689,8 +660,97 @@
             </person-task-wrapp>
             <person-task-wrapp name="Aлександр Ваисильченко">
                 <todo-wrapp>
+<!--
+                    <kanban-cards-wrapp title="waiting">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+-->
+                    <kanban-cards-wrapp title="waiting">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="READY TO WORK">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                </todo-wrapp>
+                <doing-wrapp>
+                    <kanban-cards-wrapp title="in progress">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                </doing-wrapp>
+                <review-wrapp>
+                    <kanban-cards-wrapp title="auto testing">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="code review">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="manual testing">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="in progress">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                </review-wrapp>
+                <done-wrapp>
+                    <kanban-cards-wrapp title="done">
 
-
+                    </kanban-cards-wrapp>
+                </done-wrapp>
+            </person-task-wrapp>
+            <person-task-wrapp name="Aлександр Ваисильченко">
+                <todo-wrapp>
+                    <kanban-cards-wrapp title="waiting">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="waiting">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
+                    <kanban-cards-wrapp title="waiting">
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                        <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
+                            <span>Загрузка pdf файлов в icloud и создание проекта</span>
+                        </feature-card>
+                    </kanban-cards-wrapp>
                     <kanban-cards-wrapp title="READY TO WORK">
                         <feature-card title="F.JVHB.0001" technology="Разработка" input="20" time="10д 6ч" output="10" innerheader="Открытие проекта из PDF" name="Васильченко С.В" tests="5" testpass="4" teststart waiting>
                             <span>Загрузка pdf файлов в icloud и создание проекта</span>
@@ -733,10 +793,214 @@
                     </kanban-cards-wrapp>
                 </done-wrapp>
             </person-task-wrapp>
->>>>>>> 9245333c0a510849913ac0dd73d879d28cf5e3e7
         </kanban-desk>
 
     </div>
+
+
+    <navbar-horizontal>
+        <navbar-breadcrumbs title="TEST CYCLES"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="ДИАГРАММА ГАНТА"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="ТАБЛИЦА ТРЕБОВАНИЙ"></navbar-breadcrumbs>
+        <navbar-breadcrumbs title="КАНБАН ДОСКА"></navbar-breadcrumbs>
+        <navbar-search-input>
+            <navbar-search-btn></navbar-search-btn>
+        </navbar-search-input>
+        <navbar-horizontal-project title="VVR"></navbar-horizontal-project>
+    </navbar-horizontal>
+    <div class="container">
+        <navbar-vertical>
+            <navbar-vertical-item title="меню"></navbar-vertical-item>
+            <navbar-vertical-item enable title="требования"></navbar-vertical-item>
+            <navbar-vertical-item title="milestone"></navbar-vertical-item>
+            <navbar-vertical-item title="активность"></navbar-vertical-item>
+            <navbar-vertical-item title="идеи"></navbar-vertical-item>
+        </navbar-vertical>
+        <sidebar-wrapp>
+            <sidebar-header title="Требования" subtitle="Дерево требований к проекту "></sidebar-header>
+            <tree-item title="1" description="Define preminely resources" level="1">
+                <tree-item title="1.1" description="Define preminely resources" level="2"></tree-item>
+                <tree-item title="1.2" description="Define preminely resources" level="2"></tree-item>
+                <tree-item title="1.3" description="Define preminely resources" level="2">
+                    <tree-item title="1.3.1" description="Define preminely resources" level="3"></tree-item>
+                    <tree-item title="1.3.2" description="Define preminely resources" level="3"></tree-item>
+                    <tree-item title="1.3.3" description="Define preminely resources" level="3"></tree-item>
+                </tree-item>
+            </tree-item>
+            <tree-item title="2" description="Define preminely resources" level="1">
+                <tree-item title="2.1" description="Define preminely resources" level="3"></tree-item>
+            </tree-item>
+            <tree-item title="3" description="Define preminely resources" level="1"></tree-item>
+        </sidebar-wrapp>
+        <requirement-table>
+            <requirement-table-header title="Требования к проекту" subtitle="Таблица"></requirement-table-header>
+            <requirement-type-row title="business">
+                <requirement-column-wrapp>
+                    <requirement-column-parent>
+                        <requirement-card>
+                            <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                            <card-text title="Личный кабинет пользователя">
+                                <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                            </card-text>
+                            <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                        </requirement-card>
+                    </requirement-column-parent>
+                    <requirement-column-child>
+
+                    </requirement-column-child>
+                </requirement-column-wrapp>
+
+            </requirement-type-row>
+            <requirement-type-row title="functional">
+                <requirement-column-wrapp>
+                    <requirement-column-parent>
+                        <requirement-card>
+                            <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                            <card-text title="Личный кабинет пользователя">
+                                <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                            </card-text>
+                            <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                        </requirement-card>
+                    </requirement-column-parent>
+                    <requirement-column-child>
+
+                    </requirement-column-child>
+                </requirement-column-wrapp>
+
+            </requirement-type-row>
+            <requirement-type-row title="page">
+                <requirement-column-wrapp>
+                    <requirement-column-parent>
+                        <requirement-card>
+                            <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                            <card-text title="Личный кабинет пользователя">
+                                <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                            </card-text>
+                            <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                        </requirement-card>
+                    </requirement-column-parent>
+                    <requirement-column-child>
+                        <requirement-column-wrapp>
+                            <requirement-column-parent>
+                                <requirement-card>
+                                    <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                                    <card-text title="Личный кабинет пользователя">
+                                        <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                                    </card-text>
+                                    <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                                </requirement-card>
+                            </requirement-column-parent>
+                            <requirement-column-child>
+                                <requirement-column-wrapp>
+                                    <requirement-column-parent>
+                                        <requirement-card>
+                                            <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                                            <card-text title="Личный кабинет пользователя">
+                                                <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                                            </card-text>
+                                            <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                                        </requirement-card>
+                                    </requirement-column-parent>
+                                    <requirement-column-child>
+
+                                    </requirement-column-child>
+                                </requirement-column-wrapp>
+                            </requirement-column-child>
+                        </requirement-column-wrapp>
+                        <requirement-column-wrapp>
+                            <requirement-column-parent>
+                                <requirement-card>
+                                    <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                                    <card-text title="Личный кабинет пользователя">
+                                        <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                                    </card-text>
+                                    <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                                </requirement-card>
+                            </requirement-column-parent>
+                            <requirement-column-child>
+
+                            </requirement-column-child>
+                        </requirement-column-wrapp>
+                    </requirement-column-child>
+                </requirement-column-wrapp>
+
+            </requirement-type-row>
+            <requirement-type-row title="functional">
+                <requirement-column-wrapp>
+                    <requirement-column-parent>
+                        <requirement-card>
+                            <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                            <card-text title="Личный кабинет пользователя">
+                                <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                            </card-text>
+                            <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                        </requirement-card>
+                    </requirement-column-parent>
+                    <requirement-column-child>
+                        <requirement-column-wrapp>
+                            <requirement-column-parent>
+                                <requirement-card>
+                                    <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                                    <card-text title="Личный кабинет пользователя">
+                                        <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                                    </card-text>
+                                    <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                                </requirement-card>
+                            </requirement-column-parent>
+                            <requirement-column-child>
+                                <requirement-column-wrapp>
+                                    <requirement-column-parent>
+                                        <requirement-card>
+                                            <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                                            <card-text title="Личный кабинет пользователя">
+                                                <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                                            </card-text>
+                                            <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                                        </requirement-card>
+                                    </requirement-column-parent>
+                                    <requirement-column-child>
+
+                                    </requirement-column-child>
+                                </requirement-column-wrapp>
+                                <requirement-column-wrapp>
+                                    <requirement-column-parent>
+                                        <requirement-card>
+                                            <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                                            <card-text title="Личный кабинет пользователя">
+                                                <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                                            </card-text>
+                                            <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                                        </requirement-card>
+                                    </requirement-column-parent>
+                                    <requirement-column-child>
+
+                                    </requirement-column-child>
+                                </requirement-column-wrapp>
+                            </requirement-column-child>
+                        </requirement-column-wrapp>
+                    </requirement-column-child>
+                </requirement-column-wrapp>
+
+            </requirement-type-row>
+        </requirement-table>
+        <navbar-vertical>
+            <navbar-vertical-item title="проект"></navbar-vertical-item>
+            <navbar-vertical-item title="комментарии"></navbar-vertical-item>
+            <navbar-vertical-item title="файлы"></navbar-vertical-item>
+        </navbar-vertical>
+
+    </div>
+
+
+    <!--
+<div class="column-wrapp">
+<div class="column-parent">
+<div class="card">1.</div>
+</div>
+<div class="column-child"></div>
+</div>
+-->
+
 </body>
 
 </html>

@@ -85,33 +85,33 @@
 
     class FeatureCardFooter extends HTMLElement {
 
-        static get observedAttributes() {
-            return ['done', 'doing', 'todo', 'waiting', 'blocked', 'teststart'];
+//        static get observedAttributes() {
+//            return ['done', 'doing', 'todo', 'waiting', 'blocked', 'teststart'];
+//        }
+
+        get done() {
+            return this.hasAttribute('done');
         }
 
-//        get done() {
-//            return this.hasAttribute('done');
-//        }
-//
-//        get doing() {
-//            return this.hasAttribute('doing');
-//        }
-//
-//        get todo() {
-//            return this.hasAttribute('todo');
-//        }
-//
-//        get waiting() {
-//            return this.hasAttribute('waiting');
-//        }
-//
-//        get blocker() {
-//            return this.hasAttribute('blocker');
-//        }
-//
-//        get teststart() {
-//            return this.hasAttribute('teststart');
-//        }
+        get doing() {
+            return this.hasAttribute('doing');
+        }
+
+        get todo() {
+            return this.hasAttribute('todo');
+        }
+
+        get waiting() {
+            return this.hasAttribute('waiting');
+        }
+
+        get blocker() {
+            return this.hasAttribute('blocker');
+        }
+
+        get teststart() {
+            return this.hasAttribute('teststart');
+        }
 
         constructor() {
             super()

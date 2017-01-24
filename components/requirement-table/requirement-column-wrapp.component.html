@@ -1,0 +1,52 @@
+
+<!--Style CSS-->
+<style>
+    requirement-column-wrapp {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+/*        border-left: 1px solid #D7D7D7;*/
+/*        border-bottom: 1px solid #D7D7D7;*/
+    }
+
+
+</style>
+
+
+<!--Template-->
+<template id="requirement-column-wrapp__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var RequirementColumnWrappTemplate = thisDoc.querySelector('#requirement-column-wrapp__tmpl');
+
+    class RequirementColumnWrapp extends HTMLElement {
+
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.appendChild(RequirementColumnWrappTemplate.content.cloneNode(true));
+
+            console.log(this.children);
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('requirement-column-wrapp', RequirementColumnWrapp);
+
+</script>

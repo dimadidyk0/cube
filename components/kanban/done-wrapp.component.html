@@ -10,6 +10,7 @@
        display: inline-flex;
 /*        min-width: 320px;*/
         margin-right: 7px;
+/*        justify-content: flex-end;*/
     }
 
 </style>
@@ -38,7 +39,19 @@
 
         connectedCallback() {
             this.appendChild(DoneWrappTemplate.content.cloneNode(true));
-            //            this.querySelector('.todo-wrapp__header').innerHTML = this.getAttribute('title');
+
+            var doneCollection = thatDoc.querySelectorAll('done-wrapp');
+            var min = doneCollection[0].childElementCount;
+            var max = min;
+            for (var i = 1; i < doneCollection.length; ++i) {
+                if (doneCollection[i].childElementCount > max) max = doneCollection[i].childElementCount;
+                if (doneCollection[i].childElementCount < min) min = doneCollection[i].childElementCount;
+            }
+            var widthDone = (320*max) + (7*max) +'px';
+
+            for (let i = 0; i < doneCollection.length; i++) {
+                this.style.width = widthDone;
+            }
         }
 
         adoptedCallback() {

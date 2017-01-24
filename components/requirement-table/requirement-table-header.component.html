@@ -1,0 +1,67 @@
+<!--Style CSS-->
+<style>
+    requirement-table-header {
+        height: 80px;
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-left: 20px;
+        border-bottom: 1px solid #D7D7D7;
+        border-top: 1px solid #D7D7D7;
+    }
+    .requirement-table-header__subheader {
+        font: 13px 'globerregular';
+        line-height: 24px;
+    }
+    .requirement-table-header__header {
+        font: 30.97px 'globerregular';
+        line-height: 24px;
+    }
+</style>
+
+
+<!--Template-->
+<template id="requirement-table-header__tmpl">
+    <p class="requirement-table-header__subheader"></p>
+    <h3 class="requirement-table-header__header"></h3>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var RequirementTableHeaderTemplate = thisDoc.querySelector('#requirement-table-header__tmpl');
+
+    class RequirementTableHeader extends HTMLElement {
+
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.appendChild(RequirementTableHeaderTemplate.content.cloneNode(true));
+
+            this.querySelector('.requirement-table-header__header').innerHTML = this.getAttribute('title');
+            this.querySelector('.requirement-table-header__subheader').innerHTML = this.getAttribute('subtitle');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('requirement-table-header', RequirementTableHeader);
+
+</script>

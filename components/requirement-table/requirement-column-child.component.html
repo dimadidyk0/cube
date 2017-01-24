@@ -1,0 +1,56 @@
+<!--Style CSS-->
+<style>
+    requirement-column-child {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+    }
+
+</style>
+
+
+<!--Template-->
+<template id="requirement-column-child__tmpl">
+
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var RequirementColumnChildTemplate = thisDoc.querySelector('#requirement-column-child__tmpl');
+
+    class RequirementColumnChild extends HTMLElement {
+
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.appendChild(RequirementColumnChildTemplate.content.cloneNode(true));
+            if (this.childElementCount == 0) {
+                this.parentElement.style.width = '320px'
+            }
+            if (this.childElementCount == 0) {
+
+            }
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('requirement-column-child', RequirementColumnChild);
+
+</script>

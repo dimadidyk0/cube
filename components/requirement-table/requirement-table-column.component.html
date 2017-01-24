@@ -1,0 +1,66 @@
+<link rel="import" href="requirement-column-wrapp.component.html">
+<link rel="import" href="requirement-column-parent.component.html">
+<link rel="import" href="requirement-column-child.component.html">
+<!--Style CSS-->
+<style>
+    requirement-table-column {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+        align-content: center;
+        min-width: 320px;
+        width: 320px;
+        min-height:176px;
+        border: 1px solid #D7D7D7;
+        border-left: 0;
+
+
+    }
+
+
+</style>
+
+
+<!--Template-->
+<template id="requirement-table-column__tmpl">
+    <requirement-column-wrapp>
+        <requirement-column-parent>
+
+        </requirement-column-parent>
+    </requirement-column-wrapp>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var RequirementTableColumnTemplate = thisDoc.querySelector('#requirement-table-column__tmpl');
+
+    class RequirementTableColumn extends HTMLElement {
+
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.appendChild(RequirementTableColumnTemplate.content.cloneNode(true));
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('requirement-table-column', RequirementTableColumn);
+
+</script>
