@@ -1,0 +1,73 @@
+<!--Style CSS-->
+<style>
+    requirement-type-row {
+        min-height: 176px;
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        border-bottom: 1px solid #D7D7D7;
+/*        border-top: 1px solid #D7D7D7;*/
+    }
+    .requirement-type-row__header {
+        width: 30px;
+        background-color: #1A2BA2;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        order: -1;
+        color: #fff;
+        -ms-align-items: center;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        transform: rotate(-180deg);
+        font: 12px 'globerbold';
+        letter-spacing: 1px;
+        padding-right: 4px;
+        margin-bottom: 0;
+    }
+</style>
+
+
+<!--Template-->
+<template id="requirement-type-row__tmpl">
+    <h3 class="requirement-type-row__header"></h3>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var RequirementTypeRowTemplate = thisDoc.querySelector('#requirement-type-row__tmpl');
+
+    class RequirementTypeRow extends HTMLElement {
+
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.appendChild(RequirementTypeRowTemplate.content.cloneNode(true));
+
+            this.querySelector('.requirement-type-row__header').innerHTML = this.getAttribute('title');
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('requirement-type-row', RequirementTypeRow);
+
+</script>

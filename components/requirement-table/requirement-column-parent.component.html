@@ -1,0 +1,99 @@
+<!--Style CSS-->
+<style>
+    requirement-column-parent {
+        width: 320px;
+        /*    height: 100%;*/
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .plus--down {
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flex;
+        display: -o-inline-flex;
+        display: inline-flex;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #0085BE;
+        border-radius: 50%;
+        margin-top: 7px;
+        margin-bottom: 6px;
+        -ms-align-self: center;
+        align-self: center;
+        position: relative;
+    }
+    .plus--down:hover {
+        cursor: pointer;
+    }
+    .plus--line {
+        width: 2px;
+        height: 8px;
+        background-color: #154B85;
+        position: absolute;
+
+    }
+    .plus--line:first-child {
+        left: 50%;
+        margin-left: -1px;
+        top: 50%;
+        margin-top: -4px;
+    }
+    .plus--line:last-child {
+        left: 50%;
+        margin-left: -1px;
+        top: 50%;
+        margin-top: -4px;
+        transform: rotate(90deg);
+    }
+
+
+</style>
+
+
+<!--Template-->
+<template id="requirement-column-parent__tmpl">
+
+<div class="plus--down">
+    <span class="plus--line"></span>
+    <span class="plus--line"></span>
+</div>
+</template>
+
+
+<!--Script-->
+<script>
+    "use strict";
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var RequirementColumnParentTemplate = thisDoc.querySelector('#requirement-column-parent__tmpl');
+
+    class RequirementColumnParent extends HTMLElement {
+
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.appendChild(RequirementColumnParentTemplate.content.cloneNode(true));
+
+        }
+
+        adoptedCallback() {
+
+        }
+    }
+
+    customElements.define('requirement-column-parent', RequirementColumnParent);
+
+</script>

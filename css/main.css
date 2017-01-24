@@ -124,6 +124,17 @@ label {
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'globerxbold';
+    src: url('../fonts/GloberxBold/glober_xbold-webfont.eot');
+    src: url('../fonts/GloberxBold/glober_xbold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GloberxBold/glober_xbold-webfont.woff') format('woff'),
+        url('../fonts/GloberxBold/glober_xbold-webfont.ttf') format('truetype'),
+        url('../fonts/GloberxBold/glober_xbold-webfont.svg#globerxbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 .container {
     display: -webkit-flex;
