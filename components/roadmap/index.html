@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="import" href="../../index.html">
+<link rel="stylesheet" href="style.css">
+
+<script src="bower_components/moment/moment.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="bower_components/moment/moment.js"></script>
+
+
+
+
+    <create-test>
+        <step-header title="VVR Roadmap" subtitle="Отчет по проекту">
+        </step-header>
+        <step-content>
+            <div class="roadmap__wrapper">
+                <div class="roadmap__year">2016</div>
+                <div class="roadmap__row-wrapper">
+                    <div class="roadmap__row">
+                        <h3 class="roadmap__row-header">VVR</h3>
+                        <div class="roadmap__time-grahp">
+                            <div class="roadmap__milestones">
+                                <span class="milestones-date">14.04</span>
+                                <img src="box-1.png" alt="" class="milestones-point">
+                                <h3 class="milestones-name">Alfa</h3>
+                            </div>
+                            <div class="roadmap__milestones">
+                                <span class="milestones-date">14.04</span>
+                                <img src="box-1.png" alt="" class="milestones-point">
+                                <h3 class="milestones-name">Alfa</h3>
+                            </div>
+                            <div class="roadmap__milestones">
+                                <span class="milestones-date">14.04</span>
+                                <img src="box-1.png" alt="" class="milestones-point">
+                                <h3 class="milestones-name">Alfa</h3>
+                            </div>
+                        </div>
+                        <div class="roadmap__time-grahp">
+                            <div class="roadmap__milestones">
+                                <img src="box-3.png" alt="" class="milestones-point">
+
+                                <span class="milestones-date milestones-date--down">14.04</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="roadmap__calendar">
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Янв</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Фев</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Март</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Апр</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Май</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Июнь</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Июль</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Авг</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Сен</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Окс</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Нояб</h3>
+                    </div>
+                    <div class="roadmap__month-block">
+                        <h3 class="roadmap__month-name">Дек</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="roadmap__helper">
+                <div class="roadmap__helper-row">
+                    <img src="box-1.png" alt="" class="roadmap__helper-g">
+                    <p class="roadmap__helper-text">Планируемое время</p>
+                </div>
+                <div class="roadmap__helper-row">
+                    <img src="box-2.png" alt="" class="roadmap__helper-g">
+                    <p class="roadmap__helper-text">Оценочное время+фактическое</p>
+                </div>
+                <div class="roadmap__helper-row">
+                    <img src="box-3.png" alt="" class="roadmap__helper-g">
+                    <p class="roadmap__helper-text">Оценочное время</p>
+                </div>
+                <div class="roadmap__helper-row">
+                    <img src="box-4.png" alt="" class="roadmap__helper-g">
+                    <p class="roadmap__helper-text">Фактическое с опозданием</p>
+                </div>
+            </div>
+        </step-content>
+    </create-test>
+    <script>
+        var a = 100;
+        var test = document.querySelector('.roadmap__milestones');
+        test.style.left = a * (100 / 365) + "%";
+
+
+        var data = {
+            "milestones": [{
+                "title": "Alfa release",
+                "plannedDate": "14-04-2016",
+                "estimatedDate": "10-04-2016"
+            }, {
+                "title": "Beta release",
+                "plannedDate": "22-06-2016",
+                "estimatedDate": "13-07-2016"
+            }, {
+                "title": "Varsion 2.0",
+                "plannedDate": "19-09-2016"
+            }],
+            "requirements": [{
+                "business": [{
+                    "title": "Анадиз итераций",
+                    "startDate": "02-01-2016",
+                    "endDate": "03-02-2016",
+                    "row": 1
+                }, {
+                    "title": "Автоматизация",
+                    "startDate": "08-02-2016",
+                    "endDate": "10-04-2016",
+                    "row": 1
+                }],
+                "development": [{
+                    "title": "Анадиз итераций",
+                    "startDate": "10-04-2016",
+                    "endDate": "28-05-2016",
+                    "row": 1
+                }, {
+                    "title": "Анадиз итераций",
+                    "startDate": "28-05-2016",
+                    "endDate": "09-06-2016",
+                    "row": 1
+                }, {
+                    "title": "Автоматизация",
+                    "startDate": "28-05-2016",
+                    "endDate": "18-06-2016",
+                    "row": 2
+                }, {
+                    "title": "Анадиз рынка",
+                    "startDate": "03-06-2016",
+                    "endDate": "13-07-2016",
+                    "row": 3
+                }],
+                "designe": [{
+                    "title": "Анадиз итераций",
+                    "startDate": "29-04-2016",
+                    "endDate": "28-05-2016",
+                    "row": 1
+                }, {
+                    "title": "Автоматизация процесса",
+                    "startDate": "03-05-2016",
+                    "endDate": "13-07-2016",
+                    "row": 1
+                }, {
+                    "title": "Анадиз итераций",
+                    "endDate": "19-09-2016",
+                    "row": 1
+                }, {
+                    "title": "Дизайн",
+                    "endDate": "19-09-2016",
+                    "row": 2
+                }]
+            }]
+        }
+
+        data.milestones.forEach(function(value) {
+
+            data = JSON.parse(data);
+            console.log(data);
+        });
+
+        console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+
+
+        var milestonesArray = document.querySelectorAll('.roadmap__milestones');
+        for (var i = 0; i < milestonesArray.length; i++) {
+            document.querySelector('.milestones-name').innerHTML = data.milestones;
+        }
+
+        var str = '{"title":"Конференция","date":"2014-11-30T12:00:00.000Z"}';
+
+        var event = JSON.parse(str, function(key, value) {
+            if (key == 'date') return new Date(value);
+            return value;
+        });
+
+        cosole.log(event.date.getDate()); // теперь сработает!
+    </script>
+
+
+
+
+</body>
+
+</html>
