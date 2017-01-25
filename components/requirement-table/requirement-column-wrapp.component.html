@@ -7,8 +7,10 @@
         display: -ms-flex;
         display: -o-flex;
         display: flex;
-/*        border-left: 1px solid #D7D7D7;*/
-/*        border-bottom: 1px solid #D7D7D7;*/
+        box-sizing: border-box;
+        /*border-left: 1px solid #D7D7D7;*/
+        border-bottom: 1px solid #D7D7D7;
+        /*border-right: 1px solid #D7D7D7;*/
     }
 
 
@@ -37,9 +39,19 @@
 
         connectedCallback() {
             this.appendChild(RequirementColumnWrappTemplate.content.cloneNode(true));
-
-            console.log(this.children);
-
+            var wrapperCollection = this.getElementsByTagName('requirement-column-wrapp');
+            
+            if(wrapperCollection.length == 0) {
+                this.style.borderRight = 0;
+                // console.log(this.firstElementChild.style.borderBottom);
+            } else {
+                if(this.parentElement.nodeName.toLowerCase() == 'requirement-type-row') {
+                    this.style.borderRight = '1px solid #D7D7D7';
+                    for (let i=0; i < this.children.length; i++) {
+                        // console.log(this.firstElementChild);
+                    }
+                } 
+            }
         }
 
         adoptedCallback() {

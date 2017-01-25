@@ -25,8 +25,9 @@
         margin-top: 10px;
 /*        margin-bottom: 27px;*/
     }
-    requirement-card:after {
-        background: linear-gradient(to bottom, #D90000 33%,#84E2E7 33%, #84E2E7 66%, #4F50B7 33%);
+    .card-border {
+        /*background-image: linear-gradient(to bottom, #D90000 33%,#84E2E7 33%, #84E2E7 66%, #4F50B7 33%);*/
+        background-image: linear-gradient(to bottom, #D90000 50%,#84E2E7 50%);
         position: absolute;
         content: '';
 /*        height: 2px;*/
@@ -40,7 +41,7 @@
 
 <!--Template-->
 <template id="requirement-card__tmpl">
-
+    <div class="card-border"></div>
 </template>
 
 
@@ -62,6 +63,35 @@
 
         connectedCallback() {
             this.appendChild(RequirementCardTemplate.content.cloneNode(true));
+            var cardBorder = this.querySelector('.card-border');
+            // var color = ['red', 'green', 'black', 'blue', '#84E2E7'];
+            var technologyColor = {
+                "development":"red",
+                "disign":"green",
+                "management":"blue"
+            }
+
+            // Linear gradient
+            var technologyNumber = 3; 
+            var borderColor = '';
+            // var percent = Math.round(100/technologyNumber);
+            var percent = 100/technologyNumber;
+            var color = ['green','yellow','red'];
+            var colorBlock = '';
+            // for (var i = 0; i < technologyNumber; i++) {
+                // if(i=0) {
+                //     borderColor += color[i] + ' '+ percent+',';
+                // } 
+                
+                // console.log(color);
+                // borderColor += color[i] + ' '+ percent+',';
+ 
+            // }
+            // borderColor = borderColor.slice(0, -1);
+            console.log(colorBlock);
+
+            // cardBorder.style.backgroundImage = 'linear-gradient(to bottom,' + borderColor + ')';
+            
         }
 
         adoptedCallback() {
