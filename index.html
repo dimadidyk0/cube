@@ -28,7 +28,7 @@
     <link rel="import" href="components/blocker/blocker-recomended-btn.component.html">
     <link rel="import" href="components/kanban/kanban-desk.component.html">
     <link rel="import" href="components/requirement-table/requirement-table.component.html">
-    <link rel="import" href="components/WC/WC-TEST.html">
+    <!--<link rel="import" href="components/WC/WC-TEST.html">-->
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -816,7 +816,7 @@
     <div class="container">
         <navbar-vertical>
             <navbar-vertical-item title="меню"></navbar-vertical-item>
-            <navbar-vertical-item enable title="требования"></navbar-vertical-item>
+            <navbar-vertical-item title="требования"></navbar-vertical-item>
             <navbar-vertical-item title="milestone"></navbar-vertical-item>
             <navbar-vertical-item title="активность"></navbar-vertical-item>
             <navbar-vertical-item title="идеи"></navbar-vertical-item>
@@ -907,7 +907,20 @@
                                         </requirement-card>
                                     </requirement-column-parent>
                                     <requirement-column-child>
+                                        <requirement-column-wrapp>
+                                    <requirement-column-parent>
+                                        <requirement-card>
+                                            <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                                            <card-text title="Личный кабинет пользователя">
+                                                <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                                            </card-text>
+                                            <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                                        </requirement-card>
+                                    </requirement-column-parent>
+                                    <requirement-column-child>
                                         
+                                    </requirement-column-child>
+                                </requirement-column-wrapp>
                                     </requirement-column-child>
                                 </requirement-column-wrapp>
                                 <requirement-column-wrapp>
@@ -944,7 +957,7 @@
                 </requirement-column-wrapp>
 
             </requirement-type-row>
-            <!--<requirement-type-row title="functional">
+            <requirement-type-row title="functional">
                 <requirement-column-wrapp>
                     <requirement-column-parent>
                         <requirement-card>
@@ -978,7 +991,34 @@
                                         </requirement-card>
                                     </requirement-column-parent>
                                     <requirement-column-child>
+                                        <requirement-column-wrapp>
+                                    <requirement-column-parent>
+                                        <requirement-card>
+                                            <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                                            <card-text title="Личный кабинет пользователя">
+                                                <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                                            </card-text>
+                                            <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                                        </requirement-card>
+                                    </requirement-column-parent>
+                                    <requirement-column-child>
 
+                                    </requirement-column-child>
+                                </requirement-column-wrapp>
+                                <requirement-column-wrapp>
+                                    <requirement-column-parent>
+                                        <requirement-card>
+                                            <requirement-card-header title="R.BI.YLMRK.2" name="Васильченко С.В" number="10"></requirement-card-header>
+                                            <card-text title="Личный кабинет пользователя">
+                                                <div class="requirement-card-description">В данном разделе авторизованному посетителю доступны информация о пользователе портала, либо свои личные данные</div>
+                                            </card-text>
+                                            <requirement-card-footer date="22.10.16" input="10"></requirement-card-footer>
+                                        </requirement-card>
+                                    </requirement-column-parent>
+                                    <requirement-column-child>
+
+                                    </requirement-column-child>
+                                </requirement-column-wrapp>
                                     </requirement-column-child>
                                 </requirement-column-wrapp>
                                 <requirement-column-wrapp>
@@ -1000,8 +1040,30 @@
                     </requirement-column-child>
                 </requirement-column-wrapp>
 
-            </requirement-type-row>-->
+            </requirement-type-row>
         </requirement-table>
+         <sidebar-wrapp>
+            <sidebar-header title="Создание требования" subtitle="R.BI.YLMRK.2">
+                <choose-btn title="Сохранить"></choose-btn>
+            </sidebar-header>
+            <sidebar-textinput title="Название*" placeholder="Запись проекта через камеру "></sidebar-textinput>
+            <sidebar-select title="Тип">
+                <p class="select-item">Функциональные</p>
+                <p class="select-item">Автоматический</p>
+            </sidebar-select>
+            <sidebar-select title="Приоритет">
+                <div class="select-item">1</div>
+                <div class="select-item">2</div>
+                <div class="select-item">3</div>
+                <div class="select-item">4</div>
+            </sidebar-select>
+            <sidebar-select title="Milestone*">
+                <div class="select-item">0.4</div>
+                <div class="select-item">0.4</div>
+                <div class="select-item">0.4</div>
+            </sidebar-select>
+            <sidebar-textarea title="Описание" height="180"></sidebar-textarea>
+        </sidebar-wrapp>
         <navbar-vertical>
             <navbar-vertical-item title="проект"></navbar-vertical-item>
             <navbar-vertical-item title="комментарии"></navbar-vertical-item>

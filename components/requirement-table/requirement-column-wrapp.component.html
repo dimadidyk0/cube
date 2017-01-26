@@ -1,4 +1,5 @@
-
+<link rel="import" href="requirement-column-parent.component.html">
+<link rel="import" href="requirement-column-child.component.html">
 <!--Style CSS-->
 <style>
     requirement-column-wrapp {
@@ -9,20 +10,14 @@
         display: flex;
         box-sizing: border-box;
         /*border-left: 1px solid #D7D7D7;*/
-        border-bottom: 1px solid #D7D7D7;
+        /*border-bottom: 1px solid #D7D7D7;*/
         /*border-right: 1px solid #D7D7D7;*/
+        min-height: 161px;
     }
-
-
 </style>
-
-
 <!--Template-->
 <template id="requirement-column-wrapp__tmpl">
-
 </template>
-
-
 <!--Script-->
 <script>
     "use strict";
@@ -32,33 +27,91 @@
     var RequirementColumnWrappTemplate = thisDoc.querySelector('#requirement-column-wrapp__tmpl');
 
     class RequirementColumnWrapp extends HTMLElement {
-
+        static get observedAttributes() {
+            return ["last"];
+        }
         constructor() {
             super();
         }
 
         connectedCallback() {
+            let wrapp = thatDoc.querySelectorAll('requirement-column-wrapp');
+            wrapp.forEach(function (element, index, array) {
+
+                if (element.lastElementChild.childElementCount == 0) {
+                    if (element.parentNode.nodeName.toLowerCase() == 'requirement-type-row') {
+                       let par = element.firstElementChild;
+                        let delay = null;
+                        par.onmouseout = function () {
+                            delay = setTimeout(function () {
+                                par.children[2].style.display = 'none';
+                            }, 400);
+                        }
+                        par.onmouseover = function (e) {
+                            par.children[2].style.display = 'inline-block';
+                            clearTimeout(delay);
+                        }
+                    } else {
+                        let par = element.firstElementChild;
+                    let delay = null;
+                    par.onmouseout = function () {
+                        delay = setTimeout(function () {
+                            par.children[1].style.display = 'none';
+                            par.children[2].style.display = 'none';
+                        }, 400);
+                    }
+                    par.onmouseover = function (e) {
+                        par.children[1].style.display = 'inline-block';
+                        par.children[2].style.display = 'inline-block';
+                        clearTimeout(delay);
+                    }
+                    element.setAttribute('last', 'true');
+                    }
+                    
+                } else {
+                    if (element.parentNode.nodeName.toLowerCase() == 'requirement-type-row') {
+                        element.firstElementChild.children[1].style.display = 'none';
+                    } else {
+                        let par = element.firstElementChild;
+                        let delay = null;
+                        par.onmouseout = function () {
+                            delay = setTimeout(function () {
+                                par.children[1].style.display = 'none';
+                            }, 400);
+                        }
+                        par.onmouseover = function (e) {
+                            par.children[1].style.display = 'inline-block';
+                            clearTimeout(delay);
+                        }
+                        element.setAttribute('last', 'false');
+                    }
+
+                }
+
+            });
             this.appendChild(RequirementColumnWrappTemplate.content.cloneNode(true));
             var wrapperCollection = this.getElementsByTagName('requirement-column-wrapp');
-            
-            if(wrapperCollection.length == 0) {
+            if (wrapperCollection.length == 0) {
                 this.style.borderRight = 0;
-                // console.log(this.firstElementChild.style.borderBottom);
+                // console.log(this.parentNode.nodeName);
             } else {
-                if(this.parentElement.nodeName.toLowerCase() == 'requirement-type-row') {
-                    this.style.borderRight = '1px solid #D7D7D7';
-                    for (let i=0; i < this.children.length; i++) {
-                        // console.log(this.firstElementChild);
+                if (this.parentElement.nodeName.toLowerCase() == 'requirement-type-row') {
+                    // this.style.borderRight = '1px solid #D7D7D7';
+                    for (let i = 0; i < this.children.length; i++) {
+
                     }
-                } 
+                }
             }
         }
 
-        adoptedCallback() {
+        adoptedCallback() {}
 
+        attributeChangedCallback(attrName, oldVal, newVal) {
+            if (this.getAttribute('last') == 'true') {} else {
+                this.firstElementChild.lastElementChild.style.display = 'none';
+            }
         }
     }
 
     customElements.define('requirement-column-wrapp', RequirementColumnWrapp);
-
 </script>

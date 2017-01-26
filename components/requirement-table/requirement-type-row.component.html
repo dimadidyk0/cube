@@ -1,3 +1,4 @@
+<link rel="import" href="requirement-column-wrapp.component.html">
 <!--Style CSS-->
 <style>
     requirement-type-row {
@@ -13,6 +14,7 @@
     }
     .requirement-type-row__header {
         width: 30px;
+        min-width: 30px;
         background-color: #e1e1e1;
         display: -webkit-flex;
         display: -moz-flex;
@@ -50,7 +52,7 @@
     var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
 
     var RequirementTypeRowTemplate = thisDoc.querySelector('#requirement-type-row__tmpl');
-
+    
     class RequirementTypeRow extends HTMLElement {
 
         constructor() {
@@ -79,7 +81,7 @@
 
         }
     }
-    
+   
     customElements.define('requirement-type-row', RequirementTypeRow);
 
 </script>
